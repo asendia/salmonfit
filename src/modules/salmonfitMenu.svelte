@@ -83,14 +83,14 @@
 			imgHref: '/menu/cheese-cake.webp',
 			items: [
 				{
-					name: 'Whole New York Cheese Cake',
+					name: 'Whole New York Cheesecake',
 					price: 6300000,
 					imgHref:
 						'https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/IDITE2021081808235372284/photo/menueditor_item_41f9c14c31544980b96daee7ec2779e7_1629281522787091639.webp',
 					description: '12,7 cm (5 inchies)'
 				},
 				{
-					name: 'New York Cheese Cake Slice',
+					name: 'New York Cheesecake Slice',
 					price: 1900000,
 					description: '1 slice'
 				}

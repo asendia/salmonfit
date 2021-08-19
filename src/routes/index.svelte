@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { categories } from '../modules/salmonfitMenu.svelte';
   import Social from '../modules/social.svelte';
+  const title = 'Salmon Fit';
+  const description = 'Fusion salmon dishes + cheesecake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
 </script>
 
 <svelte:head>
-  <title>Salmon Fit</title>
-  <meta name="description" content="Fusion salmon dishes + cheescake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!" />
-  <meta property="og:title" content="Salmon Fit" />
-  <meta property="og:description" content="Fusion salmon dishes + cheescake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!" />
+  <title>{title}</title>
+  <meta name="description" content="{description}" />
+  <meta property="og:title" content="{title}" />
+  <meta property="og:description" content="{description}" />
   <meta property="og:type" content="food" />
   <meta property="og:url" content="https://salmonfit.com" />
   <meta property="og:image" content="https://salmonfit.com/og-image-salmonfit.jpg" />
