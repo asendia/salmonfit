@@ -1,5 +1,5 @@
 <div class="social-wrapper">
-  <a target="_blank" href="https://www.instagram.com/salmonfit.id/">
+  <a target="_blank" href="https://www.instagram.com/salmonfit.id/" rel="noreferrer">
     <amp-img
       class="logo"
       alt="instagram logo"
@@ -11,6 +11,7 @@
   <a
     target="_blank"
     href="https://food.grab.com/id/id/restaurant/salmon-fit-duri-kepa-delivery/6-C2XUWAX3PEU1JT"
+    rel="noreferrer"
   >
     <amp-img
       class="logo"
