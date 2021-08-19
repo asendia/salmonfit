@@ -1,6 +1,7 @@
 <script lang="ts">
   import { categories } from '../modules/salmonfitMenu.svelte';
   import Social from '../modules/social.svelte';
+  import Fonts from '../modules/fonts.svelte';
   const title = 'Salmon Fit';
   const description =
     'Fusion salmon dishes + cheesecake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
@@ -15,6 +16,12 @@
   <meta property="og:url" content="https://salmonfit.com" />
   <meta property="og:image" content="https://salmonfit.com/og-image-salmonfit.jpg" />
   <link rel="canonical" href="https://salmonfit.com" />
+  <Fonts />
+  {#each categories as cat, id}
+    {#if cat.imgHref && id < 3}
+      <link rel="preload" as="image" href="{cat.imgHref}" />
+    {/if}
+  {/each}
 </svelte:head>
 
 <h1 class="title"><amp-img alt="Salmon Fit" src="/salmonfit.png" width="350" height="100" /></h1>
@@ -71,7 +78,7 @@
   }
   .menu-name {
     padding: 10px 0;
-    font-weight: 400;
+    font-weight: 300;
     background-image: linear-gradient(to right, #cacaca 33%, rgba(255, 255, 255, 0) 0%);
     background-position: bottom;
     background-size: 7px 1px;
