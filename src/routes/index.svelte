@@ -24,7 +24,9 @@
     {#each cat.items as item}
       <li class="menu-item">
         <div class="menu-name">{item.name}</div>
-        <div class="menu-description">{item.description}</div>
+        {#if item.description}
+          <div class="menu-description">{item.description}</div>
+        {/if}
       </li>
     {/each}
   </ul>
