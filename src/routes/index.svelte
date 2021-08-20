@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { categories } from '../modules/salmonfitMenu.svelte';
-  import Social from '../modules/social.svelte';
-  import Fonts from '../modules/fonts.svelte';
+  import { categories } from '$lib/salmonfitMenu.svelte';
+  import MainTitle from '$components/MainTitle.svelte';
+  import Social from '$components/Social.svelte';
+  import Fonts from '$components/Fonts.svelte';
   const title = 'Salmon Fit';
   const description =
     'Fusion salmon dishes + cheesecake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
@@ -24,17 +25,7 @@
     {/if}
   {/each}
 </svelte:head>
-
-<h1 class="title">
-  SALMON FIT
-  <amp-img
-    class="fish-logo"
-    alt="salmon fit fish logo"
-    src="/salmonfit-fish.png"
-    width="84"
-    height="46"
-  />
-</h1>
+<MainTitle />
 <Social />
 {#each categories as cat}
   <h3 class="category-name">{cat.name}</h3>
@@ -62,22 +53,6 @@
 {/each}
 
 <style>
-  .title {
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 50px;
-    color: #e74e35;
-    position: relative;
-    padding-top: 35px;
-    margin: 9px 0 2px 0;
-  }
-  .fish-logo {
-    position: absolute;
-    top: 0;
-    left: calc(50% - 50px);
-  }
-
   .category {
     max-width: 1440px;
     margin: auto;
