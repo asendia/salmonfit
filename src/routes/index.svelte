@@ -17,15 +17,24 @@
   <meta property="og:image" content="https://salmonfit.com/og-image-salmonfit.jpg" />
   <link rel="canonical" href="https://salmonfit.com" />
   <Fonts />
-  <link rel="preload" as="image" href="/salmonfit.png" />
+  <link rel="preload" as="image" href="/salmonfit-fish.png" />
   {#each categories as cat, id}
     {#if cat.imgHref && id < 2}
-      <link rel="preload" as="image" href="{cat.imgHref}" />
+      <link rel="preload" as="image" href={cat.imgHref} />
     {/if}
   {/each}
 </svelte:head>
 
-<h1 class="title"><amp-img alt="Salmon Fit" src="/salmonfit.png" width="350" height="100" /></h1>
+<h1 class="title">
+  SALMON FIT
+  <amp-img
+    class="fish-logo"
+    alt="salmon fit fish logo"
+    src="/salmonfit-fish.png"
+    width="84"
+    height="46"
+  />
+</h1>
 <Social />
 {#each categories as cat}
   <h3 class="category">{cat.name}</h3>
@@ -38,7 +47,7 @@
       height="200"
     />
   {/if}
-  <ul class="menu-items">
+  <ul class="menu-items{cat.imgHref ? ' with-image' : ''}">
     {#each cat.items as item}
       <li class="menu-item">
         <div class="menu-name">{item.name}</div>
@@ -53,7 +62,18 @@
 <style>
   .title {
     text-align: center;
-    padding: 10px 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 50px;
+    color: #e74e35;
+    position: relative;
+    padding-top: 35px;
+    margin: 9px 0 2px 0;
+  }
+  .fish-logo {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 50px);
   }
   .category-photo {
     display: block;
@@ -67,6 +87,7 @@
     font-family: 'Satisfy', cursive;
     font-size: 26px;
     font-weight: 500;
+    margin: 15px 0 0px;
   }
   .menu-items {
     font-family: 'Roboto', sans-serif;
@@ -78,7 +99,7 @@
     margin-bottom: 20px;
   }
   .menu-name {
-    padding: 10px 0;
+    padding: 0 0 10px;
     font-weight: 300;
     background-image: linear-gradient(to right, #cacaca 33%, rgba(255, 255, 255, 0) 0%);
     background-position: bottom;
@@ -89,5 +110,29 @@
     padding: 8px 0;
     color: #aaaaaa;
     font-size: 12px;
+  }
+
+  @media (min-width: 700px) {
+    .category:nth-child(4) {
+      margin-top: 87px;
+    }
+    .category-photo {
+      margin-left: 40px;
+      position: absolute;
+    }
+    .menu-items.with-image {
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .with-image .menu-item:nth-child(1), .with-image .menu-item:nth-child(2) {
+      margin-left: 225px;
+      min-height: 90px;
+    }
+    .with-image .menu-item:nth-child(2) {
+      margin-top: -30px;
+      margin-bottom: 40px;
+    }
   }
 </style>
