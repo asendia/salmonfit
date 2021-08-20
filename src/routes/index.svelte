@@ -17,8 +17,9 @@
   <meta property="og:image" content="https://salmonfit.com/og-image-salmonfit.jpg" />
   <link rel="canonical" href="https://salmonfit.com" />
   <Fonts />
+  <link rel="preload" as="image" href="/salmonfit.png" />
   {#each categories as cat, id}
-    {#if cat.imgHref && id < 3}
+    {#if cat.imgHref && id < 2}
       <link rel="preload" as="image" href="{cat.imgHref}" />
     {/if}
   {/each}
