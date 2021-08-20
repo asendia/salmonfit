@@ -37,26 +37,28 @@
 </h1>
 <Social />
 {#each categories as cat}
-  <h3 class="category">{cat.name}</h3>
-  {#if cat.imgHref}
-    <amp-img
-      class="category-photo"
-      alt="{cat.name} photo"
-      src={cat.imgHref}
-      width="200"
-      height="200"
-    />
-  {/if}
-  <ul class="menu-items{cat.imgHref ? ' with-image' : ''}">
-    {#each cat.items as item}
-      <li class="menu-item">
-        <div class="menu-name">{item.name}</div>
-        {#if item.description}
-          <div class="menu-description">{item.description}</div>
-        {/if}
-      </li>
-    {/each}
-  </ul>
+  <h3 class="category-name">{cat.name}</h3>
+  <div class="category">
+    {#if cat.imgHref}
+      <amp-img
+        class="category-photo"
+        alt="{cat.name} photo"
+        src={cat.imgHref}
+        width="200"
+        height="200"
+      />
+    {/if}
+    <ul class="menu-items{cat.imgHref ? ' with-image' : ''}">
+      {#each cat.items as item}
+        <li class="menu-item">
+          <div class="menu-name">{item.name}</div>
+          {#if item.description}
+            <div class="menu-description">{item.description}</div>
+          {/if}
+        </li>
+      {/each}
+    </ul>
+  </div>
 {/each}
 
 <style>
@@ -75,6 +77,12 @@
     top: 0;
     left: calc(50% - 50px);
   }
+
+  .category {
+    max-width: 1440px;
+    margin: auto;
+    position: relative;
+  }
   .category-photo {
     display: block;
     width: 200px;
@@ -82,7 +90,7 @@
     border-radius: 10px;
     margin: 15px auto;
   }
-  .category {
+  .category-name {
     text-align: center;
     font-family: 'Satisfy', cursive;
     font-size: 26px;
@@ -113,10 +121,11 @@
   }
 
   @media (min-width: 700px) {
-    .category:nth-child(4) {
+    .category-name:nth-child(4) {
       margin-top: 87px;
     }
     .category-photo {
+      margin-top: 0;
       margin-left: 40px;
       position: absolute;
     }
@@ -126,7 +135,8 @@
       flex-direction: column;
       align-items: flex-start;
     }
-    .with-image .menu-item:nth-child(1), .with-image .menu-item:nth-child(2) {
+    .with-image .menu-item:nth-child(1),
+    .with-image .menu-item:nth-child(2) {
       margin-left: 225px;
       min-height: 90px;
     }
