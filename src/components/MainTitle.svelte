@@ -12,7 +12,6 @@
 <style>
   .title {
     text-align: center;
-    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 50px;
     color: #e74e35;

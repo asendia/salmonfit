@@ -3,6 +3,7 @@
   import MainTitle from '$components/MainTitle.svelte';
   import Social from '$components/Social.svelte';
   import Fonts from '$components/Fonts.svelte';
+  import Footer from '$components/Footer.svelte';
   const title = 'Salmon Fit';
   const description =
     'Fusion salmon dishes + cheesecake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
@@ -51,6 +52,7 @@
     </ul>
   </div>
 {/each}
+<Footer />
 
 <style>
   .category {
@@ -73,7 +75,6 @@
     margin: 15px 0 0px;
   }
   .menu-items {
-    font-family: 'Roboto', sans-serif;
     margin-bottom: 30px;
     padding: 0 40px;
   }

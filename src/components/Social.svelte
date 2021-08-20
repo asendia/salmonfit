@@ -48,7 +48,6 @@
     color: #000;
     line-height: 24px;
     font-size: 10px;
-    font-family: 'Roboto', sans-serif;
     display: flex;
     margin: 0 10px;
   }
