@@ -131,9 +131,6 @@
     }
     .menu-items.with-image {
       min-height: 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
     }
     .with-image .menu-item:nth-child(1),
     .with-image .menu-item:nth-child(2) {

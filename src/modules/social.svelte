@@ -3,7 +3,7 @@
     <amp-img
       class="logo"
       alt="instagram logo"
-      src="/social/instagram-small.png"
+      src="/social/instagram-small.svg"
       width="24"
       height="24"
     />salmonfit.id
@@ -21,12 +21,26 @@
       height="24"
     />Grab food
   </a>
+  <a
+    target="_blank"
+    href="https://gofood.link/a/BLHH283"
+    rel="noreferrer"
+  >
+    <amp-img
+      class="logo"
+      alt="gofood logo"
+      src="/social/gofood-small.svg"
+      width="24"
+      height="24"
+    />gofood
+  </a>
 </div>
 
 <style>
   .social-wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 38px;
   }
   a {
@@ -39,6 +53,6 @@
     margin: 0 10px;
   }
   .logo {
-    margin-right: 7px;
+    margin-right: 5px;
   }
 </style>
