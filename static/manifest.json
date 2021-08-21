@@ -1,0 +1,23 @@
+{
+  "short_name": "salmonfit",
+  "name": "salmonfit",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "salmonfit-logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "salmonfit-logo-512-maskable-white.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#e74e35",
+  "description": "Fusion salmon dishes & cheesecake from Kebon Jeruk"
+}

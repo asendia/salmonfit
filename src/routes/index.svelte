@@ -4,7 +4,7 @@
   import Social from '$components/Social.svelte';
   import Fonts from '$components/Fonts.svelte';
   import Footer from '$components/Footer.svelte';
-  const title = 'Salmon Fit';
+  const title = 'salmonfit';
   const description =
     'Fusion salmon dishes & cheesecake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
 </script>
@@ -18,6 +18,9 @@
   <meta property="og:url" content="https://salmonfit.com" />
   <meta property="og:image" content="https://salmonfit.com/og-image-salmonfit.jpg" />
   <link rel="canonical" href="https://salmonfit.com" />
+  <meta name="theme-color" content="#e74e35" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/salmonfit-logo-192-white.png" />
   <Fonts />
   <link rel="preload" as="image" href="/salmonfit-fish.png" />
   {#each categories as cat, id}
