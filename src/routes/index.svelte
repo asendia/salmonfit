@@ -1,9 +1,6 @@
 <script lang="ts">
   import { categories } from '$lib/salmonfitMenu.svelte';
-  import MainTitle from '$components/MainTitle.svelte';
   import Social from '$components/Social.svelte';
-  import Fonts from '$components/Fonts.svelte';
-  import Footer from '$components/Footer.svelte';
   const title = 'salmonfit';
   const description =
     'Fusion salmon dishes & cheesecake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
@@ -18,22 +15,18 @@
   <meta property="og:url" content="https://salmonfit.com" />
   <meta property="og:image" content="https://salmonfit.com/og-image-salmonfit.jpg" />
   <link rel="canonical" href="https://salmonfit.com" />
-  <meta name="theme-color" content="#e74e35" />
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="apple-touch-icon" href="/salmonfit-logo-192-white.png" />
-  <Fonts />
-  <link rel="preload" as="image" href="/salmonfit-fish.png" />
   {#each categories as cat, id}
     {#if cat.imgHref && id < 2}
       <link rel="preload" as="image" href={cat.imgHref} />
     {/if}
   {/each}
 </svelte:head>
-<MainTitle />
+
+<p class="headline">Fushion salmon dishes and cheesecake from Kebon Jeruk</p>
 <Social />
 {#each categories as cat}
   <h3 class="category-name">{cat.name}</h3>
-  <div class="category">
+  <div class="category-body">
     {#if cat.imgHref}
       <amp-img
         class="category-photo"
@@ -55,10 +48,16 @@
     </ul>
   </div>
 {/each}
-<Footer />
 
 <style>
-  .category {
+  .headline {
+    text-align: center;
+    font-weight: 300;
+    margin: 0 0 11px;
+    font-size: 12px;
+    color: #e74e35;
+  }
+  .category-body {
     max-width: 1440px;
     margin: auto;
     position: relative;

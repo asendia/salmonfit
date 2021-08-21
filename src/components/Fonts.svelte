@@ -2,19 +2,19 @@
   rel="preload"
   as="font"
   href="https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2"
-  crossorigin="true"
+  crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
   href="https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2"
-  crossorigin="true"
+  crossorigin="anonymous"
 />
 <link
   rel="preload"
   as="font"
   href="https://fonts.gstatic.com/s/satisfy/v11/rP2Hp2yn6lkG50LoCZOIHTWEBlw.woff2"
-  crossorigin="true"
+  crossorigin="anonymous"
 />
 
 <style amp-custom>

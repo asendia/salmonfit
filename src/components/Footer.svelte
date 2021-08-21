@@ -8,9 +8,12 @@
   div {
     text-align: center;
     font-weight: 300;
-    padding: 30px 0;
+    margin: 10px 0;
+    padding: 10px 0;
+    background-color: #e74e35;
+    color: #fff;
   }
   a {
-    text-decoration: none;
+    color: #fff;
   }
 </style>

@@ -1,3 +1,7 @@
+<svelte:head>
+  <link rel="preload" as="image" href="/salmonfit-fish.png" />
+</svelte:head>
+
 <h1 class="title">
   SALMON FIT
   <amp-img
@@ -8,7 +12,6 @@
     height="46"
   />
 </h1>
-<p class="headline">Fushion salmon dishes and cheesecake from Kebon Jeruk</p>
 
 <style>
   .title {
@@ -24,12 +27,5 @@
     position: absolute;
     top: 0;
     left: calc(50% - 50px);
-  }
-  .headline {
-    text-align: center;
-    font-weight: 300;
-    margin: 0 0 11px;
-    font-size: 12px;
-    color: #e74e35;
   }
 </style>
