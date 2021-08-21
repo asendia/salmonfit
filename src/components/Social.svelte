@@ -41,7 +41,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 38px;
   }
   a {
     text-decoration: none;

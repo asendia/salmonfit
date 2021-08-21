@@ -8,6 +8,7 @@
     height="46"
   />
 </h1>
+<p class="headline">Fushion salmon dishes and cheesecake from Kebon Jeruk</p>
 
 <style>
   .title {
@@ -17,11 +18,18 @@
     color: #e74e35;
     position: relative;
     padding-top: 35px;
-    margin: 9px 0 2px 0;
+    margin: 9px 0 0;
   }
   .fish-logo {
     position: absolute;
     top: 0;
     left: calc(50% - 50px);
+  }
+  .headline {
+    text-align: center;
+    font-weight: 300;
+    margin: 0 0 11px;
+    font-size: 12px;
+    color: #e74e35;
   }
 </style>

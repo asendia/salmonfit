@@ -6,7 +6,7 @@
   import Footer from '$components/Footer.svelte';
   const title = 'Salmon Fit';
   const description =
-    'Fusion salmon dishes + cheesecake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
+    'Fusion salmon dishes & cheesecake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
 </script>
 
 <svelte:head>
@@ -72,7 +72,7 @@
     font-family: 'Satisfy', cursive;
     font-size: 26px;
     font-weight: 500;
-    margin: 15px 0 0px;
+    margin: 30px 0 0px;
   }
   .menu-items {
     margin-bottom: 30px;
@@ -97,8 +97,8 @@
   }
 
   @media (min-width: 700px) {
-    .category-name:nth-child(4) {
-      margin-top: 87px;
+    .category-name {
+      margin-top: 55px;
     }
     .category-photo {
       margin-top: 0;
