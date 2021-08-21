@@ -52,7 +52,7 @@
     },
     {
       name: 'Smoked Salmon',
-      imgHref: '/menu/fried-rice.webp',
+      imgHref: '/menu/spaghetti-salmon.webp',
       items: [
         {
           name: 'Smoked Salmon Fried Rice',
