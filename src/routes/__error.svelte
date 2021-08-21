@@ -10,7 +10,32 @@
 
 <script lang="ts">
   export let status: number;
-  export let message = status === 404 ? 'Page not found' : 'Unknown';
+  const message = status === 404 ? 'Page not found' : 'Unknown';
+  let bubbles = [...Array(12).keys()].map((i) => ({ id: i + 1, visible: true }));
+  // Client-side javascript won't work on amp, I added this only
+  // to try svelte event and state management on non-amp compile.
+  function createBubbleClickHandler(id: number) {
+    let timeoutID: NodeJS.Timeout;
+    return () => {
+      bubbles = bubbles.map((b) => {
+        if (id === b.id) {
+          b.visible = false;
+        }
+        return b;
+      });
+      if (timeoutID !== undefined) {
+        clearTimeout(timeoutID);
+      }
+      timeoutID = setTimeout(() => {
+        bubbles = bubbles.map((b) => {
+          if (id === b.id) {
+            b.visible = true;
+          }
+          return b;
+        });
+      }, 5000);
+    };
+  }
 </script>
 
 <svelte:head>
@@ -18,24 +43,17 @@
   <link rel="canonical" href="https://salmonfit.com/error" />
   <meta name="robots" content="noindex" />
 </svelte:head>
-
 <div class="main">
   <!-- Copied from: https://codepen.io/codypearce/pen/VwYOGzq -->
   <div class="ocean">
-    <div class="bubble bubble--1" />
-    <div class="bubble bubble--2" />
-    <div class="bubble bubble--3" />
-    <div class="bubble bubble--4" />
-    <div class="bubble bubble--5" />
-    <div class="bubble bubble--6" />
-    <div class="bubble bubble--7" />
-    <div class="bubble bubble--8" />
-    <div class="bubble bubble--9" />
-    <div class="bubble bubble--10" />
-    <div class="bubble bubble--11" />
-    <div class="bubble bubble--12" />
     <div id="octocat" />
+    {#each bubbles as bubble}
+      {#if bubble.visible}
+        <div class="bubble bubble--{bubble.id}" on:click={createBubbleClickHandler(bubble.id)} />
+      {/if}
+    {/each}
   </div>
+  <slot />
   <p>Sad salmon is sad, back to <a href="/">the homepage</a></p>
   <p>Error - {message}</p>
 </div>
@@ -57,7 +75,6 @@
     right: -200px;
     top: 50%;
     margin-top: -150px;
-    z-index: 100;
   }
 
   @keyframes animateSprite {
@@ -135,6 +152,7 @@
     bottom: -30px;
     opacity: 0.2;
     animation: bubble 15s ease-in-out infinite, sideWays 4s ease-in-out infinite alternate;
+    cursor: pointer;
   }
 
   @keyframes bubble {

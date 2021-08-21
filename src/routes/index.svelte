@@ -1,9 +1,24 @@
+<script lang="ts" context="module">
+  export const hydrate = false; // for non-amp, not used as of now
+  export async function load({ fetch }) {
+    const res = await fetch('/api/menu.json');
+    const categories = await res.json();
+    return {
+      props: {
+        categories
+      }
+    };
+  }
+</script>
+
 <script lang="ts">
-  import { categories } from '$lib/salmonfitMenu.svelte';
+  import { amp } from '$app/env';
   import Social from '$components/Social.svelte';
+  import type { FoodCategory } from '$lib/salmonfitMenu.svelte';
   const title = 'salmonfit';
   const description =
     'Fusion salmon dishes & cheesecake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
+  export let categories: Array<FoodCategory>;
 </script>
 
 <svelte:head>
@@ -28,13 +43,23 @@
   <h3 class="category-name">{cat.name}</h3>
   <div class="category-body">
     {#if cat.imgHref}
-      <amp-img
-        class="category-photo"
-        alt="{cat.name} photo"
-        src={cat.imgHref}
-        width="200"
-        height="200"
-      />
+      {#if amp}
+        <amp-img
+          class="category-photo"
+          alt="{cat.name} photo"
+          src={cat.imgHref}
+          width="200"
+          height="200"
+        />
+      {:else}
+        <img
+          class="category-photo"
+          alt="{cat.name} photo"
+          src={cat.imgHref}
+          width="200"
+          height="200"
+        />
+      {/if}
     {/if}
     <ul class="menu-items{cat.imgHref ? ' with-image' : ''}">
       {#each cat.items as item}

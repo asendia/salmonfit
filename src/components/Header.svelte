@@ -1,16 +1,30 @@
+<script lang="ts">
+  import { amp } from '$app/env';
+</script>
+
 <svelte:head>
   <link rel="preload" as="image" href="/salmonfit-fish.png" />
 </svelte:head>
 
 <h1 class="title">
   SALMON FIT
-  <amp-img
-    class="fish-logo"
-    alt="salmon fit fish logo"
-    src="/salmonfit-fish.png"
-    width="84"
-    height="46"
-  />
+  {#if amp}
+    <amp-img
+      class="fish-logo"
+      alt="salmon fit fish logo"
+      src="/salmonfit-fish.png"
+      width="84"
+      height="46"
+    />
+  {:else}
+    <img
+      class="fish-logo"
+      alt="salmon fit fish logo"
+      src="/salmonfit-fish.png"
+      width="84"
+      height="46"
+    />
+  {/if}
 </h1>
 
 <style>
