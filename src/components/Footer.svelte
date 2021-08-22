@@ -8,7 +8,7 @@
   div {
     text-align: center;
     font-weight: 300;
-    margin: 10px 0;
+    margin: 10px 0 0;
     padding: 10px 0;
     background-color: #e74e35;
     color: #fff;

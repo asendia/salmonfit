@@ -2,7 +2,7 @@
   import Fonts from '$components/Fonts.svelte';
   import Header from '$components/Header.svelte';
   import Footer from '$components/Footer.svelte';
-  import { amp } from '$app/env';
+  import { amp, dev } from '$app/env';
 </script>
 
 <svelte:head>
@@ -15,7 +15,7 @@
 <Header />
 <slot />
 <Footer />
-{#if amp}
+{#if amp && !dev}
   <amp-install-serviceworker
     src="/service-worker.js"
     data-iframe-src="https://salmonfit.com"
