@@ -2,6 +2,7 @@
   "name": "salmonfit",
   "version": "0.0.1",
   "scripts": {
+    "postinstall": "node scripts/replace-sw-amp.js",
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "preview": "svelte-kit preview",

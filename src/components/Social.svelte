@@ -1,39 +1,38 @@
+<script lang="ts">
+  import { amp } from '$app/env';
+
+  const socialLinks = [
+    {
+      url: 'https://www.instagram.com/salmonfit.id/',
+      alt: 'instagram logo',
+      imgSrc: '/social/instagram-small.svg',
+      text: 'salmonfit.id'
+    },
+    {
+      url: 'https://food.grab.com/id/id/restaurant/salmon-fit-duri-kepa-delivery/6-C2XUWAX3PEU1JT',
+      alt: 'grabfood logo',
+      imgSrc: '/social/grab-small.svg',
+      text: 'GrabFood'
+    },
+    {
+      url: 'https://gofood.link/a/BLHH283',
+      alt: 'gofood logo',
+      imgSrc: '/social/gofood-small.svg',
+      text: 'gofood'
+    }
+  ];
+</script>
+
 <div class="social-wrapper">
-  <a target="_blank" href="https://www.instagram.com/salmonfit.id/" rel="noreferrer">
-    <amp-img
-      class="logo"
-      alt="instagram logo"
-      src="/social/instagram-small.svg"
-      width="24"
-      height="24"
-    />salmonfit.id
-  </a>
-  <a
-    target="_blank"
-    href="https://food.grab.com/id/id/restaurant/salmon-fit-duri-kepa-delivery/6-C2XUWAX3PEU1JT"
-    rel="noreferrer"
-  >
-    <amp-img
-      class="logo"
-      alt="grab food logo"
-      src="/social/grab-small.svg"
-      width="24"
-      height="24"
-    />Grab food
-  </a>
-  <a
-    target="_blank"
-    href="https://gofood.link/a/BLHH283"
-    rel="noreferrer"
-  >
-    <amp-img
-      class="logo"
-      alt="gofood logo"
-      src="/social/gofood-small.svg"
-      width="24"
-      height="24"
-    />gofood
-  </a>
+  {#each socialLinks as s}
+    <a target="_blank" href={s.url} rel="noreferrer">
+      {#if amp}
+        <amp-img class="logo" alt={s.alt} src={s.imgSrc} width="24" height="24" />{s.text}
+      {:else}
+        <img class="logo" alt={s.alt} src={s.imgSrc} width="24" height="24" />{s.text}
+      {/if}
+    </a>
+  {/each}
 </div>
 
 <style>
