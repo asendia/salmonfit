@@ -15,7 +15,7 @@
   import { amp } from '$app/env';
   import Social from '$components/Social.svelte';
   import type { FoodCategory } from '$lib/salmonfitMenu.svelte';
-  const title = 'salmonfit';
+  const title = 'salmonfit-test';
   const description =
     'Fusion salmon dishes & cheesecake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
   export let categories: Array<FoodCategory>;
