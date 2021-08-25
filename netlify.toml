@@ -11,20 +11,20 @@
 [[headers]]
   for = "/"
   [headers.values]
-    cache-control = "public, s-maxage=60"
+    cache-control = "public,s-maxage=60,max-age=60"
 [[headers]]
   for = "/manifest.json"
   [headers.values]
-    cache-control = "public, s-maxage=60"
+    cache-control = "public,s-maxage=60,max-age=60"
 [[headers]]
   for = "*.webp"
   [headers.values]
-    cache-control = "public, s-maxage=600"
+    cache-control = "public,s-maxage=600,max-age=600"
 [[headers]]
   for = "*.png"
   [headers.values]
-    cache-control = "public, s-maxage=600"
+    cache-control = "public, s-maxage=600,max-age=600"
 [[headers]]
   for = "*.svg"
   [headers.values]
-    cache-control = "public, s-maxage=600"
+    cache-control = "public, s-maxage=600,max-age=600"
