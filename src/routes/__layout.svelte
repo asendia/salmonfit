@@ -3,6 +3,7 @@
   import Header from '$components/Header.svelte';
   import Footer from '$components/Footer.svelte';
   import { amp, dev } from '$app/env';
+  import stackedPeaksImage from '$assets/stacked-peaks-haikei.svg';
 </script>
 
 <svelte:head>
@@ -12,9 +13,11 @@
   <Fonts />
 </svelte:head>
 
-<Header />
-<slot />
-<Footer />
+<div class="background" style="--stacked-peaks-image: url({stackedPeaksImage})">
+  <Header />
+  <slot />
+  <Footer />
+</div>
 {#if amp && !dev}
   <amp-install-serviceworker
     src="/service-worker.js"
@@ -26,5 +29,12 @@
 <style>
   :global(body) {
     margin: 0;
+    color: #fff;
+    background-color: #2c2c2c;
+  }
+  .background {
+    background-image: var(--stacked-peaks-image);
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 </style>

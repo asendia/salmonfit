@@ -45,8 +45,7 @@
     align-items: center;
   }
   a {
-    text-decoration: none;
-    color: #000;
+    color: #aaaaaa;
     line-height: 24px;
     font-size: 10px;
     display: flex;

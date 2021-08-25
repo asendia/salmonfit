@@ -35,12 +35,12 @@
     font-size: 50px;
     color: #e74e35;
     position: relative;
-    padding-top: 35px;
-    margin: 9px 0 0;
+    padding-top: 44px;
+    margin: 0;
   }
   .fish-logo {
     position: absolute;
-    top: 0;
+    top: 9px;
     left: calc(50% - 50px);
   }
 </style>
