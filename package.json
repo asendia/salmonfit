@@ -1,6 +1,6 @@
 {
   "name": "salmonfit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "postinstall": "node scripts/replace-sw-amp.js",
     "dev": "svelte-kit dev",
@@ -12,7 +12,7 @@
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
   },
   "devDependencies": {
-    "@sveltejs/adapter-netlify": "^1.0.0-next.29",
+    "@sveltejs/adapter-static": "^1.0.0-next.17",
     "@sveltejs/kit": "next",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
