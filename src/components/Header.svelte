@@ -13,7 +13,7 @@
     <amp-img
       class="fish-logo"
       alt="salmon fit fish logo"
-      src="/salmonfit-fish.png"
+      src={salmonfitFishLogo}
       width="84"
       height="46"
     />
@@ -21,7 +21,7 @@
     <img
       class="fish-logo"
       alt="salmon fit fish logo"
-      src="/salmonfit-fish.png"
+      src={salmonfitFishLogo}
       width="84"
       height="46"
     />
