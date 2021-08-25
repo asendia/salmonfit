@@ -5,6 +5,7 @@
     "postinstall": "node scripts/replace-sw-amp.js",
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
+    "postbuild": "sh ./scripts/mv-404-to-root.sh",
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",

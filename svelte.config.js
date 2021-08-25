@@ -13,7 +13,7 @@ const config = {
     adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: 'error/index.html',
+			fallback: null,
     }),
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',
