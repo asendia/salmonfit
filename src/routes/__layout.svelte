@@ -43,6 +43,9 @@
     color: #fff;
     background-color: #2c2c2c;
   }
+  :global(amp-img) {
+    background-color: #2c2c2c;
+  }
   .background {
     background-image: var(--stacked-peaks-image);
     background-size: cover;

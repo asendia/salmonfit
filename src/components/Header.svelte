@@ -1,6 +1,7 @@
 <script lang="ts">
   import { amp } from '$app/env';
   import salmonfitFishLogo from '$assets/salmonfit-fish.png';
+  import ImgPlaceholder from './ImgPlaceholder.svelte';
 </script>
 
 <svelte:head>
@@ -15,8 +16,8 @@
       alt="salmon fit fish logo"
       src={salmonfitFishLogo}
       width="84"
-      height="46"
-    />
+      height="46"><ImgPlaceholder /></amp-img
+    >
   {:else}
     <img
       class="fish-logo"

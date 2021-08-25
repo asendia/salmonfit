@@ -3,6 +3,7 @@
   import igLogo from '$assets/social/instagram-small.svg';
   import grabLogo from '$assets/social/grab-small.svg';
   import gofoodLogo from '$assets/social/gofood-small.svg';
+  import ImgPlaceholder from './ImgPlaceholder.svelte';
 
   const socialLinks = [
     {
@@ -30,7 +31,9 @@
   {#each socialLinks as s}
     <a target="_blank" href={s.url} rel="noreferrer">
       {#if amp}
-        <amp-img class="logo" alt={s.alt} src={s.imgSrc} width="24" height="24" />{s.text}
+        <amp-img class="logo" alt={s.alt} src={s.imgSrc} width="24" height="24"
+          ><ImgPlaceholder /></amp-img
+        >{s.text}
       {:else}
         <img class="logo" alt={s.alt} src={s.imgSrc} width="24" height="24" />{s.text}
       {/if}

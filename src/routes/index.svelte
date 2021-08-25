@@ -6,6 +6,7 @@
   const description =
     'Fusion salmon dishes & cheesecake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
   import menuItems from '$lib/menuItems';
+import ImgPlaceholder from '$components/ImgPlaceholder.svelte';
 </script>
 
 <svelte:head>
@@ -37,7 +38,7 @@
           src={cat.imgHref}
           width="200"
           height="200"
-        />
+        ><ImgPlaceholder /></amp-img>
       {:else}
         <img
           class="category-photo"
