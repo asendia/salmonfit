@@ -1,24 +1,11 @@
-<script lang="ts" context="module">
-  export const hydrate = false; // for non-amp, not used as of now
-  export async function load({ fetch }) {
-    const res = await fetch('/api/menu.json');
-    const categories = await res.json();
-    return {
-      props: {
-        categories
-      }
-    };
-  }
-</script>
-
 <script lang="ts">
   import { amp } from '$app/env';
   import Social from '$components/Social.svelte';
-  import type { FoodCategory } from '$lib/salmonfitMenu.svelte';
+  import ogImage from '$assets/og-image-salmonfit.jpg';
   const title = 'salmonfit';
   const description =
     'Fusion salmon dishes & cheesecake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
-  export let categories: Array<FoodCategory>;
+  import menuItems from '$lib/menuItems';
 </script>
 
 <svelte:head>
@@ -28,9 +15,9 @@
   <meta property="og:description" content={description} />
   <meta property="og:type" content="food" />
   <meta property="og:url" content="https://salmonfit.com" />
-  <meta property="og:image" content="https://salmonfit.com/og-image-salmonfit.jpg" />
+  <meta property="og:image" content={ogImage} />
   <link rel="canonical" href="https://salmonfit.com" />
-  {#each categories as cat, id}
+  {#each menuItems as cat, id}
     {#if cat.imgHref && id < 2}
       <link rel="preload" as="image" href={cat.imgHref} />
     {/if}
@@ -39,7 +26,7 @@
 
 <p class="headline">Fushion salmon dishes and cheesecake from Kebon Jeruk</p>
 <Social />
-{#each categories as cat}
+{#each menuItems as cat}
   <h3 class="category-name">{cat.name}</h3>
   <div class="category-body">
     {#if cat.imgHref}
