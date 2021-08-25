@@ -1,23 +1,26 @@
 <script lang="ts">
   import { amp } from '$app/env';
+  import igLogo from '$assets/social/instagram-small.svg';
+  import grabLogo from '$assets/social/grab-small.svg';
+  import gofoodLogo from '$assets/social/gofood-small.svg';
 
   const socialLinks = [
     {
       url: 'https://www.instagram.com/salmonfit.id/',
       alt: 'instagram logo',
-      imgSrc: '/social/instagram-small.svg',
+      imgSrc: igLogo,
       text: 'salmonfit.id'
     },
     {
       url: 'https://food.grab.com/id/id/restaurant/salmon-fit-duri-kepa-delivery/6-C2XUWAX3PEU1JT',
       alt: 'grabfood logo',
-      imgSrc: '/social/grab-small.svg',
+      imgSrc: grabLogo,
       text: 'GrabFood'
     },
     {
       url: 'https://gofood.link/a/BLHH283',
       alt: 'gofood logo',
-      imgSrc: '/social/gofood-small.svg',
+      imgSrc: gofoodLogo,
       text: 'gofood'
     }
   ];

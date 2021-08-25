@@ -21,6 +21,7 @@ const config = {
       resolve: {
         alias: {
           $components: resolve('./src/components'),
+          $assets: resolve('./assets'),
         },
       },
     },

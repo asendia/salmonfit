@@ -1,9 +1,10 @@
 <script lang="ts">
   import { amp } from '$app/env';
+  import salmonfitFishLogo from '$assets/salmonfit-fish.png';
 </script>
 
 <svelte:head>
-  <link rel="preload" as="image" href="/salmonfit-fish.png" />
+  <link rel="preload" as="image" href={salmonfitFishLogo} />
 </svelte:head>
 
 <h1 class="title">
@@ -12,7 +13,7 @@
     <amp-img
       class="fish-logo"
       alt="salmon fit fish logo"
-      src="/salmonfit-fish.png"
+      src={salmonfitFishLogo}
       width="84"
       height="46"
     />
@@ -20,7 +21,7 @@
     <img
       class="fish-logo"
       alt="salmon fit fish logo"
-      src="/salmonfit-fish.png"
+      src={salmonfitFishLogo}
       width="84"
       height="46"
     />
