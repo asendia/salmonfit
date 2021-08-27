@@ -1,5 +1,7 @@
 <script lang="ts">
   export let status: number;
+  import sadSalmonImg from '$assets/error/octomon.png';
+  const sadSalmonBg = `url(${sadSalmonImg}) left center`;
   const message = status === 404 ? 'Page not found' : 'Unknown';
   let bubbles = [...Array(12).keys()].map((i) => ({ id: i + 1, visible: true }));
   // Client-side javascript won't work on amp, I added this only
@@ -36,7 +38,7 @@
 <div class="main">
   <!-- Copied from: https://codepen.io/codypearce/pen/VwYOGzq -->
   <div class="ocean">
-    <div id="octocat" />
+    <div id="octocat" style="--sad-salmon-bg: {sadSalmonBg}" />
     {#each bubbles as bubble}
       {#if bubble.visible}
         <div class="bubble bubble--{bubble.id}" on:click={createBubbleClickHandler(bubble.id)} />
@@ -56,10 +58,13 @@
   p {
     font-weight: 300;
   }
+  p a {
+    color: #fff;
+  }
   #octocat {
     height: 300px;
     width: 200px;
-    background: url(/error/octomon.png) left center;
+    background: var(--sad-salmon-bg);
     animation: animateSprite 15s steps(1) infinite, swim 15s ease-in-out infinite;
     position: absolute;
     right: -200px;
@@ -129,7 +134,6 @@
     position: relative;
     width: 100vw;
     height: 50vh;
-    background-image: linear-gradient(0deg, #182848, #2980b9);
     overflow: hidden;
   }
 
