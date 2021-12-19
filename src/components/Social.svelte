@@ -59,9 +59,12 @@
     line-height: 24px;
     font-size: 10px;
     display: flex;
-    margin: 0 10px;
+    margin: 0 5px;
+  }
+  a:nth-child(3) {
+    margin-left: 0;
   }
   .logo {
-    margin-right: 5px;
+    margin-right: 4px;
   }
 </style>
