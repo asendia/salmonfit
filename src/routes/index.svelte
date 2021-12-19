@@ -4,7 +4,7 @@
   import ogImage from '$assets/og-image-salmonfit.jpg';
   const title = 'salmonfit';
   const description =
-    'Fusion salmon dishes & cheesecake from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
+    'Fusion salmon dishes from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
   import menuItems from '$lib/menuItems';
 import ImgPlaceholder from '$components/ImgPlaceholder.svelte';
 </script>
@@ -25,7 +25,7 @@ import ImgPlaceholder from '$components/ImgPlaceholder.svelte';
   {/each}
 </svelte:head>
 
-<p class="headline">Fushion salmon dishes and cheesecake from Kebon Jeruk</p>
+<p class="headline">Fushion salmon dishes from Kebon Jeruk</p>
 <Social />
 {#each menuItems as cat}
   <h3 class="category-name">{cat.name}</h3>
@@ -36,7 +36,7 @@ import ImgPlaceholder from '$components/ImgPlaceholder.svelte';
           class="category-photo"
           alt="{cat.name} photo"
           src={cat.imgHref}
-          width="200"
+          width="300"
           height="200"
         ><ImgPlaceholder /></amp-img>
       {:else}
@@ -44,7 +44,7 @@ import ImgPlaceholder from '$components/ImgPlaceholder.svelte';
           class="category-photo"
           alt="{cat.name} photo"
           src={cat.imgHref}
-          width="200"
+          width="300"
           height="200"
         />
       {/if}
@@ -77,7 +77,7 @@ import ImgPlaceholder from '$components/ImgPlaceholder.svelte';
   }
   .category-photo {
     display: block;
-    width: 200px;
+    min-width: 300px;
     height: 200px;
     border-radius: 10px;
     margin: 15px auto;
@@ -125,7 +125,7 @@ import ImgPlaceholder from '$components/ImgPlaceholder.svelte';
     }
     .with-image .menu-item:nth-child(1),
     .with-image .menu-item:nth-child(2) {
-      margin-left: 225px;
+      margin-left: 325px;
       min-height: 90px;
     }
     .with-image .menu-item:nth-child(2) {

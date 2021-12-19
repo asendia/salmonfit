@@ -10,100 +10,78 @@ interface Food {
   description?: string;
 }
 
-import grilledSalmonPhoto from '$assets/menu/grilled-salmon.webp';
-import spaghettiSalmonPhoto from '$assets/menu/spaghetti-salmon.webp';
-import cheesecakePhoto from '$assets/menu/cheese-cake.webp';
-import prawnPhoto from '$assets/menu/prawn.webp';
+import grilledSalmonRicePhoto from '$assets/menu/grilled-salmon-rice.jpg';
+import smokedSalmonSpaghetti from '$assets/menu/smoked-salmon-spaghetti.jpg';
+import saladPhoto from '$assets/menu/salad.jpg';
 
 const menuItems: Array<FoodCategory> = [
   {
     name: 'Salmon',
-    imgHref: grilledSalmonPhoto,
+    imgHref: grilledSalmonRicePhoto,
     items: [
       {
-        name: 'Grilled Norwegian Salmon',
-        imgHref: grilledSalmonPhoto,
-        description: 'Norwegian salmon 80gr, steamed rice, and salad of the day'
+        name: 'Grilled Premium Salmon',
+        imgHref: grilledSalmonRicePhoto,
+        description: 'Premium salmon, steamed rice, and salad of the day'
       },
       {
-        name: 'Norwegian Salmon Geprek',
+        name: 'Premium Salmon Geprek',
         description:
           'Marinated salmon and fried with seasoned flour, steamed jasmine rice, spicy sauce (Sambal geprek)'
       },
       {
-        name: 'Spaghetti Aglio Olio With Norwegian Salmon',
-        description:
-          'Cooked pasta, garlic, mushroom champignon, parsley, and parmesan cheese with Norewegian Salmon'
+        name: 'Spaghetti Aglio Olio With Premium Salmon',
+        description: 'Cooked pasta, garlic, mushroom champignon and parsley with Premium Salmon'
       },
       {
-        name: 'Creamy Spaghetti Carbonara With Norwegian Salmon',
+        name: 'Creamy Spaghetti Carbonara With Premium Salmon',
         description:
-          'Cooked pasta, garlic, mushroom champignon, parsley, cooking cream, and parmesan cheese with Norwegian Salmon'
+          'Cooked pasta, garlic, mushroom champignon, parsley and cooking cream with Premium Salmon'
       },
       {
-        name: 'Norwegian Salmon Fried Rice',
+        name: 'Premium Salmon Fried Rice',
         description:
-          'Garlic, mushroom champignon, parsley, and steamed jasmine rice with Norwegian Salmon'
+          'Garlic, mushroom champignon, parsley, and steamed jasmine rice with Premium Salmon'
       }
     ]
   },
   {
     name: 'Smoked Salmon',
-    imgHref: spaghettiSalmonPhoto,
+    imgHref: smokedSalmonSpaghetti,
     items: [
       {
         name: 'Smoked Salmon Fried Rice',
         description:
-          'Steamed jasmine rice, garlic, mushroom champignon, parsley with Norwegian Salmon'
+          'Steamed jasmine rice, garlic, mushroom champignon, parsley with Premium Salmon'
       },
       {
         name: 'Spaghetti Aglio Olio With Smoked Salmon',
+        imgHref: smokedSalmonSpaghetti,
         description:
           'Cooked pasta, garlic, mushroom champignon, parsley, steamed jasmine rice with smoked salmon'
       },
       {
         name: 'Creamy Spaghetti Carbonara With Smoked Salmon',
         description:
-          'Cooked pasta, garlic, mushroom champignon, cooking cream, parmesan cheese with smoked salmon'
-      }
-    ]
-  },
-  {
-    name: 'Dessert',
-    imgHref: cheesecakePhoto,
-    items: [
-      {
-        name: 'Whole New York Cheesecake',
-        description: '12,7 cm (5 inchies)'
-      },
-      {
-        name: 'New York Cheesecake Slice',
-        description: '1 slice'
-      }
-    ]
-  },
-  {
-    name: 'Shrimp',
-    imgHref: prawnPhoto,
-    items: [
-      {
-        name: 'Spaghetti Aglio Olio With Shrimp',
-        description: 'Cooked pasta, garlic, mushroom champignon, parshley with shrimp'
-      },
-      {
-        name: 'Creamy Spaghetti Carbonara With Shrimp',
-        description:
-          'Cooked pasta, garlic, mushroom champignon, parsley, cooking cream, parmesan cheese with shrimp'
-      },
-      {
-        name: 'Shrimp Fried Rice',
-        description: 'Steamed jasmine rice, garlic, mushroom champignon, parsley with shrimp'
+          'Cooked pasta, garlic, mushroom champignon and cooking cream with smoked salmon'
       }
     ]
   },
   {
     name: 'Side Dish',
+    imgHref: saladPhoto,
     items: [
+      {
+        name: 'Shirataki / Konjac',
+        description: '(Rice / noodle/ fettuccine)'
+      },
+      {
+        name: 'Egg',
+        description: '(Sunny side up / scrambled / omelet)'
+      },
+      {
+        name: 'Boiled Pottato'
+      },
       {
         name: 'Steamed Jasmine Rice'
       },
@@ -115,13 +93,6 @@ const menuItems: Array<FoodCategory> = [
       },
       {
         name: 'French Fries'
-      },
-      {
-        name: 'Egg',
-        description: '(Sunny side up / scrambled / omelet)'
-      },
-      {
-        name: 'Hash Brown'
       }
     ]
   },
@@ -129,21 +100,16 @@ const menuItems: Array<FoodCategory> = [
     name: 'A La Carte',
     items: [
       {
-        name: 'Grilled Garlic Butter Shrimp',
-        description: 'Shrimp 100gr'
-      },
-      {
         name: 'Smoked Salmon',
-        description: 'Premium smoked salmon 80gr'
+        description: 'Premium smoked salmon'
       },
       {
         name: 'Grilled Norwegiam Salmon Butter',
-        description: 'Norwegian Salmon 80gr and butter'
+        description: 'Premium Salmon and butter'
       },
       {
-        name: 'Norwegian Salmon Geprek',
-        description:
-          '2 hours marinated salmon and fried with seasoned flour, spicy souce (Sambal Geprek)'
+        name: 'Premium Salmon Geprek',
+        description: 'Marinated salmon and fried with seasoned flour, spicy souce (Sambal Geprek)'
       }
     ]
   }

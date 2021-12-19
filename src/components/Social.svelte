@@ -3,6 +3,7 @@
   import igLogo from '$assets/social/instagram-small.svg';
   import grabLogo from '$assets/social/grab-small.svg';
   import gofoodLogo from '$assets/social/gofood-small.svg';
+  import travelokaLogo from '$assets/social/traveloka-small.svg';
   import ImgPlaceholder from './ImgPlaceholder.svelte';
 
   const socialLinks = [
@@ -19,11 +20,17 @@
       text: 'GrabFood'
     },
     {
+      url: 'https://www.traveloka.com/id-id/restaurants/indonesia/detail/salmon-fit-free-delivery-162720',
+      alt: 'traveloka eats',
+      imgSrc: travelokaLogo,
+      text: 'Traveloka',
+    },
+    {
       url: 'https://gofood.link/a/BLHH283',
       alt: 'gofood logo',
       imgSrc: gofoodLogo,
       text: 'gofood'
-    }
+    },
   ];
 </script>
 
