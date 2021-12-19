@@ -1,31 +1,35 @@
 export interface FoodCategory {
   name: string;
   items: Array<Food>;
-  imgHref?: string;
+  imgIds: Array<number>;
 }
 interface Food {
   name: string;
   price?: number;
-  imgHref?: string | Promise<string>;
+  imgHref?: string;
   description?: string;
 }
 
-import grilledSalmonRicePhoto from '$assets/menu/grilled-salmon-rice.jpg';
-import smokedSalmonSpaghetti from '$assets/menu/smoked-salmon-spaghetti.jpg';
-import saladPhoto from '$assets/menu/salad.jpg';
+import imgGrilledSalmonRice from '$assets/menu/grilled-salmon-rice.jpg';
+import imgSalmonGeprekRice from '$assets/menu/salmon-geprek-rice.jpg';
+import imgSalmonFriedRice from '$assets/menu/salmon-fried-rice.jpg';
+import imgSmokedSalmonFriedRice from '$assets/menu/smoked-salmon-fried-rice.jpg';
+import imgSmokedSalmonSpaghetti from '$assets/menu/smoked-salmon-spaghetti.jpg';
+import imgSalad from '$assets/menu/salad.jpg';
 
 const menuItems: Array<FoodCategory> = [
   {
     name: 'Salmon',
-    imgHref: grilledSalmonRicePhoto,
+    imgIds: [],
     items: [
       {
         name: 'Grilled Premium Salmon',
-        imgHref: grilledSalmonRicePhoto,
+        imgHref: imgGrilledSalmonRice,
         description: 'Premium salmon, steamed rice, and salad of the day'
       },
       {
         name: 'Premium Salmon Geprek',
+        imgHref: imgSalmonGeprekRice,
         description:
           'Marinated salmon and fried with seasoned flour, steamed jasmine rice, spicy sauce (Sambal geprek)'
       },
@@ -40,6 +44,7 @@ const menuItems: Array<FoodCategory> = [
       },
       {
         name: 'Premium Salmon Fried Rice',
+        imgHref: imgSalmonFriedRice,
         description:
           'Garlic, mushroom champignon, parsley, and steamed jasmine rice with Premium Salmon'
       }
@@ -47,16 +52,17 @@ const menuItems: Array<FoodCategory> = [
   },
   {
     name: 'Smoked Salmon',
-    imgHref: smokedSalmonSpaghetti,
+    imgIds: [],
     items: [
       {
         name: 'Smoked Salmon Fried Rice',
+        imgHref: imgSmokedSalmonFriedRice,
         description:
           'Steamed jasmine rice, garlic, mushroom champignon, parsley with Premium Salmon'
       },
       {
         name: 'Spaghetti Aglio Olio With Smoked Salmon',
-        imgHref: smokedSalmonSpaghetti,
+        imgHref: imgSmokedSalmonSpaghetti,
         description:
           'Cooked pasta, garlic, mushroom champignon, parsley, steamed jasmine rice with smoked salmon'
       },
@@ -69,7 +75,7 @@ const menuItems: Array<FoodCategory> = [
   },
   {
     name: 'Side Dish',
-    imgHref: saladPhoto,
+    imgIds: [],
     items: [
       {
         name: 'Shirataki / Konjac',
@@ -89,7 +95,8 @@ const menuItems: Array<FoodCategory> = [
         name: 'Butter Rice'
       },
       {
-        name: 'Salad of The Day'
+        name: 'Salad of The Day',
+        imgHref: imgSalad
       },
       {
         name: 'French Fries'
@@ -98,6 +105,7 @@ const menuItems: Array<FoodCategory> = [
   },
   {
     name: 'A La Carte',
+    imgIds: [],
     items: [
       {
         name: 'Smoked Salmon',
@@ -114,5 +122,14 @@ const menuItems: Array<FoodCategory> = [
     ]
   }
 ];
+
+// Generate imageIds
+menuItems.forEach((m) => {
+  m.items.forEach((item, id) => {
+    if (item.imgHref) {
+      m.imgIds.push(id);
+    }
+  });
+});
 
 export default menuItems;

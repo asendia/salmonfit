@@ -6,7 +6,7 @@
   const description =
     'Fusion salmon dishes from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
   import menuItems from '$lib/menuItems';
-import ImgPlaceholder from '$components/ImgPlaceholder.svelte';
+  import ImgPlaceholder from '$components/ImgPlaceholder.svelte';
 </script>
 
 <svelte:head>
@@ -18,11 +18,17 @@ import ImgPlaceholder from '$components/ImgPlaceholder.svelte';
   <meta property="og:url" content="https://salmonfit.com" />
   <meta property="og:image" content={ogImage} />
   <link rel="canonical" href="https://salmonfit.com" />
-  {#each menuItems as cat, id}
-    {#if cat.imgHref && id < 2}
-      <link rel="preload" as="image" href={cat.imgHref} />
-    {/if}
+  {#each menuItems as cat}
+    {#each cat.items as item, id}
+      {#if item.imgHref && id === 0}
+        <link rel="preload" as="image" href={item.imgHref} />
+      {/if}
+    {/each}
   {/each}
+  <script
+    async
+    custom-element="amp-carousel"
+    src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 </svelte:head>
 
 <p class="headline">Fushion salmon dishes from Kebon Jeruk</p>
@@ -30,26 +36,29 @@ import ImgPlaceholder from '$components/ImgPlaceholder.svelte';
 {#each menuItems as cat}
   <h3 class="category-name">{cat.name}</h3>
   <div class="category-body">
-    {#if cat.imgHref}
-      {#if amp}
-        <amp-img
-          class="category-photo"
-          alt="{cat.name} photo"
-          src={cat.imgHref}
-          width="300"
-          height="200"
-        ><ImgPlaceholder /></amp-img>
-      {:else}
-        <img
-          class="category-photo"
-          alt="{cat.name} photo"
-          src={cat.imgHref}
-          width="300"
-          height="200"
-        />
-      {/if}
+    {#if cat.imgIds.length > 0}
+      <amp-carousel
+        class="category-photo-carousel"
+        width="300"
+        height="200"
+        layout="responsive"
+        type="slides"
+        role="region"
+        aria-label="Carousel for {cat.name}"
+        autoplay
+      >
+        {#each cat.imgIds as imgId}
+          <amp-img
+            class="item-photo"
+            alt="{cat.items[imgId].name} photo"
+            src={cat.items[imgId].imgHref}
+            width="300"
+            height="200"><ImgPlaceholder /></amp-img
+          >
+        {/each}
+      </amp-carousel>
     {/if}
-    <ul class="menu-items{cat.imgHref ? ' with-image' : ''}">
+    <ul class="menu-items{cat.imgIds.length > 0 ? ' with-image' : ''}">
       {#each cat.items as item}
         <li class="menu-item">
           <div class="menu-name">{item.name}</div>
@@ -75,12 +84,14 @@ import ImgPlaceholder from '$components/ImgPlaceholder.svelte';
     margin: auto;
     position: relative;
   }
-  .category-photo {
+  .category-photo-carousel {
     display: block;
-    min-width: 300px;
     height: 200px;
     border-radius: 10px;
     margin: 15px auto;
+  }
+  .item-photo {
+    border-radius: 10px;
   }
   .category-name {
     text-align: center;
@@ -115,7 +126,8 @@ import ImgPlaceholder from '$components/ImgPlaceholder.svelte';
     .category-name {
       margin-top: 55px;
     }
-    .category-photo {
+    .category-photo-carousel {
+      min-width: 300px;
       margin-top: 0;
       margin-left: 40px;
       position: absolute;
