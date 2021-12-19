@@ -2,6 +2,7 @@
   "name": "salmonfit",
   "version": "0.0.3",
   "scripts": {
+    "postinstall": "node scripts/remove-invalid-amp.js",
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "postbuild": "sh ./scripts/mv-404-to-root.sh",
