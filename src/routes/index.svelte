@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { amp } from '$app/env';
   import Social from '$components/Social.svelte';
   import ogImage from '$assets/og-image-salmonfit.jpg';
   const title = 'salmonfit';
@@ -31,7 +30,7 @@
     src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 </svelte:head>
 
-<p class="headline">Fushion salmon dishes from Kebon Jeruk</p>
+<p class="headline">Fusion salmon dishes from Kebon Jeruk</p>
 <Social />
 {#each menuItems as cat}
   <h3 class="category-name">{cat.name}</h3>
