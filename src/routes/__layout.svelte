@@ -29,13 +29,6 @@
   <slot />
   <Footer />
 </div>
-{#if amp && !dev}
-  <amp-install-serviceworker
-    src="/service-worker.js"
-    data-iframe-src="https://salmonfit.com"
-    layout="nodisplay"
-  />
-{/if}
 
 <style>
   :global(body) {
