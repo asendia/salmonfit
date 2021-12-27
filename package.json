@@ -2,7 +2,6 @@
   "name": "salmonfit",
   "version": "0.0.3",
   "scripts": {
-    "postinstall": "node scripts/remove-invalid-amp.js",
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "postbuild": "sh ./scripts/mv-404-to-root.sh",
@@ -14,7 +13,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^1.0.0-next.17",
-    "@sveltejs/kit": "^1.0.0-next.202",
+    "@sveltejs/kit": "^1.0.0-next.203",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
     "eslint": "^8.5.0",
