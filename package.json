@@ -3,6 +3,7 @@
   "version": "0.0.3",
   "scripts": {
     "dev": "svelte-kit dev",
+    "prebuild": "node ./scripts/menu-csv-to-json.js",
     "build": "svelte-kit build",
     "postbuild": "sh ./scripts/mv-404-to-root.sh",
     "preview": "svelte-kit preview",

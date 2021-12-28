@@ -1,0 +1,156 @@
+[
+  {
+    "name": "Salmon",
+    "items": [
+      {
+        "name": "Salmon Geprek",
+        "description": "Fried salmon coated with seasoning flour, steamed jasmine rice and spicy sauce (Sambal Geprek) - 501 cal"
+      },
+      {
+        "name": "Grilled Salmon",
+        "description": "Salmon, steamed jasmine rice, and salad of the day - 405 cal"
+      },
+      {
+        "name": "Spaghetti Aglio Olio with Salmon",
+        "description": "Cooked spaghetti, garlic, mushroom champignon and parsley with salmon - 395 cal"
+      },
+      {
+        "name": "Creamy spaghetti with Salmon",
+        "description": "Cooked spaghetti, garlic, mushroom champignon, parsley and cream with salmon - 405 cal"
+      },
+      {
+        "name": "Shirataki Fettuccini Aglio Olio with Salmon",
+        "description": "Cooked shirataki fettuccine, garlic, mushroom champignon, parsley, with salmon - 236 cal"
+      },
+      {
+        "name": "Creamy Shirataki Fettuccine with Salmon",
+        "description": "Cooked shirataki fettuccine, garlic, mushroom champignon, parsley, and cream with salmon - 246 cal"
+      },
+      {
+        "name": "Shirataki Fried Rice with Salmon",
+        "description": "Cooked shirataki rice, garlic, sweet corn, carrot, green beans, parsley, with salmon - 248 cal"
+      },
+      {
+        "name": "Fried Shirataki Noodle with Salmon",
+        "description": "Stir fry shirataki noodles, garlic, sweet corn, carrot, green beans, parsley, with salmon - 236 cal"
+      },
+      {
+        "name": "Creamy Shirataki Noodle with Salmon",
+        "description": "Cooked shirataki noodles, garlic, mushroom champignon, parsley, and cream with salmon - 246 cal"
+      },
+      {
+        "name": "Salmon fried rice",
+        "description": "Steamed jasmine rice, garlic, sweet corn, carrot, parsley, green beans with salmon - 348 cal"
+      }
+    ],
+    "imgIds": []
+  },
+  {
+    "name": "Smoked Salmon",
+    "items": [
+      {
+        "name": "Spaghetti Aglio Olio with Norwegian Smoked Salmon",
+        "description": "Cooked spaghetti, garlic, mushroom champignon, parsley with smoked salmon - 388 cal"
+      },
+      {
+        "name": "Creamy spaghetti with Norwegian Smoked Salmon",
+        "description": "Cooked spaghetti, garlic, mushroom champignon and cream with smoked salmon - 398 cal"
+      },
+      {
+        "name": "Shirataki Fettuccini Aglio Olio with Smoked Salmon",
+        "description": "Cooked shirataki fettuccine, garlic, mushroom champignon, parsley, with smoked salmon - 229 cal"
+      },
+      {
+        "name": "Creamy Shirataki Fettuccini with Smoked Salmon",
+        "description": "Cooked shirataki fettuccine, garlic, mushroom champignon, parsley, and cream with smoked salmon - 239 cal"
+      },
+      {
+        "name": "Shirataki Fried Rice with Smoked Salmon",
+        "description": "Cooked shirataki rice, garlic, sweet corn, carrot, green beans, parsley, with smoked salmon - 241 cal"
+      },
+      {
+        "name": "Fried Shirataki Noodle with Smoked Salmon",
+        "description": "Stir fry shirataki noodles, garlic, sweet corn, carrot, green beans, parsley, with smoked salmon - 229 cal"
+      },
+      {
+        "name": "Creamy Shirataki Noodle with Smoked Salmon",
+        "description": "Cooked shirataki noodle, garlic, mushroom champignon, parsley, and cream with smoked salmon - 249 cal"
+      },
+      {
+        "name": "Smoked salmon fried rice",
+        "description": "Steamed jasmine rice, garlic, sweet corn, carrot , parsley with smoked  salmon - 316 cal"
+      }
+    ],
+    "imgIds": []
+  },
+  {
+    "name": "A La Carte",
+    "items": [
+      {
+        "name": "Norwegian Salmon Geprek Ala Carte",
+        "description": "Fried salmon coated with seasoning flour and spicy sauce (Sambal Geprek) - 292 cal"
+      },
+      {
+        "name": "Grilled Butter Norwegian Salmon Ala Carte",
+        "description": "Salmon and salad of the day - 269 cal"
+      },
+      {
+        "name": "Smoked Salmon Ala Carte",
+        "description": "Smoked salmon - 467 cal"
+      }
+    ],
+    "imgIds": []
+  },
+  {
+    "name": "Side Dish",
+    "items": [
+      {
+        "name": "Jasmine Steamed Rice",
+        "description": "Steamed jasmine rice - 195 cal"
+      },
+      {
+        "name": "Butter Rice",
+        "description": "Steamed jasmine rice with butter - 185 cal"
+      },
+      {
+        "name": "French Fries",
+        "description": "Deep fried French fries with  oil - 290 cal"
+      },
+      {
+        "name": "Salad of The Day",
+        "description": "Chef's salad of the day - 117 cal"
+      },
+      {
+        "name": "Egg",
+        "description": "Sunny side up / scrambled / omelette - 89 cal"
+      },
+      {
+        "name": "Boiled Potato",
+        "description": "Boiled potato with a pinch of salt - 89 cal"
+      },
+      {
+        "name": "Shirataki Rice",
+        "description": "Cooked Shirataki (Rice / Noodle / Fettucine) - 45 cal"
+      },
+      {
+        "name": "Sambal",
+        "description": "Indonesian spicy sauce - 20 cal"
+      }
+    ],
+    "imgIds": []
+  },
+  {
+    "name": "Drinks",
+    "items": [
+      {
+        "name": "Le Mineral",
+        "description": "Mineral water - 0 cal"
+      },
+      {
+        "name": "Teh Pucuk",
+        "description": "Tea - 70 cal"
+      }
+    ],
+    "imgIds": []
+  }
+]

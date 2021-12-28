@@ -20,8 +20,9 @@ const config = {
     vite: {
       resolve: {
         alias: {
-          $components: resolve('./src/components'),
-          $assets: resolve('./src/assets')
+          $assets: resolve('./src/assets'),
+          $data: resolve('./src/data'),
+          $components: resolve('./src/components')
         }
       }
     }

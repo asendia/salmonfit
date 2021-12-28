@@ -18,4 +18,9 @@ Before creating a production version of your app, install an [adapter](https://k
 yarn build
 ```
 
+## Editing the menu
+1. Edit the CSV file located in `src/data/menu.csv`
+2. Run `node ./scripts/menu-csv-to-json.js`, it will generate `src/data/menu.json`
+3. Images are still hardcoded in `src/lib/menuItems.ts`
+
 > You can preview the built app with `yarn preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
