@@ -32,11 +32,12 @@
 
 <p class="headline">Fusion salmon dishes from Kebon Jeruk</p>
 <Social />
-{#each menuItems as cat}
+{#each menuItems as cat, catID}
   <h3 class="category-name">{cat.name}</h3>
   <div class="category-body">
-    {#if cat.imgIds.length > 0}
+    {#if cat.itemIdsWithImages.length > 0}
       <amp-carousel
+        id="carousel-{catID}"
         class="category-photo-carousel"
         width="300"
         height="200"
@@ -44,9 +45,8 @@
         type="slides"
         role="region"
         aria-label="Carousel for {cat.name}"
-        autoplay
       >
-        {#each cat.imgIds as imgId}
+        {#each cat.itemIdsWithImages as imgId}
           <amp-img
             class="item-photo"
             alt="{cat.items[imgId].name} photo"
@@ -57,10 +57,17 @@
         {/each}
       </amp-carousel>
     {/if}
-    <ul class="menu-items{cat.imgIds.length > 0 ? ' with-image' : ''}">
-      {#each cat.items as item}
+    <ul class="menu-items{cat.itemIdsWithImages.length > 0 ? ' with-image' : ''}">
+      {#each cat.items as item, itemID}
         <li class="menu-item">
-          <div class="menu-name">{item.name}</div>
+          <div
+            class="menu-name"
+            role="button"
+            tabindex={catID * 20 + itemID}
+            on="tap:carousel-{catID}.goToSlide(index={cat.itemIdsWithImages.indexOf(itemID)})"
+          >
+            {item.name}
+          </div>
           {#if item.description}
             <div class="menu-description">{item.description}</div>
           {/if}
@@ -114,6 +121,7 @@
     background-position: bottom;
     background-size: 7px 1px;
     background-repeat: repeat-x;
+    cursor: pointer;
   }
   .menu-description {
     padding: 8px 0;
@@ -140,7 +148,7 @@
       min-height: 90px;
     }
     .with-image .menu-item:nth-child(2) {
-      margin-top: -30px;
+      margin-top: -20px;
       margin-bottom: 40px;
     }
   }

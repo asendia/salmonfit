@@ -26,7 +26,7 @@ function groupMenuList(menuListJSON) {
       foodCategory = {
         name: item.Menu,
         items: [],
-        imgIds: []
+        itemIdsWithImages: []
       };
       menuJSON.push(foodCategory);
     } else if (foodCategory && containsValue) {

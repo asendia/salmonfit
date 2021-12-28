@@ -1,9 +1,9 @@
 {
   "name": "salmonfit",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "dev": "svelte-kit dev",
-    "prebuild": "node ./scripts/menu-csv-to-json.js",
+    "prebuild": "sh ./scripts/prebuild.sh",
     "build": "svelte-kit build",
     "postbuild": "sh ./scripts/mv-404-to-root.sh",
     "preview": "svelte-kit preview",

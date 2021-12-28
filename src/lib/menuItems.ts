@@ -1,7 +1,7 @@
 export interface FoodCategory {
   name: string;
   items: Array<Food>;
-  imgIds: Array<number>;
+  itemIdsWithImages: Array<number>;
 }
 interface Food {
   name: string;
@@ -10,30 +10,17 @@ interface Food {
   description?: string;
 }
 
-import imgSalmonGeprekRice from '$assets/menu/salmon-geprek-rice.webp';
-import imgGrilledSalmonRice from '$assets/menu/grilled-salmon-rice.webp';
-import imgSalmonFriedRice from '$assets/menu/salmon-fried-rice.webp';
-import imgSmokedSalmonFriedRice from '$assets/menu/smoked-salmon-fried-rice.webp';
-import imgSmokedSalmonSpaghetti from '$assets/menu/smoked-salmon-spaghetti.webp';
-import imgSalad from '$assets/menu/salad.webp';
 import menuItemsJSON from '$data/menu.json';
-
-const foodImageMap = {
-  'Grilled Salmon': imgGrilledSalmonRice,
-  'Salmon Geprek': imgSalmonGeprekRice,
-  'Salmon fried rice': imgSalmonFriedRice,
-  'Smoked salmon fried rice': imgSmokedSalmonFriedRice,
-  'Spaghetti Aglio Olio with Norwegian Smoked Salmon': imgSmokedSalmonSpaghetti,
-  'Salad of The Day': imgSalad,
-};
+import foodImageMap from './foodImageMap';
 
 const menuItems: Array<FoodCategory> = menuItemsJSON;
 
-// Attach image to menuItems
+// Attach images to menuItems
 for (const foodCategory of menuItems) {
   for (const food of foodCategory.items) {
-    if (foodImageMap[food.name]) {
-      food.imgHref = foodImageMap[food.name];
+    const key = food.name.split(' ').join('-').toLowerCase();
+    if (foodImageMap[key]) {
+      food.imgHref = foodImageMap[key];
     }
   }
 }
@@ -42,7 +29,7 @@ for (const foodCategory of menuItems) {
 menuItems.forEach((m) => {
   m.items.forEach((item, id) => {
     if (item.imgHref) {
-      m.imgIds.push(id);
+      m.itemIdsWithImages.push(id);
     }
   });
 });
