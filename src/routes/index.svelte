@@ -122,6 +122,7 @@
     background-size: 7px 1px;
     background-repeat: repeat-x;
     cursor: pointer;
+    outline: none;
   }
   .menu-description {
     padding: 8px 0;
