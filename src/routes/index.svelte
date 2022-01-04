@@ -1,7 +1,7 @@
 <script lang="ts">
   import Social from '$components/Social.svelte';
   import ogImage from '$assets/og-image-salmonfit.jpg';
-  const title = 'salmonfit';
+  const title = 'Salmon Fit';
   const description =
     'Fusion salmon dishes from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
   import menuItems from '$lib/menuItems';
@@ -30,7 +30,7 @@
     src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 </svelte:head>
 
-<p class="headline">Fusion salmon dishes from Kebon Jeruk</p>
+<p class="headline">{description}</p>
 <Social />
 {#each menuItems as cat, catID}
   <h3 class="category-name">{cat.name}</h3>
@@ -82,6 +82,7 @@
     text-align: center;
     font-weight: 300;
     margin: 0 0 11px;
+    padding: 0 30px;
     font-size: 12px;
     color: #e74e35;
   }
