@@ -2,6 +2,9 @@
   import { amp } from '$app/env';
   import salmonfitFishLogo from '$assets/salmonfit-fish.png';
   import ImgPlaceholder from './ImgPlaceholder.svelte';
+  import Social from '$components/Social.svelte';
+  export let title: string;
+  export let description: string;
 </script>
 
 <svelte:head>
@@ -9,7 +12,7 @@
 </svelte:head>
 
 <h1 class="title">
-  SALMON FIT
+  <span class="title-text">{title}</span>
   {#if amp}
     <amp-img
       class="fish-logo"
@@ -28,6 +31,8 @@
     />
   {/if}
 </h1>
+<p class="headline">{description}</p>
+<Social />
 
 <style>
   .title {
@@ -39,9 +44,22 @@
     padding-top: 44px;
     margin: 0;
   }
+  .title-text {
+    position: relative;
+    text-transform: uppercase;
+    z-index: 1;
+  }
   .fish-logo {
     position: absolute;
     top: 9px;
     left: calc(50% - 50px);
+  }
+  .headline {
+    text-align: center;
+    font-weight: 300;
+    margin: 0 0 11px;
+    padding: 0 30px;
+    font-size: 12px;
+    color: #e74e35;
   }
 </style>

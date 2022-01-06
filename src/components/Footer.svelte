@@ -1,5 +1,5 @@
 <div>
-  2021 - salmonfit - <a rel="noreferrer" target="_blank" href="https://github.com/asendia/salmonfit"
+  2022 - salmonfit - <a rel="noreferrer" target="_blank" href="https://github.com/asendia/salmonfit"
     >source code</a
   >
 </div>

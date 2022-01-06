@@ -23,14 +23,14 @@
       url: 'https://www.traveloka.com/id-id/restaurants/indonesia/detail/salmon-fit-free-delivery-162720',
       alt: 'traveloka eats',
       imgSrc: travelokaLogo,
-      text: 'Traveloka',
+      text: 'Traveloka'
     },
     {
       url: 'https://gofood.link/a/BLHH283',
       alt: 'gofood logo',
       imgSrc: gofoodLogo,
       text: 'gofood'
-    },
+    }
   ];
 </script>
 

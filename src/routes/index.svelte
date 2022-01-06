@@ -1,5 +1,6 @@
 <script lang="ts">
-  import Social from '$components/Social.svelte';
+  import Header from '$components/Header.svelte';
+  import Footer from '$components/Footer.svelte';
   import ogImage from '$assets/og-image-salmonfit.jpg';
   const title = 'Salmon Fit';
   const description =
@@ -30,8 +31,7 @@
     src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 </svelte:head>
 
-<p class="headline">{description}</p>
-<Social />
+<Header {title} {description} />
 {#each menuItems as cat, catID}
   <h3 class="category-name">{cat.name}</h3>
   <div class="category-body">
@@ -76,16 +76,9 @@
     </ul>
   </div>
 {/each}
+<Footer />
 
 <style>
-  .headline {
-    text-align: center;
-    font-weight: 300;
-    margin: 0 0 11px;
-    padding: 0 30px;
-    font-size: 12px;
-    color: #e74e35;
-  }
   .category-body {
     max-width: 1440px;
     margin: auto;
