@@ -14,12 +14,6 @@
       text: 'salmonfit.id'
     },
     {
-      url: 'https://food.grab.com/id/id/restaurant/salmon-fit-duri-kepa-delivery/6-C2XUWAX3PEU1JT',
-      alt: 'grabfood logo',
-      imgSrc: grabLogo,
-      text: 'GrabFood'
-    },
-    {
       url: 'https://www.traveloka.com/id-id/restaurants/indonesia/detail/salmon-fit-free-delivery-162720',
       alt: 'traveloka eats',
       imgSrc: travelokaLogo,
@@ -30,6 +24,12 @@
       alt: 'gofood logo',
       imgSrc: gofoodLogo,
       text: 'gofood'
+    },
+    {
+      url: 'https://food.grab.com/id/id/restaurant/salmon-fit-duri-kepa-delivery/6-C2XUWAX3PEU1JT',
+      alt: 'grabfood logo',
+      imgSrc: grabLogo,
+      text: 'GrabFood'
     }
   ];
 </script>
@@ -61,7 +61,7 @@
     display: flex;
     margin: 0 5px;
   }
-  a:nth-child(3) {
+  a:nth-child(2) {
     margin-left: 0;
   }
   .logo {
