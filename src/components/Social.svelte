@@ -20,7 +20,7 @@
       text: 'Traveloka'
     },
     {
-      url: 'https://gofood.link/a/BLHH283',
+      url: 'https://gofood.co.id/english/jakarta/restaurant/salmon-fit-apartemen-menara-kebon-jeruk-06f0dcc6-14f4-4092-810f-2bcc81214d23',
       alt: 'gofood logo',
       imgSrc: gofoodLogo,
       text: 'gofood'
