@@ -17,6 +17,11 @@
   <meta property="og:type" content="food" />
   <meta property="og:url" content="https://salmonfit.com" />
   <meta property="og:image" content={ogImage} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@asendiaMayco" />
+  <meta name="twitter:creator" content="@asendiaMayco" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImage} />
   <link rel="canonical" href="https://salmonfit.com" />
   {#each menuItems as cat}
