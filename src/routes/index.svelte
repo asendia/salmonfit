@@ -17,6 +17,7 @@
   <meta property="og:type" content="food" />
   <meta property="og:url" content="https://salmonfit.com" />
   <meta property="og:image" content={ogImage} />
+  <meta name="twitter:image" content={ogImage} />
   <link rel="canonical" href="https://salmonfit.com" />
   {#each menuItems as cat}
     {#each cat.items as item, id}
