@@ -12,11 +12,14 @@ const config = {
     amp: true,
     adapter: adapter({
       pages: 'build',
-      assets: 'build',
       fallback: null
     }),
-    // hydrate the <div id="svelte"> element in src/app.html
-    target: '#svelte',
+    prerender: {
+      // With the default value, somehow sveltekit crawls non page components like
+      // service-worker.js, favicon.png and it results in error: "404 /service-worker.js (linked from /)"
+      // even though those files exist in "build" directory
+      crawl: false,
+    },
     vite: {
       resolve: {
         alias: {
