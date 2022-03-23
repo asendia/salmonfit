@@ -1,0 +1,4 @@
+/admin/* https://bonjer.netlify.app/admin/:splat 200
+http://salmonfit.com/* https://salmonfit.com/:splat 301
+http://www.salmonfit.com/* https://salmonfit.com/:splat 301
+https://www.salmonfit.com/* https://salmonfit.com/:splat 301
