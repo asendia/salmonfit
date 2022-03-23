@@ -1,1 +1,1 @@
-node ./scripts/remove-empty-csp.js
+# node ./scripts/remove-empty-csp.js

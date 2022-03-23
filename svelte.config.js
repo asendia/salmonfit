@@ -1,5 +1,5 @@
 import preprocess from 'svelte-preprocess';
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-netlify';
 import { resolve } from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -9,10 +9,7 @@ const config = {
   preprocess: preprocess(),
 
   kit: {
-    adapter: adapter({
-      pages: 'build',
-      fallback: null
-    }),
+    adapter: adapter(),
     amp: true,
     // Not compatible with amp: https://github.com/ampproject/amphtml/issues/7008
     // CSP is in netlify.toml
