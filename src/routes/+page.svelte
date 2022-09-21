@@ -101,7 +101,7 @@
 		font-family: 'Satisfy', cursive;
 		font-size: 26px;
 		font-weight: 500;
-		margin: 30px 0 0px;
+		margin: 10px 0 0px;
 	}
 	.menu-items {
 		margin-bottom: 30px;

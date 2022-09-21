@@ -4,6 +4,7 @@
 	import grabLogo from '$lib/assets/social/grab-small.svg';
 	import gofoodLogo from '$lib/assets/social/gofood-small.svg';
 	import travelokaLogo from '$lib/assets/social/traveloka-small.svg';
+	import shopeeLogo from '$lib/assets/social/shopee-small.svg';
 	import ImgPlaceholder from './ImgPlaceholder.svelte';
 
 	const socialLinks = [
@@ -36,6 +37,12 @@
 			alt: 'grabfood',
 			imgSrc: grabLogo,
 			text: 'GrabFood'
+		},
+		{
+			url: 'https://shopee.co.id/universal-link/now-food/shop/20262634',
+			alt: 'Shopee',
+			imgSrc: shopeeLogo,
+			text: 'Shopee'
 		}
 	];
 </script>
@@ -53,17 +60,22 @@
 <style>
 	.social-wrapper {
 		display: flex;
-		justify-content: center;
+		justify-content: space-around;
 		align-items: center;
 		flex-wrap: wrap;
 		padding: 0 20px;
+	}
+	@media screen and (min-width: 720px) {
+		.social-wrapper {
+			justify-content: center;
+		}
 	}
 	a {
 		color: #aaaaaa;
 		line-height: 24px;
 		font-size: 10px;
 		display: flex;
-		margin: 0 10px 10px;
+		margin: 0 10px 7px;
 	}
 	.logo {
 		margin-right: 4px;
