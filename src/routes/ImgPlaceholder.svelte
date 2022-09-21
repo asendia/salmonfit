@@ -1,7 +1,7 @@
 <div placeholder="" />
 
 <style>
-  div {
-    background: #2c2c2c;
-  }
+	div {
+		background: #2c2c2c;
+	}
 </style>

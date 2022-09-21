@@ -2,5 +2,8 @@
 node_modules
 /build
 /.svelte-kit
+/.netlify
 /package
-.netlify
+.env
+.env.*
+!.env.example
