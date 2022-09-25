@@ -42,17 +42,15 @@
 			<amp-carousel
 				id="carousel-{catID}"
 				class="category-photo-carousel"
-				width="300"
 				height="200"
-				layout="responsive"
-				type="slides"
-				role="region"
 				aria-label="Carousel for {cat.name}"
 			>
+				<div class="carousel-spacer" />
 				{#each cat.itemIdsWithImages as imgId}
 					<amp-img
 						class="item-photo"
-						alt="{cat.items[imgId].name} photo"
+						title={cat.items[imgId].name}
+						alt={cat.items[imgId].name}
 						src={cat.items[imgId].imgHref}
 						width="300"
 						height="200"><ImgPlaceholder /></amp-img
@@ -67,7 +65,7 @@
 						class="menu-name"
 						role="button"
 						tabindex={catID * 20 + itemID}
-						on="tap:carousel-{catID}.goToSlide(index={cat.itemIdsWithImages.indexOf(itemID)})"
+						on="tap:carousel-{catID}.goToSlide(index={cat.itemIdsWithImages.indexOf(itemID + 1)})"
 					>
 						{item.name}
 					</div>
@@ -88,10 +86,13 @@
 		position: relative;
 	}
 	.category-photo-carousel {
+		position: relative;
 		display: block;
-		height: 200px;
 		border-radius: 10px;
 		margin: 15px auto;
+	}
+	.carousel-spacer {
+		width: 30px;
 	}
 	.item-photo {
 		border-radius: 10px;
@@ -125,29 +126,5 @@
 		padding: 8px 0;
 		color: #aaaaaa;
 		font-size: 12px;
-	}
-
-	@media (min-width: 700px) {
-		.category-name {
-			margin-top: 55px;
-		}
-		.category-photo-carousel {
-			min-width: 300px;
-			margin-top: 0;
-			margin-left: 40px;
-			position: absolute;
-		}
-		.menu-items.with-image {
-			min-height: 200px;
-		}
-		.with-image .menu-item:nth-child(1),
-		.with-image .menu-item:nth-child(2) {
-			margin-left: 325px;
-			min-height: 90px;
-		}
-		.with-image .menu-item:nth-child(2) {
-			margin-top: -20px;
-			margin-bottom: 40px;
-		}
 	}
 </style>
