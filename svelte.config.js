@@ -8,7 +8,7 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		// since <link rel="stylesheet"> isn't
+		// Since in AMP <link rel="stylesheet"> isn't
 		// allowed, inline all styles
 		inlineStyleThreshold: Infinity,
 		adapter: adapter()

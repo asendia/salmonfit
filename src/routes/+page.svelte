@@ -8,6 +8,7 @@
 	import menuItems from '$lib/menuItems';
 	import ImgPlaceholder from './ImgPlaceholder.svelte';
 	export const csr = false;
+	export const prerender = true;
 </script>
 
 <svelte:head>
