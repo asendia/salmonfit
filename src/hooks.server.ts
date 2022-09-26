@@ -17,6 +17,9 @@ export const handle: Handle = async ({ event, resolve }) => {
 		});
 		response.headers.set('x-frame-options', 'sameorigin');
 		response.headers.set('x-xss-protection', '1; mode=block');
+		response.headers.set('x-content-type-options', 'nosniff');
+		response.headers.set('referrer-policy', 'strict-origin-when-cross-origin');
+		response.headers.set('permissions-policy', 'fullscreen=()');
 		response.headers.set(
 			'content-security-policy',
 			"default-src * data: blob:; script-src blob: 'self' https://cdn.ampproject.org/v0.js https://cdn.ampproject.org/v0/ https://cdn.ampproject.org/viewer/ https://cdn.ampproject.org/rtv/; object-src 'none'; style-src 'unsafe-inline' https://cdn.ampproject.org/rtv/ https://cdn.materialdesignicons.com https://cloud.typography.com https://fast.fonts.net https://fonts.googleapis.com https://maxcdn.bootstrapcdn.com https://p.typekit.net https://use.fontawesome.com https://use.typekit.net; report-uri https://csp-collector.appspot.com/csp/amp"
