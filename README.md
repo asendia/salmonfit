@@ -1,6 +1,7 @@
-# create-svelte
+# Salmon Fit
+[![Netlify Status](https://api.netlify.com/api/v1/badges/599eecad-58fd-453f-9b21-130e4b9713f5/deploy-status)](https://app.netlify.com/sites/salmonfit/deploys)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Frontend code of [salmonfit.com](https://salmonfit.com)
 
 ## Developing
 
