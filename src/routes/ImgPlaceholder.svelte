@@ -2,6 +2,6 @@
 
 <style>
 	div {
-		background: #2c2c2c;
+		background: #7c4641;
 	}
 </style>

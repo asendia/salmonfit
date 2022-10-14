@@ -42,6 +42,7 @@
 		position: absolute;
 		top: 9px;
 		left: calc(50% - 50px);
+		background: #2c2c2c;
 	}
 	.headline {
 		text-align: center;

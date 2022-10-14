@@ -22,7 +22,7 @@
 		background-color: #2c2c2c;
 	}
 	:global(amp-img) {
-		background-color: #2c2c2c;
+		background-color: #7c4641;
 	}
 	.background {
 		background-image: var(--stacked-peaks-image);

@@ -47,9 +47,10 @@
 	];
 </script>
 
+<!-- bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full -->
 <div class="social-wrapper">
 	{#each socialLinks as s}
-		<a target="_blank" href={s.url} rel="noreferrer">
+		<a class="button" target="_blank" href={s.url} rel="noreferrer">
 			<amp-img class="logo" alt={s.alt} src={s.imgSrc} width="24" height="24"
 				><ImgPlaceholder /></amp-img
 			>{s.text}
@@ -64,6 +65,17 @@
 		align-items: center;
 		flex-wrap: wrap;
 		padding: 0 20px;
+	}
+	.button {
+		display: flex;
+		justify-content: center;
+		width: 80px;
+		background: #7c4641;
+		color: white;
+		font-weight: 500;
+		padding: 4px 8px;
+		border-radius: 100px;
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	}
 	@media screen and (min-width: 720px) {
 		.social-wrapper {
