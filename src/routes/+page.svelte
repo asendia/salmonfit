@@ -37,19 +37,19 @@
 
 <Header {title} {description} />
 {#each menuItems as cat, catID}
-	<h3 class="category-name">{cat.name}</h3>
-	<div class="category-body">
+	<h3 class="text-center font-serif text-2xl font-medium mt-3">{cat.name}</h3>
+	<div class="max-w-[1440px] m-auto relative">
 		{#if cat.itemIdsWithImages.length > 0}
 			<amp-carousel
 				id="carousel-{catID}"
-				class="category-photo-carousel"
+				class="relative block rounded-lg my-4 mx-auto"
 				height="200"
 				aria-label="Carousel for {cat.name}"
 			>
-				<div class="carousel-spacer" />
+				<div class="w-7" />
 				{#each cat.itemIdsWithImages as imgId}
 					<amp-img
-						class="item-photo"
+						class="rounded-lg"
 						title={cat.items[imgId].name}
 						alt={cat.items[imgId].name}
 						src={cat.items[imgId].imgHref}
@@ -59,11 +59,12 @@
 				{/each}
 			</amp-carousel>
 		{/if}
-		<ul class="menu-items{cat.itemIdsWithImages.length > 0 ? ' with-image' : ''}">
+		<ul class="mb-7 px-10">
 			{#each cat.items as item, itemID}
-				<li class="menu-item">
+				<li class="list-none mb-5">
 					<div
-						class="menu-name"
+						class="mb-2 font-light bg-bottom bg-repeat-x cursor-pointer outline-none"
+						style="background-image: linear-gradient(to right, #cacaca 33%, rgba(255, 255, 255, 0) 0%); background-size: 7px 1px;"
 						role="button"
 						tabindex={catID * 20 + itemID}
 						on="tap:carousel-{catID}.goToSlide(index={cat.itemIdsWithImages.indexOf(itemID + 1)})"
@@ -71,7 +72,7 @@
 						{item.name}
 					</div>
 					{#if item.description}
-						<div class="menu-description">{item.description}</div>
+						<div class="py-2 text-gray-300 text-xs">{item.description}</div>
 					{/if}
 				</li>
 			{/each}
@@ -79,53 +80,3 @@
 	</div>
 {/each}
 <Footer />
-
-<style>
-	.category-body {
-		max-width: 1440px;
-		margin: auto;
-		position: relative;
-	}
-	.category-photo-carousel {
-		position: relative;
-		display: block;
-		border-radius: 10px;
-		margin: 15px auto;
-	}
-	.carousel-spacer {
-		width: 30px;
-	}
-	.item-photo {
-		border-radius: 10px;
-	}
-	.category-name {
-		text-align: center;
-		font-family: 'Satisfy', cursive;
-		font-size: 26px;
-		font-weight: 500;
-		margin: 10px 0 0px;
-	}
-	.menu-items {
-		margin-bottom: 30px;
-		padding: 0 40px;
-	}
-	.menu-item {
-		list-style-type: none;
-		margin-bottom: 20px;
-	}
-	.menu-name {
-		padding: 0 0 10px;
-		font-weight: 300;
-		background-image: linear-gradient(to right, #cacaca 33%, rgba(255, 255, 255, 0) 0%);
-		background-position: bottom;
-		background-size: 7px 1px;
-		background-repeat: repeat-x;
-		cursor: pointer;
-		outline: none;
-	}
-	.menu-description {
-		padding: 8px 0;
-		color: #aaaaaa;
-		font-size: 12px;
-	}
-</style>
