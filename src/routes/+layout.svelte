@@ -1,6 +1,7 @@
 <script lang="ts">
-	import Fonts from './Fonts.svelte';
+	import '../app.css';
 	import stackedPeaksImage from '$lib/assets/stacked-peaks-haikei.svg';
+	import Fonts from './Fonts.svelte';
 </script>
 
 <svelte:head>
@@ -11,22 +12,6 @@
 	<Fonts />
 </svelte:head>
 
-<div class="background" style="--stacked-peaks-image: url({stackedPeaksImage})">
+<div class="bg-cover bg-no-repeat" style="background-image: url({stackedPeaksImage})">
 	<slot />
 </div>
-
-<style>
-	:global(body) {
-		margin: 0;
-		color: #fff;
-		background-color: #2c2c2c;
-	}
-	:global(amp-img) {
-		background-color: #7c4641;
-	}
-	.background {
-		background-image: var(--stacked-peaks-image);
-		background-size: cover;
-		background-repeat: no-repeat;
-	}
-</style>

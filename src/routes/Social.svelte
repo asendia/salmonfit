@@ -21,12 +21,6 @@
 			text: 'WhatsApp'
 		},
 		{
-			url: 'https://www.traveloka.com/id-id/restaurants/indonesia/detail/salmon-fit-free-delivery-162720',
-			alt: 'traveloka eats',
-			imgSrc: travelokaLogo,
-			text: 'Traveloka'
-		},
-		{
 			url: 'https://gofood.co.id/english/jakarta/restaurant/salmon-fit-apartemen-menara-kebon-jeruk-06f0dcc6-14f4-4092-810f-2bcc81214d23',
 			alt: 'gofood',
 			imgSrc: gofoodLogo,
@@ -43,53 +37,28 @@
 			alt: 'Shopee',
 			imgSrc: shopeeLogo,
 			text: 'Shopee'
-		}
+		},
+		{
+			url: 'https://www.traveloka.com/id-id/restaurants/indonesia/detail/salmon-fit-free-delivery-162720',
+			alt: 'traveloka eats',
+			imgSrc: travelokaLogo,
+			text: 'Traveloka'
+		},
 	];
 </script>
 
 <!-- bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full -->
-<div class="social-wrapper">
+<div class="flex justify-around items-center flex-wrap px-5 md:justify-center">
 	{#each socialLinks as s}
-		<a class="button" target="_blank" href={s.url} rel="noreferrer">
-			<amp-img class="logo" alt={s.alt} src={s.imgSrc} width="24" height="24"
+		<a
+			class="flex justify-center text-white font-medium py-1 px-2 rounded-full shadow-md leading-6 text-xs mr-2 mb-2 bg-crispbrown"
+			target="_blank"
+			href={s.url}
+			rel="noreferrer"
+		>
+			<amp-img class="mr-1" alt={s.alt} src={s.imgSrc} width="24" height="24"
 				><ImgPlaceholder /></amp-img
 			>{s.text}
 		</a>
 	{/each}
 </div>
-
-<style>
-	.social-wrapper {
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		flex-wrap: wrap;
-		padding: 0 20px;
-	}
-	.button {
-		display: flex;
-		justify-content: center;
-		width: 80px;
-		background: #7c4641;
-		color: white;
-		font-weight: 500;
-		padding: 4px 8px;
-		border-radius: 100px;
-		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	}
-	@media screen and (min-width: 720px) {
-		.social-wrapper {
-			justify-content: center;
-		}
-	}
-	a {
-		color: #aaaaaa;
-		line-height: 24px;
-		font-size: 10px;
-		display: flex;
-		margin: 0 10px 7px;
-	}
-	.logo {
-		margin-right: 4px;
-	}
-</style>

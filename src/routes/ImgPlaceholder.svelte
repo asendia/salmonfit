@@ -1,7 +1,1 @@
-<div placeholder="" />
-
-<style>
-	div {
-		background: #7c4641;
-	}
-</style>
+<div placeholder="" class="bg-crispbrown" />
