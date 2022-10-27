@@ -21,12 +21,6 @@
 			text: 'WhatsApp'
 		},
 		{
-			url: 'https://www.traveloka.com/id-id/restaurants/indonesia/detail/salmon-fit-free-delivery-162720',
-			alt: 'traveloka eats',
-			imgSrc: travelokaLogo,
-			text: 'Traveloka'
-		},
-		{
 			url: 'https://gofood.co.id/english/jakarta/restaurant/salmon-fit-apartemen-menara-kebon-jeruk-06f0dcc6-14f4-4092-810f-2bcc81214d23',
 			alt: 'gofood',
 			imgSrc: gofoodLogo,
@@ -43,7 +37,13 @@
 			alt: 'Shopee',
 			imgSrc: shopeeLogo,
 			text: 'Shopee'
-		}
+		},
+		{
+			url: 'https://www.traveloka.com/id-id/restaurants/indonesia/detail/salmon-fit-free-delivery-162720',
+			alt: 'traveloka eats',
+			imgSrc: travelokaLogo,
+			text: 'Traveloka'
+		},
 	];
 </script>
 
@@ -51,7 +51,7 @@
 <div class="flex justify-around items-center flex-wrap px-5 md:justify-center">
 	{#each socialLinks as s}
 		<a
-			class="flex justify-center w-20 text-white font-medium py-1 px-2 rounded-full shadow-md leading-6 text-xs mr-2 mb-2"
+			class="flex justify-center text-white font-medium py-1 px-2 rounded-full shadow-md leading-6 text-xs mr-2 mb-2 bg-crispbrown"
 			target="_blank"
 			href={s.url}
 			rel="noreferrer"

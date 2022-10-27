@@ -6,7 +6,14 @@ module.exports = {
 			sans: ['Roboto', 'sans-serif'],
 			serif: ['Satisfy', 'cursive']
 		},
-		extend: {}
+		extend: {
+			colors: {
+				salmon: '#e74e35',
+				crispbrown: '#7c4641',
+				maygray: '#2c2c2c',
+				softgray: '#aaa'
+			}
+		}
 	},
 	plugins: []
 };

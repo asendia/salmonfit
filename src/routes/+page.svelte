@@ -4,7 +4,7 @@
 	import ogImage from '$lib/assets/og-image-salmonfit.jpg';
 	const title = 'Salmon Fit';
 	const description =
-		'Fusion salmon dishes from Kebon Jeruk. Available at Grab food, Go-food & Traveloka eats!';
+		'Fusion salmon dishes from Kebon Jeruk. Available at Grab food, Go-food & Shopee Food!';
 	import menuItems from '$lib/menuItems';
 	import ImgPlaceholder from './ImgPlaceholder.svelte';
 	export const csr = false;
@@ -37,7 +37,7 @@
 
 <Header {title} {description} />
 {#each menuItems as cat, catID}
-	<h3 class="text-center font-serif text-2xl font-medium mt-3">{cat.name}</h3>
+	<h3 class="text-center font-serif text-2xl text-white font-medium mt-3 mb-1">{cat.name}</h3>
 	<div class="max-w-[1440px] m-auto relative">
 		{#if cat.itemIdsWithImages.length > 0}
 			<amp-carousel
@@ -63,7 +63,7 @@
 			{#each cat.items as item, itemID}
 				<li class="list-none mb-5">
 					<div
-						class="mb-2 font-light bg-bottom bg-repeat-x cursor-pointer outline-none"
+						class="mb-2 font-light bg-bottom bg-repeat-x cursor-pointer outline-none text-white"
 						style="background-image: linear-gradient(to right, #cacaca 33%, rgba(255, 255, 255, 0) 0%); background-size: 7px 1px;"
 						role="button"
 						tabindex={catID * 20 + itemID}
@@ -72,7 +72,7 @@
 						{item.name}
 					</div>
 					{#if item.description}
-						<div class="py-2 text-gray-300 text-xs">{item.description}</div>
+						<div class="py-2 text-softgray text-xs">{item.description}</div>
 					{/if}
 				</li>
 			{/each}

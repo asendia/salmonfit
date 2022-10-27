@@ -1,4 +1,4 @@
-<div class="text-center font-light mt-2 pt-2 pb-6 bg-gray-800 text-white">
+<div class="text-center font-light mt-2 pt-2 pb-6 bg-maygray text-white">
 	2022 - salmonfit - <a
 		class="text-white"
 		rel="noreferrer"
