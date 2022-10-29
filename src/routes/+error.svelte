@@ -7,7 +7,7 @@
 	// Client-side javascript won't work on amp, I added this only
 	// to try svelte event and state management on non-amp compile.
 	function createBubbleClickHandler(id: number) {
-		let timeoutID: NodeJS.Timeout;
+		let timeoutID: number;
 		return () => {
 			bubbles = bubbles.map((b) => {
 				if (id === b.id) {
@@ -18,7 +18,7 @@
 			if (timeoutID !== undefined) {
 				clearTimeout(timeoutID);
 			}
-			timeoutID = setTimeout(() => {
+			timeoutID = window.setTimeout(() => {
 				bubbles = bubbles.map((b) => {
 					if (id === b.id) {
 						b.visible = true;

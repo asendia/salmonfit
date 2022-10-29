@@ -12,7 +12,7 @@
 			url: 'https://www.instagram.com/salmonfit.id/',
 			alt: 'instagram',
 			imgSrc: igLogo,
-			text: 'salmonfit.id'
+			text: 'Instagram'
 		},
 		{
 			url: 'https://wa.me/6281310832474',
@@ -43,20 +43,19 @@
 			alt: 'traveloka eats',
 			imgSrc: travelokaLogo,
 			text: 'Traveloka'
-		},
+		}
 	];
 </script>
 
-<!-- bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full -->
-<div class="flex justify-around items-center flex-wrap px-5 md:justify-center">
+<div class="flex flex-wrap px-5 w-[370px] lg:w-[688px] mx-auto">
 	{#each socialLinks as s}
 		<a
-			class="flex justify-center text-white font-medium py-1 px-2 rounded-full shadow-md leading-6 text-xs mr-2 mb-2 bg-crispbrown"
+			class="flex justify-center w-[100px] text-white font-medium py-1 px-2 rounded-full shadow-md leading-6 text-xs mr-2 mb-2 bg-[#0f151c]"
 			target="_blank"
 			href={s.url}
 			rel="noreferrer"
 		>
-			<amp-img class="mr-1" alt={s.alt} src={s.imgSrc} width="24" height="24"
+			<amp-img class="mr-2" alt={s.alt} src={s.imgSrc} width="24" height="24"
 				><ImgPlaceholder /></amp-img
 			>{s.text}
 		</a>

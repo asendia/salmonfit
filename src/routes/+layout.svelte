@@ -1,17 +1,16 @@
 <script lang="ts">
 	import '../app.css';
-	import stackedPeaksImage from '$lib/assets/stacked-peaks-haikei.svg';
 	import Fonts from './Fonts.svelte';
 </script>
 
 <svelte:head>
-	<meta name="theme-color" content="#2c2c2c" />
+	<meta name="theme-color" content="#06080f" />
 	<link rel="manifest" href="/manifest.json" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<link rel="apple-touch-icon" href="/salmonfit-logo-192-white.png" />
 	<Fonts />
 </svelte:head>
 
-<div class="bg-cover bg-no-repeat" style="background-image: url({stackedPeaksImage})">
+<div class="bg-[#06080f] text-white">
 	<slot />
 </div>

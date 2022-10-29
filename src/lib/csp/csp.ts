@@ -13,7 +13,7 @@ export const cspDirectives: CspDirectives = {
 		'https://cdn.ampproject.org/rtv/'
 	],
 	'object-src': ['none'],
-	'font-src': ['https://fonts.gstatic.com/s/'],
+	'font-src': ['self'],
 	'style-src': ['unsafe-inline']
 };
 

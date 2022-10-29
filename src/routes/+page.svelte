@@ -7,6 +7,7 @@
 		'Fusion salmon dishes from Kebon Jeruk. Available at Grab food, Go-food & Shopee Food!';
 	import menuItems from '$lib/menuItems';
 	import ImgPlaceholder from './ImgPlaceholder.svelte';
+	import { urlHashFromName } from './url';
 	export const csr = false;
 	export const prerender = true;
 </script>
@@ -26,9 +27,9 @@
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={ogImage} />
 	<link rel="canonical" href="https://salmonfit.com" />
-	{#each menuItems as cat}
+	{#each menuItems as cat, catID}
 		{#each cat.items as item, id}
-			{#if item.imgHref && id === 0}
+			{#if catID === 0 && item.imgHref && id < 2}
 				<link rel="preload" as="image" href={item.imgHref} />
 			{/if}
 		{/each}
@@ -36,47 +37,40 @@
 </svelte:head>
 
 <Header {title} {description} />
-{#each menuItems as cat, catID}
-	<h3 class="text-center font-serif text-2xl text-white font-medium mt-3 mb-1">{cat.name}</h3>
-	<div class="max-w-[1440px] m-auto relative">
-		{#if cat.itemIdsWithImages.length > 0}
-			<amp-carousel
-				id="carousel-{catID}"
-				class="relative block rounded-lg my-4 mx-auto"
-				height="200"
-				aria-label="Carousel for {cat.name}"
-			>
-				<div class="w-7" />
-				{#each cat.itemIdsWithImages as imgId}
-					<amp-img
-						class="rounded-lg"
-						title={cat.items[imgId].name}
-						alt={cat.items[imgId].name}
-						src={cat.items[imgId].imgHref}
-						width="300"
-						height="200"><ImgPlaceholder /></amp-img
-					>
-				{/each}
-			</amp-carousel>
-		{/if}
-		<ul class="mb-7 px-10">
+<div class="w-[300px] mx-auto sm:w-[640px] lg:w-[960px] 2xl:w-[1280px]">
+	{#each menuItems as cat, catID}
+		<h3 id={urlHashFromName(cat.name)} class="text-2xl font-medium mt-3 mb-6">
+			<a href="#{urlHashFromName(cat.name)}">{cat.name}</a>
+		</h3>
+		<ul class="mb-7 flex flex-wrap">
 			{#each cat.items as item, itemID}
-				<li class="list-none mb-5">
-					<div
-						class="mb-2 font-light bg-bottom bg-repeat-x cursor-pointer outline-none text-white"
-						style="background-image: linear-gradient(to right, #cacaca 33%, rgba(255, 255, 255, 0) 0%); background-size: 7px 1px;"
-						role="button"
-						tabindex={catID * 20 + itemID}
-						on="tap:carousel-{catID}.goToSlide(index={cat.itemIdsWithImages.indexOf(itemID + 1)})"
+				<li
+					id={urlHashFromName(item.name)}
+					class="list-none pb-3 mb-5 flex flex-col w-[300px] bg-[#0f151c] rounded-tr-2xl rounded-bl-2xl overflow-hidden sm:mr-5"
+				>
+					<amp-img title={item.name} alt={item.name} src={item.imgHref} width="300" height="200"
+						><ImgPlaceholder /></amp-img
 					>
-						{item.name}
+					<div class="px-4 flex flex-col justify-end">
+						<a
+							href="#{urlHashFromName(item.name)}"
+							class="flex mt-2 outline-none"
+							tabindex={catID * 20 + itemID}
+						>
+							{item.name}
+						</a>
+						<ul class="flex list-disc mt-3 marker:text-salmon text-xs text-[#d5d6d7] pl-4">
+							{#each item.info as info}
+								<li>{info}</li>
+							{/each}
+						</ul>
+						{#if item.description}
+							<div class="py-2 text-[#95979a] text-xs">{item.description}</div>
+						{/if}
 					</div>
-					{#if item.description}
-						<div class="py-2 text-softgray text-xs">{item.description}</div>
-					{/if}
 				</li>
 			{/each}
 		</ul>
-	</div>
-{/each}
+	{/each}
+</div>
 <Footer />

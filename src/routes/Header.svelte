@@ -13,7 +13,7 @@
 <h1 class="text-center font-light text-5xl text-salmon relative pt-11">
 	<span class="relative uppercase z-10">{title}</span>
 	<amp-img
-		class="absolute top-[9px] bg-maygray"
+		class="absolute top-[9px] bg-[#06080f]"
 		style="left: calc(50% - 50px);"
 		alt="salmon fit fish logo"
 		src={salmonfitFishLogo}
@@ -21,5 +21,5 @@
 		height="46"><ImgPlaceholder /></amp-img
 	>
 </h1>
-<p class="text-center font-light mb-3 px-7 text-xs text-salmon">{description}</p>
+<p class="text-center font-light my-3 px-7 text-xs text-salmon">{description}</p>
 <Social />
