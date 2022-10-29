@@ -7,10 +7,7 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				salmon: '#e74e35',
-				crispbrown: '#7c4641',
-				maygray: '#2c2c2c',
-				softgray: '#aaa'
+				salmon: '#e74e35'
 			}
 		}
 	},

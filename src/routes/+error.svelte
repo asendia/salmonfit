@@ -58,7 +58,7 @@
 	}
 	.error-container {
 		position: absolute;
-		bottom: 0;
+		bottom: 10vh;
 		width: 100%;
 	}
 	p {
