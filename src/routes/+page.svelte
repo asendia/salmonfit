@@ -10,6 +10,8 @@
 	import { urlHashFromName } from './url';
 	export const csr = false;
 	export const prerender = true;
+	export const protoDomain = 'https://salmonfit.com';
+	export const ogImageFullUrl = protoDomain + ogImage;
 </script>
 
 <svelte:head>
@@ -18,15 +20,15 @@
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 	<meta property="og:type" content="food" />
-	<meta property="og:url" content="https://salmonfit.com" />
-	<meta property="og:image" content={ogImage} />
+	<meta property="og:url" content={protoDomain} />
+	<meta property="og:image" content={ogImageFullUrl} />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@salmonfit" />
 	<meta name="twitter:creator" content="@salmonfit" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
-	<meta name="twitter:image" content={ogImage} />
-	<link rel="canonical" href="https://salmonfit.com" />
+	<meta name="twitter:image" content={ogImageFullUrl} />
+	<link rel="canonical" href={protoDomain} />
 	{#each menuItems as cat, catID}
 		{#each cat.items as item, id}
 			{#if catID === 0 && item.imgHref && id < 2}
