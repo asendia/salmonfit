@@ -21,8 +21,8 @@
 	<meta property="og:url" content="https://salmonfit.com" />
 	<meta property="og:image" content={ogImage} />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="@asendiaMayco" />
-	<meta name="twitter:creator" content="@asendiaMayco" />
+	<meta name="twitter:site" content="@salmonfit" />
+	<meta name="twitter:creator" content="@salmonfit" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={ogImage} />
