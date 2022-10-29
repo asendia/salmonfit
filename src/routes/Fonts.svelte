@@ -7,10 +7,12 @@
 		font-family: 'Outfit';
 		font-weight: 300;
 		src: url(/fonts/Outfit-Light.ttf);
+		font-display: swap;
 	}
 	/* latin */
 	@font-face {
 		font-family: 'Outfit';
 		src: url(/fonts/Outfit-Regular.ttf);
+		font-display: swap;
 	}
 </style>
