@@ -8,13 +8,15 @@
 	export let data: { food: Food };
 	export const food = data.food;
 	export const ogImageFullUrl = protoDomain + food.photoHref;
+	const infoInline = food.info.join(', ');
+	export const descriptionWithInfo = food.description + ` (${infoInline})`;
 </script>
 
 <svelte:head>
 	<title>{food.name}</title>
-	<meta name="description" content={food.description} />
+	<meta name="description" content={descriptionWithInfo} />
 	<meta property="og:title" content={food.name} />
-	<meta property="og:description" content={food.description} />
+	<meta property="og:description" content={descriptionWithInfo} />
 	<meta property="og:type" content="food" />
 	<meta property="og:url" content={protoDomain} />
 	<meta property="og:image" content={ogImageFullUrl} />
@@ -22,7 +24,7 @@
 	<meta name="twitter:site" content="@salmonfit" />
 	<meta name="twitter:creator" content="@salmonfit" />
 	<meta name="twitter:title" content={food.name} />
-	<meta name="twitter:description" content={food.description} />
+	<meta name="twitter:description" content={descriptionWithInfo} />
 	<meta name="twitter:image" content={ogImageFullUrl} />
 	<link rel="canonical" href={protoDomain} />
 </svelte:head>
