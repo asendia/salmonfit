@@ -31,7 +31,7 @@
 	<link rel="canonical" href={protoDomain} />
 </svelte:head>
 
-<div class="w-full md:max-w-[800px] 2xl:max-w-[1500px] mx-auto relative min-h-[88vh]">
+<div class="w-full md:max-w-[800px] 2xl:max-w-[1500px] mx-auto relative min-h-[80vh]">
 	<amp-img
 		layout="responsive"
 		class="lg:rounded-lg"
