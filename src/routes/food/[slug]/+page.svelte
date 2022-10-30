@@ -4,9 +4,28 @@
 	import Social from '../../Social.svelte';
 	import Footer from '../../Footer.svelte';
 	import ImgPlaceholder from '../../ImgPlaceholder.svelte';
+	import { protoDomain } from '$lib/url';
 	export let data: { food: Food };
 	export const food = data.food;
+	export const ogImageFullUrl = protoDomain + food.photoHref;
 </script>
+
+<svelte:head>
+	<title>{food.name}</title>
+	<meta name="description" content={food.description} />
+	<meta property="og:title" content={food.name} />
+	<meta property="og:description" content={food.description} />
+	<meta property="og:type" content="food" />
+	<meta property="og:url" content={protoDomain} />
+	<meta property="og:image" content={ogImageFullUrl} />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@salmonfit" />
+	<meta name="twitter:creator" content="@salmonfit" />
+	<meta name="twitter:title" content={food.name} />
+	<meta name="twitter:description" content={food.description} />
+	<meta name="twitter:image" content={ogImageFullUrl} />
+	<link rel="canonical" href={protoDomain} />
+</svelte:head>
 
 <div class="w-full md:max-w-[800px] 2xl:max-w-[1500px] mx-auto relative min-h-[88vh]">
 	<amp-img
