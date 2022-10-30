@@ -1,14 +1,12 @@
 <script lang="ts">
 	import Header from './Header.svelte';
-	import Footer from './Footer.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	import ogImage from '$lib/assets/og-image-salmonfit.jpg';
 	const title = 'Salmon Fit';
 	const description =
 		'Fusion salmon dishes from Kebon Jeruk. Available at Grab food, Go-food & Shopee Food!';
 	import menuItems from '$lib/menuItems';
-	import ImgPlaceholder from './ImgPlaceholder.svelte';
 	import { protoDomain, urlHashFromName } from '$lib/url';
-	export const csr = false;
 	export const prerender = true;
 	export const ogImageFullUrl = protoDomain + ogImage;
 </script>
@@ -49,13 +47,14 @@
 					class="list-none pb-3 mb-5 flex flex-col w-[300px] bg-[#0f151c] rounded-tr-2xl rounded-bl-2xl overflow-hidden sm:mr-5"
 				>
 					<a class="flex" href="/food/{urlHashFromName(item.name)}">
-						<amp-img
+						<img
 							title={item.name}
 							alt={item.name}
 							src={item.thumbnailHref}
 							width="300"
-							height="200"><ImgPlaceholder /></amp-img
-						></a
+							height="200"
+							loading="lazy"
+						/></a
 					>
 					<div class="px-4 flex flex-col justify-end">
 						<a href="/food/{urlHashFromName(item.name)}" class="flex mt-2 outline-none">

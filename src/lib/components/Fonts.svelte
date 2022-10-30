@@ -1,7 +1,7 @@
 <link rel="preload" as="font" href="/fonts/Outfit-Light.ttf" crossorigin="anonymous" />
 <link rel="preload" as="font" href="/fonts/Outfit-Regular.ttf" crossorigin="anonymous" />
 
-<style amp-custom>
+<style>
 	/* latin */
 	@font-face {
 		font-family: 'Outfit';

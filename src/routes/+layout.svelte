@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import Fonts from './Fonts.svelte';
+	import Fonts from '$lib/components/Fonts.svelte';
 </script>
 
 <svelte:head>

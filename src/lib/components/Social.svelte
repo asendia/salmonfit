@@ -5,7 +5,6 @@
 	import gofoodLogo from '$lib/assets/social/gofood-small.svg';
 	import travelokaLogo from '$lib/assets/social/traveloka-small.svg';
 	import shopeeLogo from '$lib/assets/social/shopee-small.svg';
-	import ImgPlaceholder from './ImgPlaceholder.svelte';
 
 	const socialLinks = [
 		{
@@ -54,8 +53,6 @@
 		href={s.url}
 		rel="noreferrer"
 	>
-		<amp-img class="mr-2" alt={s.alt} src={s.imgSrc} width="24" height="24"
-			><ImgPlaceholder /></amp-img
-		>{s.text}
+		<img class="mr-2" alt={s.alt} src={s.imgSrc} width="24" height="24" loading="lazy" />{s.text}
 	</a>
 {/each}

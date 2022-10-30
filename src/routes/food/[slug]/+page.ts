@@ -7,7 +7,6 @@ export const load: Load = async ({ params }) => {
 	for (const cat of menuItems) {
 		for (const f of cat.items) {
 			const fName = urlHashFromName(f.name);
-			console.log(fName, params.slug);
 			if (fName === params.slug) {
 				food = f;
 				break;

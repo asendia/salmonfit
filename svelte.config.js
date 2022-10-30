@@ -12,9 +12,14 @@ const config = {
 	],
 
 	kit: {
-		// Since in AMP <link rel="stylesheet"> isn't
-		// allowed, inline all styles
-		inlineStyleThreshold: Infinity,
+		csp: {
+			directives: {
+				'script-src': ['self'],
+				'object-src': ['none'],
+				'font-src': ['self'],
+				'style-src': ['self']
+			}
+		},
 		adapter: adapter()
 	}
 };

@@ -1,12 +1,17 @@
 <script lang="ts">
 	export const status = 404;
-	import sadSalmonImg from '$lib/assets/error/octomon.png';
-	import Footer from './Footer.svelte';
-	const sadSalmonBg = `url(${sadSalmonImg}) left center`;
+	// https://github.com/sveltejs/kit/issues/5980
+	export let data;
+	if (Object.keys(data).length !== 0) {
+		console.error({ data });
+	}
+	export let form;
+	if (form !== null) {
+		console.error({ form });
+	}
+	import Footer from '$lib/components/Footer.svelte';
 	const message = status === 404 ? 'Page not found' : 'Unknown';
 	let bubbles = [...Array(12).keys()].map((i) => ({ id: i + 1, visible: true }));
-	// Client-side javascript won't work on amp, I added this only
-	// to try svelte event and state management on non-amp compile.
 	function createBubbleClickHandler(id: number) {
 		let timeoutID: number;
 		return () => {
@@ -39,7 +44,7 @@
 <div class="main">
 	<!-- Copied from: https://codepen.io/codypearce/pen/VwYOGzq -->
 	<div class="ocean">
-		<div id="octocat" style="--sad-salmon-bg: {sadSalmonBg}" />
+		<div id="octocat" class="bg-[url('/octomon.png')] bg-left" />
 		{#each bubbles as bubble}
 			{#if bubble.visible}
 				<div class="bubble bubble--{bubble.id}" on:click={createBubbleClickHandler(bubble.id)} />
@@ -48,7 +53,7 @@
 	</div>
 	<slot />
 	<div class="error-container">
-		<p>Sad salmon is sad, back to <a href="/" target="_self" class="underline">homepage</a></p>
+		<p>Sad salmon is sad, back to <a href="/" target="_self" class="underline">home page</a></p>
 		<p>Error - {message}</p>
 		<Footer />
 	</div>
@@ -72,7 +77,6 @@
 	#octocat {
 		height: 300px;
 		width: 200px;
-		background: var(--sad-salmon-bg);
 		animation: animateSprite 15s steps(1) infinite, swim 15s ease-in-out infinite;
 		position: absolute;
 		right: -200px;
