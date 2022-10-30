@@ -23,5 +23,5 @@
 		>
 	</a>
 </h1>
-<p class="text-center font-light my-3 px-7 text-xs text-salmon">{description}</p>
+<p class="text-center font-light mt-1 mb-3 px-7 text-xs text-salmon">{description}</p>
 <Social />

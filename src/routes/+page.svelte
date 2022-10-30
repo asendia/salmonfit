@@ -41,9 +41,9 @@
 <Header {title} {description} />
 <div class="w-[300px] mx-auto sm:w-[640px] lg:w-[960px] 2xl:w-[1280px]">
 	{#each menuItems as cat, catID}
-		<h3 id={urlHashFromName(cat.name)} class="text-2xl font-medium mt-3 mb-6">
+		<h2 id={urlHashFromName(cat.name)} class="text-2xl font-medium mt-3 mb-6">
 			<a href="#{urlHashFromName(cat.name)}">{cat.name}</a>
-		</h3>
+		</h2>
 		<ul class="mb-7 flex flex-wrap">
 			{#each cat.items as item, itemID}
 				<li
@@ -54,11 +54,7 @@
 						><ImgPlaceholder /></amp-img
 					>
 					<div class="px-4 flex flex-col justify-end">
-						<a
-							href="#{urlHashFromName(item.name)}"
-							class="flex mt-2 outline-none"
-							tabindex={catID * 20 + itemID}
-						>
+						<a href="#{urlHashFromName(item.name)}" class="flex mt-2 outline-none">
 							{item.name}
 						</a>
 						<ul class="flex list-disc mt-3 marker:text-salmon text-xs text-[#d5d6d7] pl-4">
