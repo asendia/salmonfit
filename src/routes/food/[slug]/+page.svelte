@@ -10,6 +10,8 @@
 	export const ogImageFullUrl = protoDomain + food.photoHref;
 	const infoInline = food.info.join(', ');
 	export const descriptionWithInfo = food.description + ` (${infoInline})`;
+	export const csr = false;
+	export const prerender = true;
 </script>
 
 <svelte:head>
