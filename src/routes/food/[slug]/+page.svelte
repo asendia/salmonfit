@@ -4,12 +4,17 @@
 	import Social from '$lib/components/Social.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { protoDomain } from '$lib/url';
+	import { homeVisit } from '$lib/stores/homeVisit';
 	export let data: { food: Food };
 	export const food = data.food;
 	export const ogImageFullUrl = protoDomain + food.photoHref;
 	const infoInline = food.info.join(', ');
 	export const descriptionWithInfo = food.description + ` (${infoInline})`;
 	export const prerender = true;
+	export let hasVisitedHome = false;
+	homeVisit.subscribe((val) => {
+		hasVisitedHome = val;
+	});
 </script>
 
 <svelte:head>
@@ -43,6 +48,11 @@
 	<a
 		href="/"
 		class="absolute block top-4 left-4 bg-white bg-opacity-50 rounded-full w-[30px] h-[30px] pt-[5px] pl-[4px] cursor-pointer"
+		on:click={() => {
+			if (hasVisitedHome) {
+				window.history.back();
+			}
+		}}
 	>
 		<img src={chevronLeft} alt="Home" title="Home" width="20" height="20" loading="lazy" />
 	</a>

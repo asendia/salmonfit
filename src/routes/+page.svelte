@@ -7,6 +7,8 @@
 		'Fusion salmon dishes from Kebon Jeruk. Available at Grab food, Go-food & Shopee Food!';
 	import menuItems from '$lib/menuItems';
 	import { protoDomain, urlHashFromName } from '$lib/url';
+	import { homeVisit } from '$lib/stores/homeVisit';
+	homeVisit.set(true);
 	export const prerender = true;
 	export const ogImageFullUrl = protoDomain + ogImage;
 </script>
