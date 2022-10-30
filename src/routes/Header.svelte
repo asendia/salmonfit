@@ -24,4 +24,7 @@
 	</a>
 </h1>
 <p class="text-center font-light mt-1 mb-3 px-7 text-xs text-salmon">{description}</p>
-<Social />
+
+<div class="flex flex-wrap px-5 w-[370px] lg:w-[688px] mx-auto">
+	<Social />
+</div>

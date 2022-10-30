@@ -7,7 +7,7 @@
 		'Fusion salmon dishes from Kebon Jeruk. Available at Grab food, Go-food & Shopee Food!';
 	import menuItems from '$lib/menuItems';
 	import ImgPlaceholder from './ImgPlaceholder.svelte';
-	import { urlHashFromName } from './url';
+	import { urlHashFromName } from '$lib/url';
 	export const csr = false;
 	export const prerender = true;
 	export const protoDomain = 'https://salmonfit.com';
@@ -31,8 +31,8 @@
 	<link rel="canonical" href={protoDomain} />
 	{#each menuItems as cat, catID}
 		{#each cat.items as item, id}
-			{#if catID === 0 && item.imgHref && id < 2}
-				<link rel="preload" as="image" href={item.imgHref} />
+			{#if catID === 0 && item.thumbnailHref && id < 2}
+				<link rel="preload" as="image" href={item.thumbnailHref} />
 			{/if}
 		{/each}
 	{/each}
@@ -40,21 +40,26 @@
 
 <Header {title} {description} />
 <div class="w-[300px] mx-auto sm:w-[640px] lg:w-[960px] 2xl:w-[1280px]">
-	{#each menuItems as cat, catID}
-		<h2 id={urlHashFromName(cat.name)} class="text-2xl font-medium mt-3 mb-6">
-			<a href="#{urlHashFromName(cat.name)}">{cat.name}</a>
+	{#each menuItems as cat}
+		<h2 class="text-2xl font-medium mt-3 mb-6">
+			{cat.name}
 		</h2>
 		<ul class="mb-7 flex flex-wrap">
-			{#each cat.items as item, itemID}
+			{#each cat.items as item}
 				<li
-					id={urlHashFromName(item.name)}
 					class="list-none pb-3 mb-5 flex flex-col w-[300px] bg-[#0f151c] rounded-tr-2xl rounded-bl-2xl overflow-hidden sm:mr-5"
 				>
-					<amp-img title={item.name} alt={item.name} src={item.imgHref} width="300" height="200"
-						><ImgPlaceholder /></amp-img
+					<a class="flex" href="/food/{urlHashFromName(item.name)}">
+						<amp-img
+							title={item.name}
+							alt={item.name}
+							src={item.thumbnailHref}
+							width="300"
+							height="200"><ImgPlaceholder /></amp-img
+						></a
 					>
 					<div class="px-4 flex flex-col justify-end">
-						<a href="#{urlHashFromName(item.name)}" class="flex mt-2 outline-none">
+						<a href="/food/{urlHashFromName(item.name)}" class="flex mt-2 outline-none">
 							{item.name}
 						</a>
 						<ul class="flex list-disc mt-3 marker:text-salmon text-xs text-[#d5d6d7] pl-4">

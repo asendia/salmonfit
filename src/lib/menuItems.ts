@@ -2,25 +2,31 @@ export interface FoodCategory {
 	name: string;
 	items: Array<Food>;
 }
-interface Food {
+export interface Food {
 	name: string;
 	price?: number;
-	imgHref?: string;
+	thumbnailHref?: string;
+	photoHref?: string;
 	info: Array<string>;
 	description?: string;
 }
 
 import menuItemsJSON from '$lib/data/menu.json';
-import foodImageMap from './foodImageMap';
+import menuThumbnailPhotoMap from './menuThumbnailPhotoMap';
+import menuDetailPhotoMap from './menuDetailPhotoMap';
+import { urlHashFromName } from './url';
 
 const menuItems: Array<FoodCategory> = menuItemsJSON;
 
 // Attach images to menuItems
 for (const foodCategory of menuItems) {
 	for (const food of foodCategory.items) {
-		const key = food.name.split(' ').join('-').toLowerCase() as keyof typeof foodImageMap;
-		if (foodImageMap[key]) {
-			food.imgHref = foodImageMap[key] as string;
+		const key = urlHashFromName(food.name) as keyof typeof menuThumbnailPhotoMap;
+		if (menuThumbnailPhotoMap[key]) {
+			food.thumbnailHref = menuThumbnailPhotoMap[key];
+		}
+		if (menuDetailPhotoMap[key]) {
+			food.photoHref = menuDetailPhotoMap[key];
 		}
 	}
 }

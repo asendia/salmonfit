@@ -2,7 +2,8 @@ import { cspDirectives, generateCSPHeaderValue } from '$lib/csp/csp';
 import * as amp from '@sveltejs/amp';
 import type { Handle } from '@sveltejs/kit';
 export const handle: Handle = async ({ event, resolve }) => {
-	if (event.url.pathname === '/') {
+	const pathname = event.url.pathname;
+	if (pathname === '/' || pathname.startsWith('/food/')) {
 		const response = await resolve(event, {
 			transformPageChunk: ({ html, done }) => {
 				if (done) {

@@ -47,17 +47,15 @@
 	];
 </script>
 
-<div class="flex flex-wrap px-5 w-[370px] lg:w-[688px] mx-auto">
-	{#each socialLinks as s}
-		<a
-			class="flex justify-center w-[100px] text-white font-medium py-1 px-2 rounded-full shadow-md leading-6 text-xs mr-2 mb-2 bg-[#0f151c]"
-			target="_blank"
-			href={s.url}
-			rel="noreferrer"
-		>
-			<amp-img class="mr-2" alt={s.alt} src={s.imgSrc} width="24" height="24"
-				><ImgPlaceholder /></amp-img
-			>{s.text}
-		</a>
-	{/each}
-</div>
+{#each socialLinks as s}
+	<a
+		class="flex justify-center w-[100px] text-white font-medium py-1 px-2 rounded-full shadow-md leading-6 text-xs mr-2 mb-2 bg-[#0f151c]"
+		target="_blank"
+		href={s.url}
+		rel="noreferrer"
+	>
+		<amp-img class="mr-2" alt={s.alt} src={s.imgSrc} width="24" height="24"
+			><ImgPlaceholder /></amp-img
+		>{s.text}
+	</a>
+{/each}

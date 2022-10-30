@@ -1,6 +1,7 @@
 <script lang="ts">
 	export const status = 404;
 	import sadSalmonImg from '$lib/assets/error/octomon.png';
+	import Footer from './Footer.svelte';
 	const sadSalmonBg = `url(${sadSalmonImg}) left center`;
 	const message = status === 404 ? 'Page not found' : 'Unknown';
 	let bubbles = [...Array(12).keys()].map((i) => ({ id: i + 1, visible: true }));
@@ -47,8 +48,9 @@
 	</div>
 	<slot />
 	<div class="error-container">
-		<p>Sad salmon is sad, back to <a href="/" target="_self" class="underline">the homepage</a></p>
+		<p>Sad salmon is sad, back to <a href="/" target="_self" class="underline">homepage</a></p>
 		<p>Error - {message}</p>
+		<Footer />
 	</div>
 </div>
 
@@ -58,7 +60,7 @@
 	}
 	.error-container {
 		position: absolute;
-		bottom: 10vh;
+		bottom: 6vh;
 		width: 100%;
 	}
 	p {

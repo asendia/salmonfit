@@ -16,7 +16,7 @@ import imgSmokedSalmonFriedRice from '$lib/assets/menu/thumbs/smoked-salmon-frie
 import imgSpaghettiAglioOlioWithSalmon from '$lib/assets/menu/thumbs/spaghetti-aglio-olio-with-salmon.webp';
 import imgSpaghettiAglioOlioWithSmokedSalmon from '$lib/assets/menu/thumbs/spaghetti-aglio-olio-with-smoked-salmon.webp';
 
-const foodImageMap = {
+const menuThumbnailPhotoMap = {
 	'creamy-shirataki-fettuccine-with-smoked-salmon': imgCreamyShiratakiFettuccineWithSmokedSalmon,
 	'creamy-shirataki-noodles-with-salmon': imgCreamyShiratakiNoodlesWithSalmon,
 	'creamy-shirataki-noodles-with-smoked-salmon': imgCreamyShiratakiNoodlesWithSmokedSalmon,
@@ -37,4 +37,4 @@ const foodImageMap = {
 	'spaghetti-aglio-olio-with-smoked-salmon': imgSpaghettiAglioOlioWithSmokedSalmon
 };
 
-export default foodImageMap;
+export default menuThumbnailPhotoMap;
