@@ -16,7 +16,9 @@ const config = {
 			directives: {
 				'script-src': ['self'],
 				'object-src': ['none'],
-				'font-src': ['self'],
+				'font-src': [
+					'https://fonts.gstatic.com/s/outfit/v6/QGYyz_MVcBeNP4NjuGObqx1XmO1I4W61O4a0EwItq6fNIg.woff2'
+				],
 				'style-src': ['self']
 			}
 		},

@@ -1,18 +1,16 @@
-<link rel="preload" as="font" href="/fonts/Outfit-Light.ttf" crossorigin="anonymous" />
-<link rel="preload" as="font" href="/fonts/Outfit-Regular.ttf" crossorigin="anonymous" />
+<link
+	rel="preload"
+	as="font"
+	href="https://fonts.gstatic.com/s/outfit/v6/QGYyz_MVcBeNP4NjuGObqx1XmO1I4W61O4a0EwItq6fNIg.woff2"
+	type="font/woff2"
+	crossorigin="anonymous"
+/>
 
 <style>
-	/* latin */
 	@font-face {
 		font-family: 'Outfit';
-		font-weight: 300;
-		src: url(/fonts/Outfit-Light.ttf);
-		font-display: swap;
-	}
-	/* latin */
-	@font-face {
-		font-family: 'Outfit';
-		src: url(/fonts/Outfit-Regular.ttf);
+		src: url(https://fonts.gstatic.com/s/outfit/v6/QGYyz_MVcBeNP4NjuGObqx1XmO1I4W61O4a0EwItq6fNIg.woff2)
+			format('woff2');
 		font-display: swap;
 	}
 </style>
