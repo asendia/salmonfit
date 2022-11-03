@@ -53,7 +53,7 @@
 	</div>
 	<slot />
 	<div class="error-container">
-		<p>Sad salmon is sad, back to <a href="/" target="_self" class="underline">home page</a></p>
+		<p>Sad salmon is sad, back to <a href="/" class="underline">home page</a></p>
 		<p>Error - {message}</p>
 		<Footer />
 	</div>
