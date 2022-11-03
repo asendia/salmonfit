@@ -3,7 +3,6 @@
 	import whatsappLogo from '$lib/assets/social/whatsapp-small.svg';
 	import grabLogo from '$lib/assets/social/grab-small.svg';
 	import gofoodLogo from '$lib/assets/social/gofood-small.svg';
-	import travelokaLogo from '$lib/assets/social/traveloka-small.svg';
 	import shopeeLogo from '$lib/assets/social/shopee-small.svg';
 
 	const socialLinks = [
@@ -36,12 +35,6 @@
 			alt: 'Shopee',
 			imgSrc: shopeeLogo,
 			text: 'Shopee'
-		},
-		{
-			url: 'https://www.traveloka.com/id-id/restaurants/indonesia/detail/salmon-fit-free-delivery-162720',
-			alt: 'traveloka eats',
-			imgSrc: travelokaLogo,
-			text: 'Traveloka'
 		}
 	];
 </script>
