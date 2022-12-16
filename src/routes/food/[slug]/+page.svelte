@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import type { Food } from '$lib/menuItems';
 	import chevronLeft from '$lib/assets/chevron-left.svg';
 	import Social from '$lib/components/Social.svelte';
@@ -31,7 +32,7 @@
 	<meta name="twitter:title" content={food.name} />
 	<meta name="twitter:description" content={descriptionWithInfo} />
 	<meta name="twitter:image" content={ogImageFullUrl} />
-	<link rel="canonical" href={protoDomain} />
+	<link rel="canonical" href={protoDomain + $page.url.pathname} />
 </svelte:head>
 
 <div class="w-full md:max-w-[800px] 2xl:max-w-[1500px] mx-auto relative min-h-[80vh]">
