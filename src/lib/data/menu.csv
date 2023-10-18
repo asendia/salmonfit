@@ -1,41 +1,36 @@
-Menu,Calories,Description,Price
-Salmon,,,
-Salmon Geprek,501,"Fried salmon coated with seasoning flour, steamed jasmine rice and spicy sauce (Sambal Geprek)",61000
-Grilled Salmon ,405,"Salmon, steamed jasmine rice, and salad of the day",59000
-Spaghetti Aglio Olio with Salmon,395,"Cooked spaghetti, garlic, mushroom champignon and parsley with salmon",45000
-Creamy spaghetti with Salmon,405,"Cooked spaghetti, garlic, mushroom champignon, parsley and cream with salmon",45000
-Shirataki Fettuccine Aglio Olio with Salmon,236,"Cooked shirataki fettuccine, garlic, mushroom champignon, parsley, with salmon",49000
-Creamy Shirataki Fettuccine with Salmon,246,"Cooked shirataki fettuccine, garlic, mushroom champignon, parsley, and cream with salmon",49000
-Shirataki Fried Rice with Salmon ,248,"Cooked shirataki rice, garlic, sweet corn, carrot, green beans, parsley, with salmon",49000
-Fried Shirataki Noodles with Salmon,236,"Stir fry shirataki noodles, garlic, sweet corn, carrot, green beans, parsley, with salmon",49000
-Creamy Shirataki Noodles with Salmon,246,"Cooked shirataki noodles, garlic, mushroom champignon, parsley, and cream with salmon",49000
-Salmon fried rice,348,"Steamed jasmine rice, garlic, sweet corn, carrot, parsley, green beans with salmon",41000
-,,,
-Smoked Salmon,,,
-Spaghetti Aglio Olio with Smoked Salmon,388,"Cooked spaghetti, garlic, mushroom champignon, parsley with smoked salmon",49000
-Creamy spaghetti with Smoked Salmon,398,"Cooked spaghetti, garlic, mushroom champignon and cream with smoked salmon",51000
-Shirataki Fettuccine Aglio Olio with Smoked Salmon,229,"Cooked shirataki fettuccine, garlic, mushroom champignon, parsley, with smoked salmon",59000
-Creamy Shirataki Fettuccine with Smoked Salmon,239,"Cooked shirataki fettuccine, garlic, mushroom champignon, parsley, and cream with smoked salmon",59000
-Shirataki Fried Rice with Smoked Salmon,241,"Cooked shirataki rice, garlic, sweet corn, carrot, green beans, parsley, with smoked salmon",59000
-Fried Shirataki Noodles with Smoked Salmon,229,"Stir fry shirataki noodles, garlic, sweet corn, carrot, green beans, parsley, with smoked salmon",59000
-Creamy Shirataki Noodles with Smoked Salmon,249,"Cooked shirataki noodles, garlic, mushroom champignon, parsley, and cream with smoked salmon",59000
-Smoked salmon fried rice,316,"Steamed jasmine rice, garlic, sweet corn, carrot , parsley with smoked  salmon",49000
-,,,
-A La Carte,,,
-Salmon Geprek Ala Carte,292,Fried salmon coated with seasoning flour and spicy sauce (Sambal Geprek),57000
-Grilled Butter Salmon Ala Carte,269,Salmon and salad of the day,65000
-Smoked Salmon Ala Carte,467,Smoked salmon,69000
-,,,
-Side Dish,,,
-Jasmine Steamed Rice,195,Steamed jasmine rice,11000
-Butter Rice,185,Steamed jasmine rice with butter,17000
-French Fries,290,Deep fried French fries with  oil,25000
-Salad of The Day,117,Chef's salad of the day,19000
-Egg,89,Sunny side up / scrambled / omelette,9000
-Boiled Potato,89,Boiled potato with a pinch of salt,17000
-Shirataki Rice,45,Cooked Shirataki (Rice / Noodles / Fettuccine),21000
-Sambal ,20,Indonesian spicy sauce,3000
-,,,
-Drinks,,,
-Le Mineral,0,Mineral water,7000
-Teh Pucuk,70,Tea,11000
+Menu,Calories,Fat,Carbs,Protein,Description,Price
+Salmon,,,,,,
+Salmon Geprek,418,18.3,33.76,18.12,"Deep fried salmon (65gr) coated with seasoned flour, topped with a spicy sauce. Served with jasmine steamed rice and the Chef's daily salad. ","83,000"
+Grilled Salmon,250,13.19,6.63,18.44,"Grilled salmon (80gr), served with steamed jasmine rice, the Chef's daily salad and a side of spicy sauce.","80,000"
+Spaghetti Aglio Olio with Salmon,446,15.34,55.92,18.6,"Cooked spaghetti with minced garlic, champignon mushrooms, parsley with salmon (35gr) and a side of spicy sauce.","58,000"
+Shirataki Fried Rice with Salmon ,221,6.58,25,9.57,"Cooked shirataki rice with garlic, sweet corn, carrots, green beans, parsley, with salmon (35gr) and a side of spicy sauce.","70,000"
+Fried Shirataki Noodles with Salmon,221,6.58,25,9.57,"Stir fry shirataki noodles, garlic, sweet corn, carrot, green beans, parsley, with salmon (35gr) and a side of spicy sauce.","70,000"
+Salmon Fried Rice,460,8.53,73.99,12.52,"Steamed jasmine rice, garlic, sweet corn, carrot, parsley, green beans with salmon (35gr) and a side of spicy sauce.","55,000"
+Salmon Tamago,504,18.34,51.44,26.43,"Salmon (50gr), champignon mushrooms, pour whisked egg served jasmine steamed rice and a side of spicy sauce.","68,000"
+,,,,,,
+Smoked Salmon,,,,,,
+Spaghetti Aglio Olio with Smoked Salmon,437,13.74,55.87,17.24,"Cooked spaghetti with minced garlic, champignon mushrooms, parsley with smoked salmon (35gr) and a side of spicy sauce.","77,000"
+Shirataki Fried Rice with Smoked Salmon,230,7.51,25,8.4,"Cooked shirataki rice with garlic, sweet corn, carrots, green beans, parsley, with smoked salmon (35gr) and a side of spicy sauce.","87,000"
+Fried Shirataki Noodles with Smoked Salmon,230,7.51,25,8.4,"Stir fry shirataki noodles, garlic, sweet corn, carrot, green beans, parsley, with smoked salmon (35gr) and a side of spicy sauce.","87,000"
+Smoked Salmon Fried Rice,450,7.96,73.99,11.35,"Steamed jasmine rice, garlic, sweet corn, carrot, parsley, green beans with smoked salmon (35gr) and a side of spicy sauce.","71,000"
+,,,,,,
+Chicken,,,,,,
+Grilled Chicken,281,16.15,6.63,19.5,"Grilled chciken (120gr), served with steamed jasmine rice, the Chef's daily salad and a side of spicy sauce.",70000
+,,,,,,
+A La Carte,,,,,,
+Salmon Geprek A La Carte,418,18.3,33.76,18.12,"Deep fried salmon coated with seasoned flour, topped with a spicy sauce. Served with Chef's daily salad.","79,000"
+Grilled Salmon A La Carte,250,13.19,6.63,18.44,"Grilled salmon (80gr), served with Chef's daily salad and a side of spicy sauce.","76,000"
+Smoked Salmon A La Carte,215,11.47,6.63,13.94,Smoked salmon (70gr).,"93,000"
+Grilled Chicken A La Carte,281,16.15,6.63,19.5,"Grilled chicken (120gr), served with Chef's daily salad and a side of spicy sauce.","66,000"
+,,,,,,
+Side Dish,,,,,,
+Steamed Jasmine Rice,228,0.4,49.87,4.33,Steamed jasmine rice.,"14,000"
+French Fries,478,25.55,56.3,5.64,Deep fried French fries seasoned with a pinch of salt.,"30,000"
+Salad of The Day,94,5.01,10.82,2.93,Chef's salad of the day.,"30,000"
+Sunny Side Up,114,9.47,0.39,6.29,Sunny Side Up.,"12,000"
+Omelette,114,9.47,0.39,6.29,Omelette.,"12,000"
+Scrambled Egg,114,9.47,0.39,6.29,Scrambled Egg.,"12,000"
+Boiled Potato,180,3.92,34.16,3.17,Boiled potato with a pinch of salt.,"25,000"
+Shirataki Rice,45,0,8,2,Cooked shirataki rice.,"30,000"
+Shirataki Noodles,45,0,8,2,Cooked shirataki noodles.,"30,000"
+Sambal ,25,1.5,2,0,Indonesian spicy sauce.,"3,000"

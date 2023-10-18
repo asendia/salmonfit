@@ -1,106 +1,292 @@
 [
-	{
-		"name": "Salmon",
-		"items": [
-			{
-				"name": "Salmon Geprek",
-				"info": ["501 cal"],
-				"description": "Fried salmon coated with seasoning flour, steamed jasmine rice and spicy sauce (Sambal Geprek)"
-			},
-			{
-				"name": "Grilled Salmon",
-				"info": ["405 cal"],
-				"description": "Salmon, steamed jasmine rice, and salad of the day"
-			},
-			{
-				"name": "Spaghetti Aglio Olio with Salmon",
-				"info": ["395 cal"],
-				"description": "Cooked spaghetti, garlic, mushroom champignon and parsley with salmon"
-			},
-			{
-				"name": "Creamy spaghetti with Salmon",
-				"info": ["405 cal"],
-				"description": "Cooked spaghetti, garlic, mushroom champignon, parsley and cream with salmon"
-			},
-			{
-				"name": "Shirataki Fettuccine Aglio Olio with Salmon",
-				"info": ["236 cal"],
-				"description": "Cooked shirataki fettuccine, garlic, mushroom champignon, parsley, with salmon"
-			},
-			{
-				"name": "Shirataki Fried Rice with Salmon",
-				"info": ["248 cal"],
-				"description": "Cooked shirataki rice, garlic, sweet corn, carrot, green beans, parsley, with salmon"
-			},
-			{
-				"name": "Fried Shirataki Noodles with Salmon",
-				"info": ["236 cal"],
-				"description": "Stir fry shirataki noodles, garlic, sweet corn, carrot, green beans, parsley, with salmon"
-			},
-			{
-				"name": "Creamy Shirataki Noodles with Salmon",
-				"info": ["246 cal"],
-				"description": "Cooked shirataki noodles, garlic, mushroom champignon, parsley, and cream with salmon"
-			},
-			{
-				"name": "Salmon fried rice",
-				"info": ["348 cal"],
-				"description": "Steamed jasmine rice, garlic, sweet corn, carrot, parsley, green beans with salmon"
-			}
-		],
-		"itemIdsWithImages": []
-	},
-	{
-		"name": "Smoked Salmon",
-		"items": [
-			{
-				"name": "Spaghetti Aglio Olio with Smoked Salmon",
-				"info": ["388 cal"],
-				"description": "Cooked spaghetti, garlic, mushroom champignon, parsley with smoked salmon"
-			},
-			{
-				"name": "Shirataki Fettuccine Aglio Olio with Smoked Salmon",
-				"info": ["229 cal"],
-				"description": "Cooked shirataki fettuccine, garlic, mushroom champignon, parsley, with smoked salmon"
-			},
-			{
-				"name": "Creamy Shirataki Fettuccine with Smoked Salmon",
-				"info": ["239 cal"],
-				"description": "Cooked shirataki fettuccine, garlic, mushroom champignon, parsley, and cream with smoked salmon"
-			},
-			{
-				"name": "Shirataki Fried Rice with Smoked Salmon",
-				"info": ["241 cal"],
-				"description": "Cooked shirataki rice, garlic, sweet corn, carrot, green beans, parsley, with smoked salmon"
-			},
-			{
-				"name": "Fried Shirataki Noodles with Smoked Salmon",
-				"info": ["229 cal"],
-				"description": "Stir fry shirataki noodles, garlic, sweet corn, carrot, green beans, parsley, with smoked salmon"
-			},
-			{
-				"name": "Creamy Shirataki Noodles with Smoked Salmon",
-				"info": ["249 cal"],
-				"description": "Cooked shirataki noodles, garlic, mushroom champignon, parsley, and cream with smoked salmon"
-			},
-			{
-				"name": "Smoked salmon fried rice",
-				"info": ["316 cal"],
-				"description": "Steamed jasmine rice, garlic, sweet corn, carrot , parsley with smoked  salmon"
-			}
-		],
-		"itemIdsWithImages": []
-	},
-
-	{
-		"name": "Side Dish",
-		"items": [
-			{
-				"name": "Salad of The Day",
-				"info": ["117 cal"],
-				"description": "Chef's salad of the day"
-			}
-		],
-		"itemIdsWithImages": []
-	}
+  {
+    "name": "Salmon",
+    "items": [
+      {
+        "name": "Salmon Geprek",
+        "info": [
+          "Cal 418",
+          "Fat 18.3gr",
+          "Carb 33.76gr",
+          "IDR 83,000"
+        ],
+        "description": "Deep fried salmon (65gr) coated with seasoned flour, topped with a spicy sauce. Served with jasmine steamed rice and the Chef's daily salad. "
+      },
+      {
+        "name": "Grilled Salmon",
+        "info": [
+          "Cal 250",
+          "Fat 13.19gr",
+          "Carb 6.63gr",
+          "IDR 80,000"
+        ],
+        "description": "Grilled salmon (80gr), served with steamed jasmine rice, the Chef's daily salad and a side of spicy sauce."
+      },
+      {
+        "name": "Spaghetti Aglio Olio with Salmon",
+        "info": [
+          "Cal 446",
+          "Fat 15.34gr",
+          "Carb 55.92gr",
+          "IDR 58,000"
+        ],
+        "description": "Cooked spaghetti with minced garlic, champignon mushrooms, parsley with salmon (35gr) and a side of spicy sauce."
+      },
+      {
+        "name": "Shirataki Fried Rice with Salmon",
+        "info": [
+          "Cal 221",
+          "Fat 6.58gr",
+          "Carb 25gr",
+          "IDR 70,000"
+        ],
+        "description": "Cooked shirataki rice with garlic, sweet corn, carrots, green beans, parsley, with salmon (35gr) and a side of spicy sauce."
+      },
+      {
+        "name": "Fried Shirataki Noodles with Salmon",
+        "info": [
+          "Cal 221",
+          "Fat 6.58gr",
+          "Carb 25gr",
+          "IDR 70,000"
+        ],
+        "description": "Stir fry shirataki noodles, garlic, sweet corn, carrot, green beans, parsley, with salmon (35gr) and a side of spicy sauce."
+      },
+      {
+        "name": "Salmon Fried Rice",
+        "info": [
+          "Cal 460",
+          "Fat 8.53gr",
+          "Carb 73.99gr",
+          "IDR 55,000"
+        ],
+        "description": "Steamed jasmine rice, garlic, sweet corn, carrot, parsley, green beans with salmon (35gr) and a side of spicy sauce."
+      },
+      {
+        "name": "Salmon Tamago",
+        "info": [
+          "Cal 504",
+          "Fat 18.34gr",
+          "Carb 51.44gr",
+          "IDR 68,000"
+        ],
+        "description": "Salmon (50gr), champignon mushrooms, pour whisked egg served jasmine steamed rice and a side of spicy sauce."
+      }
+    ],
+    "itemIdsWithImages": []
+  },
+  {
+    "name": "Smoked Salmon",
+    "items": [
+      {
+        "name": "Spaghetti Aglio Olio with Smoked Salmon",
+        "info": [
+          "Cal 437",
+          "Fat 13.74gr",
+          "Carb 55.87gr",
+          "IDR 77,000"
+        ],
+        "description": "Cooked spaghetti with minced garlic, champignon mushrooms, parsley with smoked salmon (35gr) and a side of spicy sauce."
+      },
+      {
+        "name": "Shirataki Fried Rice with Smoked Salmon",
+        "info": [
+          "Cal 230",
+          "Fat 7.51gr",
+          "Carb 25gr",
+          "IDR 87,000"
+        ],
+        "description": "Cooked shirataki rice with garlic, sweet corn, carrots, green beans, parsley, with smoked salmon (35gr) and a side of spicy sauce."
+      },
+      {
+        "name": "Fried Shirataki Noodles with Smoked Salmon",
+        "info": [
+          "Cal 230",
+          "Fat 7.51gr",
+          "Carb 25gr",
+          "IDR 87,000"
+        ],
+        "description": "Stir fry shirataki noodles, garlic, sweet corn, carrot, green beans, parsley, with smoked salmon (35gr) and a side of spicy sauce."
+      },
+      {
+        "name": "Smoked Salmon Fried Rice",
+        "info": [
+          "Cal 450",
+          "Fat 7.96gr",
+          "Carb 73.99gr",
+          "IDR 71,000"
+        ],
+        "description": "Steamed jasmine rice, garlic, sweet corn, carrot, parsley, green beans with smoked salmon (35gr) and a side of spicy sauce."
+      }
+    ],
+    "itemIdsWithImages": []
+  },
+  {
+    "name": "Chicken",
+    "items": [
+      {
+        "name": "Grilled Chicken",
+        "info": [
+          "Cal 281",
+          "Fat 16.15gr",
+          "Carb 6.63gr",
+          "IDR 70000"
+        ],
+        "description": "Grilled chciken (120gr), served with steamed jasmine rice, the Chef's daily salad and a side of spicy sauce."
+      }
+    ],
+    "itemIdsWithImages": []
+  },
+  {
+    "name": "A La Carte",
+    "items": [
+      {
+        "name": "Salmon Geprek A La Carte",
+        "info": [
+          "Cal 418",
+          "Fat 18.3gr",
+          "Carb 33.76gr",
+          "IDR 79,000"
+        ],
+        "description": "Deep fried salmon coated with seasoned flour, topped with a spicy sauce. Served with Chef's daily salad."
+      },
+      {
+        "name": "Grilled Salmon A La Carte",
+        "info": [
+          "Cal 250",
+          "Fat 13.19gr",
+          "Carb 6.63gr",
+          "IDR 76,000"
+        ],
+        "description": "Grilled salmon (80gr), served with Chef's daily salad and a side of spicy sauce."
+      },
+      {
+        "name": "Smoked Salmon A La Carte",
+        "info": [
+          "Cal 215",
+          "Fat 11.47gr",
+          "Carb 6.63gr",
+          "IDR 93,000"
+        ],
+        "description": "Smoked salmon (70gr)."
+      },
+      {
+        "name": "Grilled Chicken A La Carte",
+        "info": [
+          "Cal 281",
+          "Fat 16.15gr",
+          "Carb 6.63gr",
+          "IDR 66,000"
+        ],
+        "description": "Grilled chicken (120gr), served with Chef's daily salad and a side of spicy sauce."
+      }
+    ],
+    "itemIdsWithImages": []
+  },
+  {
+    "name": "Side Dish",
+    "items": [
+      {
+        "name": "Steamed Jasmine Rice",
+        "info": [
+          "Cal 228",
+          "Fat 0.4gr",
+          "Carb 49.87gr",
+          "IDR 14,000"
+        ],
+        "description": "Steamed jasmine rice."
+      },
+      {
+        "name": "French Fries",
+        "info": [
+          "Cal 478",
+          "Fat 25.55gr",
+          "Carb 56.3gr",
+          "IDR 30,000"
+        ],
+        "description": "Deep fried French fries seasoned with a pinch of salt."
+      },
+      {
+        "name": "Salad of The Day",
+        "info": [
+          "Cal 94",
+          "Fat 5.01gr",
+          "Carb 10.82gr",
+          "IDR 30,000"
+        ],
+        "description": "Chef's salad of the day."
+      },
+      {
+        "name": "Sunny Side Up",
+        "info": [
+          "Cal 114",
+          "Fat 9.47gr",
+          "Carb 0.39gr",
+          "IDR 12,000"
+        ],
+        "description": "Sunny Side Up."
+      },
+      {
+        "name": "Omelette",
+        "info": [
+          "Cal 114",
+          "Fat 9.47gr",
+          "Carb 0.39gr",
+          "IDR 12,000"
+        ],
+        "description": "Omelette."
+      },
+      {
+        "name": "Scrambled Egg",
+        "info": [
+          "Cal 114",
+          "Fat 9.47gr",
+          "Carb 0.39gr",
+          "IDR 12,000"
+        ],
+        "description": "Scrambled Egg."
+      },
+      {
+        "name": "Boiled Potato",
+        "info": [
+          "Cal 180",
+          "Fat 3.92gr",
+          "Carb 34.16gr",
+          "IDR 25,000"
+        ],
+        "description": "Boiled potato with a pinch of salt."
+      },
+      {
+        "name": "Shirataki Rice",
+        "info": [
+          "Cal 45",
+          "Fat 0gr",
+          "Carb 8gr",
+          "IDR 30,000"
+        ],
+        "description": "Cooked shirataki rice."
+      },
+      {
+        "name": "Shirataki Noodles",
+        "info": [
+          "Cal 45",
+          "Fat 0gr",
+          "Carb 8gr",
+          "IDR 30,000"
+        ],
+        "description": "Cooked shirataki noodles."
+      },
+      {
+        "name": "Sambal",
+        "info": [
+          "Cal 25",
+          "Fat 1.5gr",
+          "Carb 2gr",
+          "IDR 3,000"
+        ],
+        "description": "Indonesian spicy sauce."
+      }
+    ],
+    "itemIdsWithImages": []
+  }
 ]

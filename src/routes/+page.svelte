@@ -62,9 +62,9 @@
 						<a href="/food/{urlHashFromName(item.name)}" class="flex mt-2 outline-none">
 							{item.name}
 						</a>
-						<ul class="flex list-disc mt-3 marker:text-salmon text-xs text-[#d5d6d7] pl-4">
+						<ul class="flex mt-3 text-xs text-[#d5d6d7]">
 							{#each item.info as info}
-								<li>{info}</li>
+								<li class="mr-4 flex items-center">{info}</li>
 							{/each}
 						</ul>
 						{#if item.description}
