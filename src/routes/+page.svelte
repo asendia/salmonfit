@@ -31,7 +31,15 @@
 	{#each menuItems as cat, catID}
 		{#each cat.items as item, id}
 			{#if catID === 0 && item.thumbnailHref && id < 2}
-				<link rel="preload" as="image" href={item.thumbnailHref} />
+				<link
+					rel="preload"
+					as="image"
+					href={item.thumbnailHref}
+					imagesrcset={`${item.thumbnailHref}, ${item.thumbnailHref?.replace(
+						'/thumbs/',
+						'/details/'
+					)} 2x`}
+				/>
 			{/if}
 		{/each}
 	{/each}
@@ -52,6 +60,10 @@
 						<img
 							title={item.name}
 							alt={item.name}
+							srcset={`${item.thumbnailHref}, ${item.thumbnailHref?.replace(
+								'/thumbs/',
+								'/details/'
+							)} 2x`}
 							src={item.thumbnailHref}
 							width="300"
 							height="200"
