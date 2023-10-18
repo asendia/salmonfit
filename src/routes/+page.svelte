@@ -4,7 +4,7 @@
 	import ogImage from '$lib/assets/og-image-salmonfit.jpg';
 	const title = 'Salmon Fit';
 	const description =
-		'Fusion salmon dishes, freshly made from Kebon Jeruk & Sudirman. Available at Grab food, Go-food & Shopee Food!';
+		'Fusion salmon dishes, freshly made at our three locations: Kebon Jeruk, Sudirman & Haji Nawi. Available at Grab food, Go-food & Shopee Food!';
 	import menuItems from '$lib/menuItems';
 	import { protoDomain, urlHashFromName } from '$lib/url';
 	import { homeVisit } from '$lib/stores/homeVisit';

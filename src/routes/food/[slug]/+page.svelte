@@ -35,14 +35,14 @@
 	<link rel="canonical" href={protoDomain + $page.url.pathname} />
 </svelte:head>
 
-<div class="w-full md:max-w-[800px] 2xl:max-w-[1500px] mx-auto relative min-h-[80vh]">
+<div class="w-full md:max-w-[800px] 2xl:max-w-[1000px] mx-auto relative min-h-[80vh]">
 	<img
 		layout="responsive"
 		class="lg:rounded-lg"
 		src={food.photoHref}
 		title={food.name}
 		alt={food.name}
-		width="1500"
+		width="1000"
 		height="1000"
 		loading="lazy"
 	/>
@@ -59,9 +59,9 @@
 	</a>
 	<div class="px-6">
 		<h1 class="text-xl mt-4">{food.name}</h1>
-		<ul class="flex list-disc mt-2 marker:text-salmon text-xs text-[#d5d6d7] pl-4">
+		<ul class="flex mt-2 text-xs text-[#d5d6d7]">
 			{#each food.info as info}
-				<li>{info}</li>
+				<li class="mr-4 flex items-center">{info}</li>
 			{/each}
 		</ul>
 		<p class="py-2 text-[#95979a]">
