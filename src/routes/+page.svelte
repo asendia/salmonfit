@@ -35,10 +35,7 @@
 					rel="preload"
 					as="image"
 					href={item.thumbnailHref}
-					imagesrcset={`${item.thumbnailHref}, ${item.thumbnailHref?.replace(
-						'/thumbs/',
-						'/details/'
-					)} 2x`}
+					imagesrcset={`${item.thumbnailHref}, ${item.photoHref} 2x`}
 				/>
 			{/if}
 		{/each}
@@ -60,10 +57,7 @@
 						<img
 							title={item.name}
 							alt={item.name}
-							srcset={`${item.thumbnailHref}, ${item.thumbnailHref?.replace(
-								'/thumbs/',
-								'/details/'
-							)} 2x`}
+							srcset={`${item.thumbnailHref}, ${item.photoHref} 2x`}
 							src={item.thumbnailHref}
 							width="300"
 							height="200"
