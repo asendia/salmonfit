@@ -43,15 +43,15 @@
 </svelte:head>
 
 <Header {title} {description} />
-<div class="w-[300px] mx-auto sm:w-[640px] lg:w-[960px] 2xl:w-[1280px]">
+<div class="w-full mx-auto sm:w-[640px] lg:w-[960px] 2xl:w-[1280px]">
 	{#each menuItems as cat}
-		<h2 class="text-2xl font-medium mt-3 mb-6">
+		<h2 class="text-center md:text-left text-2xl font-medium mt-3 mb-6">
 			{cat.name}
 		</h2>
 		<ul class="mb-7 flex flex-wrap">
 			{#each cat.items as item}
 				<li
-					class="list-none pb-3 mb-5 flex flex-col w-[300px] bg-[#0f151c] rounded-tr-2xl rounded-bl-2xl overflow-hidden sm:mr-5"
+					class="list-none pb-3 mb-5 flex flex-col w-full md:w-[300px] bg-[#0f151c] rounded-tr-2xl rounded-bl-2xl overflow-hidden sm:mr-5"
 				>
 					<a class="flex" href="/food/{urlHashFromName(item.name)}">
 						<img
@@ -59,8 +59,8 @@
 							alt={item.name}
 							srcset={`${item.thumbnailHref}, ${item.photoHref} 2x`}
 							src={item.thumbnailHref}
-							width="300"
-							height="200"
+							width="1000"
+							height="1000"
 							loading="lazy"
 						/></a
 					>
