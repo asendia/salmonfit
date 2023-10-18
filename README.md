@@ -28,4 +28,4 @@ You can preview the production build with `npm run preview`.
 
 1. Edit the CSV file located in [src/data/menu.csv](https://github.com/asendia/salmonfit/blob/main/src/data/menu.csv)
 2. Edit the images in [src/assets/menu/](https://github.com/asendia/salmonfit/blob/main/src/assets/menu), ensure the file name matches item in `menu.csv` (e.g. "Salmon Fried Rice" will have "salmon-fried-rice.webp")
-3. Run `npm prebuild`, it will generate `src/data/menu.json` & `src/lib/foodImageMap.ts`
+3. Run `node build-menu.js`, it will generate `src/data/menu.json`, `src/lib/menuThumbnailPhotoMap.ts` & `src/lib/menuDetailPhotoMap.ts`
