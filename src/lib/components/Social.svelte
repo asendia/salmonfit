@@ -7,18 +7,6 @@
 
 	const socialLinks = [
 		{
-			url: 'https://www.instagram.com/salmonfit.id/',
-			alt: 'instagram',
-			imgSrc: igLogo,
-			text: 'Instagram'
-		},
-		{
-			url: 'https://wa.me/6282172407750',
-			alt: 'whatsapp',
-			imgSrc: whatsappLogo,
-			text: 'WhatsApp'
-		},
-		{
 			url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-apartemen-menara-kebon-jeruk-06f0dcc6-14f4-4092-810f-2bcc81214d23',
 			alt: 'gofood',
 			imgSrc: gofoodLogo,
@@ -35,37 +23,86 @@
 			alt: 'Shopee',
 			imgSrc: shopeeLogo,
 			text: 'Shopee'
+		},
+		{
+			url: 'https://www.instagram.com/salmonfit.id/',
+			alt: 'instagram',
+			imgSrc: igLogo,
+			text: 'Instagram'
+		},
+		{
+			url: 'https://wa.me/6282172407750',
+			alt: 'whatsapp',
+			imgSrc: whatsappLogo,
+			text: 'WhatsApp'
 		}
 	];
 
-	const branchMap: Record<string, { url: string; text: string }[]> = {
-		gofood: [
-			{
-				url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-apartemen-menara-kebon-jeruk-06f0dcc6-14f4-4092-810f-2bcc81214d23',
-				text: 'Gofood Kebon Jeruk'
-			},
-			{
-				url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-sudirman-815b2b33-584e-46d6-b12e-2d6da2f46f96',
-				text: 'Gofood Sudirman'
-			},
-			{
-				url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-haji-nawi-9d68471b-5d49-468c-a162-091b1ea9b468',
-				text: 'Gofood Haji Nawi'
-			}
-		]
+	const branchMap: Record<string, { title: string; links: { url: string; text: string }[] }> = {
+		gofood: {
+			title: 'Go-Food',
+			links: [
+				{
+					url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-apartemen-menara-kebon-jeruk-06f0dcc6-14f4-4092-810f-2bcc81214d23',
+					text: 'Kebon Jeruk'
+				},
+				{
+					url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-sudirman-815b2b33-584e-46d6-b12e-2d6da2f46f96',
+					text: 'Sudirman'
+				},
+				{
+					url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-haji-nawi-9d68471b-5d49-468c-a162-091b1ea9b468',
+					text: 'Haji Nawi'
+				}
+			]
+		},
+		GrabFood: {
+			title: 'Grab Food',
+			links: [
+				{
+					url: 'https://food.grab.com/id/id/restaurant/salmon-fit-duri-kepa-delivery/6-C2XUWAX3PEU1JT',
+					text: 'Kebon Jeruk'
+				},
+				{
+					url: 'https://food.grab.com/id/id/restaurant/salmon-fit-sudirman-delivery/6-C36EKGLYHB42DA',
+					text: 'Sudirman'
+				},
+				{
+					url: 'https://food.grab.com/id/id/restaurant/salmon-fit-haji-nawi-delivery/6-C4LJLRKEKAEVME',
+					text: 'Haji Nawi'
+				}
+			]
+		},
+		Shopee: {
+			title: 'Shopee Food (mobile only)',
+			links: [
+				{
+					url: 'https://shopee.co.id/universal-link/now-food/shop/20262634?deep_and_deferred=1&shareChannel=copy_link',
+					text: 'Kebon Jeruk'
+				},
+				{
+					url: 'https://shopee.co.id/universal-link/now-food/shop/21330143?deep_and_deferred=1&shareChannel=copy_link',
+					text: 'Sudirman'
+				},
+				{
+					url: 'https://shopee.co.id/universal-link/now-food/shop/21394731?deep_and_deferred=1&shareChannel=copy_link',
+					text: 'Haji Nawi'
+				}
+			]
+		}
 	};
 
 	let branches: { url: string; text: string }[] = [];
-	let branchKey: string | undefined;
+	let shopTitle: string | undefined;
 
 	const handleLinkClick =
 		(s: { url: string; alt: string; imgSrc: string; text: string }) => (e: MouseEvent) => {
-			branchKey = s.alt;
-			branches = branchMap[s.alt];
+			shopTitle = branchMap[s.text].title;
+			branches = branchMap[s.text].links;
 			if (branches) {
 				e.preventDefault();
 			} else {
-				branchKey = undefined;
+				shopTitle = undefined;
 			}
 		};
 
@@ -75,7 +112,7 @@
 			if (!forceClose && e.target !== e.currentTarget) return;
 			e.preventDefault();
 			branches = [];
-			branchKey = undefined;
+			shopTitle = undefined;
 		};
 </script>
 
@@ -93,7 +130,7 @@
 
 <div
 	aria-hidden="true"
-	class={`fixed top-0 left-0 right-0 bottom-0 bg-opacity-50 bg-black z-50 ${
+	class={`fixed top-0 left-0 right-0 bottom-0 h-full bg-opacity-50 bg-black z-50 ${
 		branches.length === 0 ? 'hidden' : 'flex'
 	} w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full`}
 	on:click={handleClosePopup()}
@@ -126,7 +163,7 @@
 			<!-- Modal header -->
 			<div class="px-6 py-4 border-b rounded-t dark:border-gray-800">
 				<h3 class="text-base font-semibold lg:text-xl text-white">
-					{branchKey}
+					{shopTitle}
 				</h3>
 			</div>
 			<!-- Modal body -->
