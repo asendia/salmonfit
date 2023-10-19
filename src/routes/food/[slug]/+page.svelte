@@ -59,7 +59,7 @@
 	</a>
 	<div class="px-6">
 		<h1 class="text-xl mt-4">{food.name}</h1>
-		<ul class="flex mt-2 text-xs text-[#d5d6d7]">
+		<ul class="flex mt-2 text-xs text-black dark:text-[#d5d6d7]">
 			{#each food.info as info}
 				<li class="mr-4 flex items-center">{info}</li>
 			{/each}

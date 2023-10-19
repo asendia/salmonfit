@@ -11,6 +11,6 @@
 	<Fonts />
 </svelte:head>
 
-<div class="bg-[#06080f] text-white">
+<div class="bg-[#ffffff] text-black dark:bg-[#06080f] dark:text-white">
 	<slot />
 </div>

@@ -5,8 +5,16 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		%sveltekit.head%
+		<script>
+			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+			if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+				document.documentElement.classList.add('dark')
+			} else {
+				document.documentElement.classList.remove('dark')
+			}
+		</script>
 	</head>
-	<body class="bg-[#06080f] font-sans">
+	<body class="dark:bg-[#06080f] font-sans">
 		<div>%sveltekit.body%</div>
 	</body>
 </html>

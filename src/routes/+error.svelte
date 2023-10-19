@@ -47,7 +47,11 @@
 		<div id="octocat" class="bg-[url('/octomon.png')] bg-left" />
 		{#each bubbles as bubble}
 			{#if bubble.visible}
-				<div class="bubble bubble--{bubble.id}" on:click={createBubbleClickHandler(bubble.id)} />
+				<div
+					class="bubble bubble--{bubble.id}"
+					on:click={createBubbleClickHandler(bubble.id)}
+					on:keypress={() => null}
+				/>
 			{/if}
 		{/each}
 	</div>
@@ -70,9 +74,6 @@
 	}
 	p {
 		font-weight: 300;
-	}
-	p a {
-		color: #fff;
 	}
 	#octocat {
 		height: 300px;
@@ -154,11 +155,15 @@
 		height: 30px;
 		border-radius: 100%;
 		position: absolute;
-		background-color: white;
+		background-color: black;
 		bottom: -30px;
 		opacity: 0.2;
 		animation: bubble 15s ease-in-out infinite, sideWays 4s ease-in-out infinite alternate;
 		cursor: pointer;
+	}
+
+	:global(.dark) .bubble {
+		background-color: white;
 	}
 
 	@keyframes bubble {

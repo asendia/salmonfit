@@ -1,11 +1,16 @@
 <script lang="ts">
 	import salmonfitFishLogo from '$lib/assets/salmonfit-fish.png';
 	import Social from '$lib/components/Social.svelte';
+	import ThemeSwitcher from './ThemeSwitcher.svelte';
 	export let title: string;
 	export let description: string;
 
 	const [d1, d2] = description.split('Available');
 </script>
+
+<div class="absolute right-4 top-2 z-10">
+	<ThemeSwitcher />
+</div>
 
 <svelte:head>
 	<link rel="preload" as="image" href={salmonfitFishLogo} />
@@ -15,7 +20,7 @@
 	<a href="/">
 		<span class="relative uppercase z-10">{title}</span>
 		<img
-			class="absolute top-[9px] bg-[#06080f] left-[calc(50%-50px)]"
+			class="absolute top-[9px] bg-[#ffffff] dark:bg-[#06080f] left-[calc(50%-50px)]"
 			alt="salmon fit fish logo"
 			src={salmonfitFishLogo}
 			width="84"

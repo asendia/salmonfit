@@ -97,8 +97,10 @@
 
 	const handleLinkClick =
 		(s: { url: string; alt: string; imgSrc: string; text: string }) => (e: MouseEvent) => {
-			shopTitle = branchMap[s.text].title;
-			branches = branchMap[s.text].links;
+			const branch = branchMap[s.text];
+			if (!branch) return;
+			shopTitle = branch.title;
+			branches = branch.links;
 			if (branches) {
 				e.preventDefault();
 			} else {
@@ -118,7 +120,7 @@
 
 {#each socialLinks as s}
 	<a
-		class="flex justify-center w-[100px] text-white font-medium py-1 px-2 rounded-full shadow-md leading-6 text-xs mr-2 mb-2 bg-[#0f151c]"
+		class="flex justify-center w-[100px] text-black dark:text-white font-medium py-1 px-2 rounded-full shadow-md leading-6 text-xs mr-2 mb-2 bg-[#ffffff] dark:bg-[#0f151c]"
 		target="_blank"
 		href={s.url}
 		on:click={handleLinkClick(s)}
@@ -130,17 +132,17 @@
 
 <div
 	aria-hidden="true"
-	class={`fixed top-0 left-0 right-0 bottom-0 h-full bg-opacity-50 bg-black z-50 ${
+	class={`fixed top-0 left-0 right-0 bottom-0 h-full bg-opacity-50 bg-white dark:bg-black z-50 ${
 		branches.length === 0 ? 'hidden' : 'flex'
 	} w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full`}
 	on:click={handleClosePopup()}
 >
 	<div class="relative w-full max-w-md max-h-full m-auto">
 		<!-- Modal content -->
-		<div class="relative rounded-lg shadow bg-black">
+		<div class="relative rounded-lg shadow bg-white dark:bg-black">
 			<button
 				type="button"
-				class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
+				class="absolute top-3 right-2.5 dark:text-gray-400 bg-transparent dark:hover:bg-gray-200 dark:hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
 				on:click={handleClosePopup(true)}
 			>
 				<svg
@@ -161,8 +163,8 @@
 				<span class="sr-only">Close modal</span>
 			</button>
 			<!-- Modal header -->
-			<div class="px-6 py-4 border-b rounded-t dark:border-gray-800">
-				<h3 class="text-base font-semibold lg:text-xl text-white">
+			<div class="px-6 py-4 border-b rounded-t dark:dark:border-gray-800">
+				<h3 class="text-base font-semibold lg:text-xl dark:text-white">
 					{shopTitle}
 				</h3>
 			</div>

@@ -51,7 +51,7 @@
 		<ul class="mb-7 flex flex-wrap">
 			{#each cat.items as item}
 				<li
-					class="list-none pb-3 mb-5 flex flex-col w-full md:w-[300px] bg-[#0f151c] rounded-tr-2xl rounded-bl-2xl overflow-hidden sm:mr-5"
+					class="list-none pb-3 mb-5 flex flex-col w-full md:w-[300px] bg-[#ffffff] md:rounded-md overflow-hidden md:mr-5 box-border md:border-gray-500 md:border dark:border-none dark:bg-[#0f151c] dark:rounded-tr-2xl dark:rounded-bl-2xl dark:rounded-tl-none dark:rounded-br-none"
 				>
 					<a class="flex" href="/food/{urlHashFromName(item.name)}">
 						<img
@@ -68,7 +68,7 @@
 						<a href="/food/{urlHashFromName(item.name)}" class="flex mt-2 outline-none">
 							{item.name}
 						</a>
-						<ul class="flex mt-3 text-xs text-[#d5d6d7]">
+						<ul class="flex mt-3 text-xs text-black dark:text-[#d5d6d7]">
 							{#each item.info as info}
 								<li class="mr-4 flex items-center">{info}</li>
 							{/each}
