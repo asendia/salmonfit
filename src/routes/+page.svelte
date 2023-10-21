@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Header from './Header.svelte';
+	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import ogImage from '$lib/assets/og-image-salmonfit.jpg';
 	const title = 'Salmon Fit';
@@ -8,6 +8,7 @@
 	import menuItems from '$lib/menuItems';
 	import { protoDomain, urlHashFromName } from '$lib/url';
 	import { homeVisit } from '$lib/stores/homeVisit';
+	import Social from '$lib/components/Social.svelte';
 	homeVisit.set(true);
 	export const prerender = true;
 	export const ogImageFullUrl = protoDomain + ogImage;
@@ -42,7 +43,18 @@
 	{/each}
 </svelte:head>
 
-<Header {title} {description} />
+<Header {title}>
+	<span slot="description">
+		{#each description.split('. ') as d}
+			{d}<br />
+		{/each}
+	</span>
+</Header>
+
+<div class="flex flex-wrap px-5 w-[370px] lg:w-[580px] mx-auto justify-center">
+	<Social />
+</div>
+
 <div class="w-full mx-auto sm:w-[640px] lg:w-[960px] 2xl:w-[1280px]">
 	{#each menuItems as cat}
 		<h2 class="text-center md:text-left text-2xl font-medium mt-3 mb-6">

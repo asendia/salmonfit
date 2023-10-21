@@ -3,9 +3,6 @@
 	import Social from '$lib/components/Social.svelte';
 	import ThemeSwitcher from './ThemeSwitcher.svelte';
 	export let title: string;
-	export let description: string;
-
-	const [d1, d2] = description.split('Available');
 </script>
 
 <div class="absolute right-4 top-2 z-10">
@@ -29,8 +26,6 @@
 		/>
 	</a>
 </h1>
-<p class="text-center font-light mt-1 mb-3 px-7 text-xs text-salmon">{d1}<br />Available{d2}</p>
-
-<div class="flex flex-wrap px-5 w-[370px] lg:w-[580px] mx-auto justify-center">
-	<Social />
-</div>
+<p class="text-center font-light mt-1 mb-3 px-7 text-xs text-salmon">
+	<slot name="description" />
+</p>
