@@ -338,4 +338,4 @@
 	</div>
 </Modal>
 
-<Footer />
+<Footer sourceCodeURL="https://github.com/asendia/salmonping" />
