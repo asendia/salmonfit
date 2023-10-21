@@ -21,26 +21,52 @@
 
 	const title = 'Status';
 	const description = 'Status of Salmon Fit online stores, grouped by date & time';
-	let tables: ListingPingGroup[] | undefined = undefined;
+	let tables: Record<string, ListingPingGroup> | undefined = undefined;
 	let startedAt: Date | undefined = undefined;
 	let endedAt: Date | undefined = undefined;
+	let currentPage = 1;
 	let statuses = [
 		{ name: 'Open', checked: true },
 		{ name: 'Closed', checked: true },
 		{ name: 'Unknown', checked: true }
 	];
 	let isFilterVisible = false;
+	let bottomElementRef: HTMLDivElement | null = null;
+	let isFetching = false;
+	const pingKeys = new Set<string>();
 
 	onMount(async () => {
 		const url = new URL(window.location.href);
 		const start = url.searchParams.get('start');
 		const end = url.searchParams.get('end');
 		const status = url.searchParams.get('status');
-		searchParamsToState(start, end, status);
+		const page = url.searchParams.get('page');
+		searchParamsToState(start, end, status, page);
 		fetchHistory();
+
+		// Detect if bottomElementRef is visible for pagination
+		const observer = new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting && !isFetching) {
+					currentPage++;
+					fetchHistory();
+				}
+			},
+			{ threshold: 1 }
+		);
+		if (bottomElementRef) observer.observe(bottomElementRef);
+
+		return () => {
+			observer.disconnect();
+		};
 	});
 
-	function searchParamsToState(start: string | null, end: string | null, status: string | null) {
+	function searchParamsToState(
+		start: string | null,
+		end: string | null,
+		status: string | null,
+		page: string | null
+	) {
 		if (start) {
 			startedAt = new Date(start);
 		} else {
@@ -65,9 +91,20 @@
 			}
 		}
 		statuses = statuses;
+		if (page) {
+			currentPage = parseInt(page, 10);
+		} else {
+			currentPage = 1;
+		}
 	}
 
 	async function fetchHistory() {
+		if (isFetching) return;
+		if (currentPage === 1) {
+			tables = undefined;
+			pingKeys.clear();
+		}
+		isFetching = true;
 		const apiURL = new URL('https://salmonping-g43hbqcpwq-as.a.run.app/api/history');
 		if (startedAt) apiURL.searchParams.set('start', formatDate(startedAt));
 		if (endedAt) {
@@ -83,20 +120,42 @@
 				.map((s) => s.name.toLowerCase())
 				.join(',')
 		);
+		apiURL.searchParams.set('page', currentPage.toString());
 		const res = await fetch(apiURL);
 		const data = await res.json();
 		const listingPings = data.listing_pings ?? [];
 		// Group by date and insert to tables
-		tables = listingPings.reduce((acc: ListingPingGroup[], curr: ListingPing) => {
-			const date = new Date(curr.created_at).toLocaleDateString();
-			const index = acc.findIndex((item) => item.date === date);
-			if (index === -1) {
-				acc.push({ date, listingPings: [curr] });
-			} else {
-				acc[index].listingPings.push(curr);
+		const newTables: Record<string, ListingPingGroup> = listingPings.reduce(
+			(acc: Record<string, ListingPingGroup>, curr: ListingPing) => {
+				const key = curr.name + curr.created_at;
+				if (pingKeys.has(key)) return acc;
+				pingKeys.add(curr.url);
+				const date = new Date(curr.created_at).toLocaleDateString();
+				let group = acc[date];
+				if (group === undefined) {
+					group = { date, listingPings: [] };
+					acc[date] = group;
+				}
+				group.listingPings.push(curr);
+				return acc;
+			},
+			{}
+		);
+
+		if (currentPage === 1) {
+			tables = newTables;
+		} else if (tables) {
+			// Iterate over newTables and append to tables
+			for (const [key, value] of Object.entries(newTables)) {
+				if (tables[key]) {
+					tables[key].listingPings.push(...value.listingPings);
+				} else {
+					tables[key] = value;
+				}
 			}
-			return acc;
-		}, []);
+			tables = tables;
+		}
+		isFetching = false;
 	}
 
 	const handleChangeDatepicker = (kind: string) => (event: Event) => {
@@ -113,6 +172,7 @@
 				startedAt = new Date(endedAt.getTime());
 			}
 		}
+		currentPage = 1;
 		fetchHistory();
 		const searchParams = new URLSearchParams(window.location.search);
 		if (startedAt) searchParams.set('start', formatDate(startedAt));
@@ -134,7 +194,7 @@
 	}
 
 	async function resetFilter() {
-		searchParamsToState(null, null, null);
+		searchParamsToState(null, null, null, null);
 		await fetchHistory();
 	}
 
@@ -180,7 +240,7 @@
 <div class="min-h-[70vh] max-w-[800px] m-auto">
 	{#if tables === undefined}
 		<div class="text-center mt-10">Loading...</div>
-	{:else if tables.length === 0}
+	{:else if Object.keys(tables).length === 0}
 		<div class="text-center mt-10">
 			No data, <a
 				class="underline"
@@ -191,7 +251,7 @@
 			>
 		</div>
 	{/if}
-	{#each tables ?? [] as t}
+	{#each Object.entries(tables ?? {}) as [_, t]}
 		<h2 class="mt-3 mb-1 ml-2">{t.date}</h2>
 		<table
 			class="w-full rounded-sm overflow-hidden text-sm text-center text-gray-500 dark:text-gray-400"
@@ -213,6 +273,7 @@
 			</tbody>
 		</table>
 	{/each}
+	<div bind:this={bottomElementRef} />
 </div>
 
 <Modal bind:isVisible={isFilterVisible}>
@@ -240,13 +301,14 @@
 				<div class="flex items-center mb-2">
 					<input
 						type="checkbox"
-						id={`checkbox-${status.name}}`}
-						name={`checkbox-${status.name}}`}
+						id={`checkbox-${status.name}`}
+						name={`checkbox-${status.name}`}
 						class="h-5 w-5 text-salmon rounded"
 						checked={status.checked}
 						on:change={() => {
 							status.checked = !status.checked;
 							statuses = statuses;
+							currentPage = 1;
 							fetchHistory();
 							const searchParams = new URLSearchParams(window.location.search);
 							searchParams.set(
@@ -259,7 +321,7 @@
 							goto('/status?' + searchParams.toString());
 						}}
 					/>
-					<label for="checkbox1" class="ml-2 block text-gray-700 dark:text-gray-400"
+					<label for={`checkbox-${status.name}`} class="ml-2 block text-gray-700 dark:text-gray-400"
 						>{status.name}</label
 					>
 				</div>
