@@ -6,6 +6,7 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import { protoDomain } from '$lib/url';
 	import { onMount } from 'svelte';
+	import ListingName from './ListingName.svelte';
 
 	interface ListingPing {
 		created_at: string;
@@ -183,11 +184,11 @@
 	function statusToClass(status: string) {
 		switch (status) {
 			case 'open':
-				return 'bg-cyan-200 dark:bg-cyan-800';
+				return 'bg-cyan-200 dark:bg-cyan-900';
 			case 'closed':
-				return 'bg-red-200 dark:bg-red-800';
+				return 'bg-red-200 dark:bg-red-900';
 			case 'unknown':
-				return 'bg-yellow-200 dark:bg-yellow-800';
+				return 'bg-yellow-200 dark:bg-yellow-700';
 			default:
 				return '';
 		}
@@ -258,7 +259,7 @@
 		>
 			<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
 				<tr>
-					<th>created_at</th>
+					<th>time</th>
 					<th>name</th>
 					<th>status</th>
 				</tr>
@@ -267,8 +268,15 @@
 				{#each t.listingPings as lp}
 					<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
 						<td>{new Date(lp.created_at).toLocaleTimeString()}</td>
-						<td><a target="_blank" rel="noreferrer" href={lp.url}>{lp.name}</a></td>
-						<td class={statusToClass(lp.status)}>{lp.status}</td>
+						<td
+							><a target="_blank" rel="noreferrer" href={lp.url}><ListingName name={lp.name} /></a
+							></td
+						>
+						<td
+							><span class={`${statusToClass(lp.status)} px-1 rounded-sm dark:text-white`}
+								>{lp.status}</span
+							></td
+						>
 					</tr>{/each}
 			</tbody>
 		</table>
