@@ -181,7 +181,7 @@
 		goto('/status?' + searchParams.toString());
 	};
 
-	function statusToClass(status: string) {
+	function statusToColorClass(status: string) {
 		switch (status) {
 			case 'open':
 				return 'bg-cyan-200 dark:bg-cyan-900';
@@ -224,13 +224,13 @@
 
 <div class="flex justify-center">
 	<button
-		class="bg-cyan-300 dark:bg-cyan-700 active:scale-95 text-black dark:text-white font-bold py-1.5 px-4 rounded shadow-md"
+		class="bg-salmon text-white active:scale-95 font-bold text-sm h-8 px-4 rounded-sm shadow-md"
 		on:click={() => {
 			isFilterVisible = !isFilterVisible;
 		}}>Filter</button
 	>
 	<a
-		class="bg-gray-600 dark:bg-gray-400 active:scale-95 text-white dark:text-black font-bold py-1.5 px-4 rounded shadow-md ml-2"
+		class="flex items-center bg-gray-600 dark:bg-gray-400 active:scale-95 text-white text-sm dark:text-black font-bold h-8 py-0 px-4 rounded shadow-md ml-2"
 		href="/status"
 		on:click={async () => {
 			await resetFilter();
@@ -257,23 +257,30 @@
 		<table
 			class="w-full rounded-sm overflow-hidden text-sm text-center text-gray-500 dark:text-gray-400"
 		>
-			<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+			<thead
+				class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400"
+			>
 				<tr>
 					<th>time</th>
-					<th>name</th>
+					<th>platform</th>
+					<th>location</th>
 					<th>status</th>
 				</tr>
 			</thead>
 			<tbody>
 				{#each t.listingPings as lp}
-					<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+					<tr
+						class="bg-white even:bg-slate-100 border-b dark:bg-gray-900 dark:even:bg-gray-800 dark:border-gray-700"
+					>
 						<td>{new Date(lp.created_at).toLocaleTimeString()}</td>
+						<td>{lp.platform}</td>
 						<td
-							><a target="_blank" rel="noreferrer" href={lp.url}><ListingName name={lp.name} /></a
+							><a target="_blank" rel="noreferrer" href={lp.url} class="underline"
+								><ListingName name={lp.name} /></a
 							></td
 						>
 						<td
-							><span class={`${statusToClass(lp.status)} px-1 rounded-sm dark:text-white`}
+							><span class={`${statusToColorClass(lp.status)} px-1 rounded-sm dark:text-white`}
 								>{lp.status}</span
 							></td
 						>
