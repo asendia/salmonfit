@@ -138,7 +138,7 @@
 	{#if startedAt && endedAt}
 		<div date-rangepicker class="flex items-center">
 			<input
-				class="block w-[120px]"
+				class="flex items-center justify-center w-[120px] px-1 bg-gray-200 text-black rounded-sm shadow-sm"
 				placeholder="Start"
 				type="date"
 				on:change={handleChangeDatepicker('start')}
@@ -146,7 +146,7 @@
 			/>
 			<span class="mx-3 text-gray-500">to</span>
 			<input
-				class="block w-[120px]"
+				class="flex items-center justify-center w-[120px] px-1 bg-gray-200 text-black rounded-sm shadow-sm"
 				placeholder="End"
 				type="date"
 				on:change={handleChangeDatepicker('end')}
@@ -154,7 +154,7 @@
 			/>
 		</div>
 		<a
-			class="underline ml-4"
+			class="underline ml-4 active:scale-95"
 			href="/status"
 			on:click={async () => {
 				await resetFilter();
