@@ -21,7 +21,7 @@
 
 	const title = 'Status';
 	const description = 'Status of Salmon Fit online stores, grouped by date & time';
-	let tables: ListingPingGroup[] = [];
+	let tables: ListingPingGroup[] | undefined = undefined;
 	let startedAt: Date | undefined = undefined;
 	let endedAt: Date | undefined = undefined;
 	let statuses = [
@@ -178,7 +178,9 @@
 </div>
 
 <div class="min-h-[70vh] max-w-[800px] m-auto">
-	{#if tables.length === 0}
+	{#if tables === undefined}
+		<div class="text-center mt-10">Loading...</div>
+	{:else if tables.length === 0}
 		<div class="text-center mt-10">
 			No data, <a
 				class="underline"
@@ -189,7 +191,7 @@
 			>
 		</div>
 	{/if}
-	{#each tables as t}
+	{#each tables ?? [] as t}
 		<h2 class="mt-3 mb-1 ml-2">{t.date}</h2>
 		<table
 			class="w-full rounded-sm overflow-hidden text-sm text-center text-gray-500 dark:text-gray-400"
