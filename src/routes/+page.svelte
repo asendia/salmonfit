@@ -1,17 +1,19 @@
 <script lang="ts">
-	import Header from '$lib/components/Header.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+	import { PUBLIC_PROTO_DOMAIN } from '$env/static/public';
 	import ogImage from '$lib/assets/og-image-salmonfit.jpg';
+	import Footer from '$lib/components/Footer.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import Social from '$lib/components/Social.svelte';
+	import menuItems from '$lib/menuItems';
+	import { homeVisit } from '$lib/stores/homeVisit';
+	import { urlHashFromName } from '$lib/url';
+	homeVisit.set(true);
+	export const prerender = true;
+	export const ogImageFullUrl = PUBLIC_PROTO_DOMAIN + ogImage;
+
 	const title = 'Salmon Fit';
 	const description =
 		'Fusion salmon dishes, freshly made at our three locations: Kebon Jeruk, Sudirman & Haji Nawi. Available at Grab food, Go-food & Shopee Food!';
-	import menuItems from '$lib/menuItems';
-	import { protoDomain, urlHashFromName } from '$lib/url';
-	import { homeVisit } from '$lib/stores/homeVisit';
-	import Social from '$lib/components/Social.svelte';
-	homeVisit.set(true);
-	export const prerender = true;
-	export const ogImageFullUrl = protoDomain + ogImage;
 </script>
 
 <svelte:head>
@@ -20,7 +22,7 @@
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 	<meta property="og:type" content="food" />
-	<meta property="og:url" content={protoDomain} />
+	<meta property="og:url" content={PUBLIC_PROTO_DOMAIN} />
 	<meta property="og:image" content={ogImageFullUrl} />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@salmonfit" />
@@ -28,7 +30,7 @@
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={ogImageFullUrl} />
-	<link rel="canonical" href={protoDomain} />
+	<link rel="canonical" href={PUBLIC_PROTO_DOMAIN} />
 	{#each menuItems as cat, catID}
 		{#each cat.items as item, id}
 			{#if catID === 0 && item.thumbnailHref && id < 2}

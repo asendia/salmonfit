@@ -123,7 +123,7 @@
 {/each}
 
 <Modal isVisible={branches.length > 0}>
-	<div slot="title">{shopTitle}</div>
+	<div slot="title">{shopTitle ?? ''}</div>
 	<ul slot="body" class="my-4 space-y-3">
 		{#each branches as b}
 			<li>

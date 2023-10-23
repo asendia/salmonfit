@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { PUBLIC_PROTO_DOMAIN, PUBLIC_STATUS_API_PROTO_DOMAIN } from '$env/static/public';
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Modal from '$lib/components/Modal.svelte';
-	import { protoDomain } from '$lib/url';
 	import { onMount } from 'svelte';
 	import ListingName from './ListingName.svelte';
 
@@ -71,15 +71,18 @@
 		if (start) {
 			startedAt = new Date(start);
 		} else {
-			// Default to yesterday
+			// Default to 7 days ago
 			startedAt = new Date();
-			startedAt.setDate(startedAt.getDate() - 1);
+			startedAt.setHours(0, 0, 0, 0);
+			startedAt.setDate(startedAt.getDate() - 7);
 			startedAt = startedAt;
 		}
 		if (end) {
 			endedAt = new Date(end);
 		} else {
 			endedAt = new Date();
+			endedAt.setHours(0, 0, 0, 0);
+			endedAt = endedAt;
 		}
 		if (status) {
 			const statusQuery = status.split(',');
@@ -106,13 +109,10 @@
 			pingKeys.clear();
 		}
 		isFetching = true;
-		const apiURL = new URL('https://salmonping-g43hbqcpwq-as.a.run.app/api/history');
+		const apiURL = new URL(`${PUBLIC_STATUS_API_PROTO_DOMAIN}/api/history`);
 		if (startedAt) apiURL.searchParams.set('start', formatDate(startedAt));
 		if (endedAt) {
-			// Clone date to avoid mutating the original date
-			const endedAtTmp = new Date(endedAt.getTime());
-			endedAtTmp.setDate(endedAtTmp.getDate() + 1);
-			apiURL.searchParams.set('end', formatDate(endedAtTmp));
+			apiURL.searchParams.set('end', formatDate(endedAt));
 		}
 		apiURL.searchParams.set(
 			'status',
@@ -200,8 +200,8 @@
 	}
 
 	function formatDate(date: Date) {
-		// Format with YYYY-MM-DD
-		return date.toISOString().split('T')[0];
+		// Format with YYYY-MM-DD with Asia/Jakarta timezone
+		return new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().split('T')[0];
 	}
 </script>
 
@@ -210,12 +210,12 @@
 	<meta name="description" content={description} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
-	<meta property="og:url" content={protoDomain} />
+	<meta property="og:url" content={PUBLIC_PROTO_DOMAIN} />
 	<meta name="twitter:site" content="@salmonfit" />
 	<meta name="twitter:creator" content="@salmonfit" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
-	<link rel="canonical" href={protoDomain + $page.url.pathname} />
+	<link rel="canonical" href={PUBLIC_PROTO_DOMAIN + $page.url.pathname} />
 </svelte:head>
 
 <Header {title}>
