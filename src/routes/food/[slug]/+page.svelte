@@ -35,20 +35,20 @@
 	<link rel="canonical" href={PUBLIC_PROTO_DOMAIN + $page.url.pathname} />
 </svelte:head>
 
-<div class="w-full md:max-w-[800px] 2xl:max-w-[1000px] mx-auto relative min-h-[80vh]">
+<div class="w-full md:max-w-[600px] 2xl:max-w-[800px] mx-auto relative">
 	<img
 		layout="responsive"
 		class="lg:rounded-lg"
 		src={food.photoHref}
 		title={food.name}
 		alt={food.name}
-		width="1000"
-		height="1000"
+		width="800"
+		height="800"
 		loading="lazy"
 	/>
 	<a
 		href="/"
-		class="absolute block top-4 left-4 bg-white bg-opacity-50 rounded-full w-[30px] h-[30px] pt-[5px] pl-[4px] cursor-pointer"
+		class="absolute block top-4 left-4 bg-white bg-opacity-90 active:scale-90 transition-transform rounded-full w-[30px] h-[30px] pt-[5px] pl-[4px] cursor-pointer"
 		on:click={() => {
 			if (hasVisitedHome) {
 				window.history.back();
@@ -57,7 +57,7 @@
 	>
 		<img src={chevronLeft} alt="Home" title="Home" width="20" height="20" loading="lazy" />
 	</a>
-	<div class="px-6">
+	<div class="px-6 md:px-0">
 		<h1 class="text-xl mt-4">{food.name}</h1>
 		<ul class="flex mt-2 text-xs text-black dark:text-[#d5d6d7]">
 			{#each food.info as info}
@@ -67,11 +67,9 @@
 		<p class="py-2 text-[#95979a]">
 			{food.description}
 		</p>
-		<div class="lg:flex items-center">
-			<h2 class="lg:mb-3">Order now:</h2>
-			<div class="flex flex-wrap mt-3 lg:mt-0">
-				<Social />
-			</div>
+		<h2 class="lg:mb-3 lg:mr-1 min-w-[100px]">Order now:</h2>
+		<div class="flex flex-wrap mt-3 lg:mt-0">
+			<Social />
 		</div>
 	</div>
 </div>

@@ -67,7 +67,10 @@
 				<li
 					class="list-none pb-3 mb-5 flex flex-col w-full md:w-[300px] bg-[#ffffff] md:rounded-md overflow-hidden md:mr-5 box-border md:border-gray-500 md:border dark:border-none dark:bg-[#0f151c] dark:rounded-tr-2xl dark:rounded-bl-2xl dark:rounded-tl-none dark:rounded-br-none"
 				>
-					<a class="flex" href="/food/{urlHashFromName(item.name)}">
+					<a
+						class="flex active:scale-95 transition-transform"
+						href="/food/{urlHashFromName(item.name)}"
+					>
 						<img
 							title={item.name}
 							alt={item.name}
