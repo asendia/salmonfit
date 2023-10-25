@@ -1,9 +1,13 @@
 <script lang="ts">
+	import { PUBLIC_STATUS_API_PROTO_DOMAIN } from '$env/static/public';
 	import gofoodLogo from '$lib/assets/social/gofood-small.svg';
 	import grabLogo from '$lib/assets/social/grab-small.svg';
 	import igLogo from '$lib/assets/social/instagram-small.svg';
 	import shopeeLogo from '$lib/assets/social/shopee-small.svg';
 	import whatsappLogo from '$lib/assets/social/whatsapp-small.svg';
+	import { formatDate } from '$lib/date';
+	import type { ListingPing } from '$lib/ping';
+	import { list } from 'postcss';
 	import Modal from './Modal.svelte';
 
 	const socialLinks = [
@@ -61,7 +65,7 @@
 			title: 'Grab Food',
 			links: [
 				{
-					url: 'https://food.grab.com/id/id/restaurant/salmon-fit-duri-kepa-delivery/6-C2XUWAX3PEU1JT',
+					url: 'https://food.grab.com/id/id/restaurant/salmon-fit-apartemen-menara-kebun-jeruk-delivery/6-C2XUWAX3PEU1JT',
 					text: 'Kebon Jeruk'
 				},
 				{
@@ -108,11 +112,40 @@
 				shopTitle = undefined;
 			}
 		};
+
+	let listingPingMap: Map<string, ListingPing> = new Map();
+	let lastFetchAt = 0;
+
+	$: {
+		const minutesFromFirstPing = (Date.now() - lastFetchAt) / 1000 / 60;
+		if (branches.length > 0 && minutesFromFirstPing > 2) {
+			(async () => {
+				const apiURL = new URL(`${PUBLIC_STATUS_API_PROTO_DOMAIN}/api/history`);
+				const today_00_00 = new Date();
+				today_00_00.setHours(0, 0, 0, 0);
+				const yesterday_00_00 = new Date(today_00_00);
+				yesterday_00_00.setDate(today_00_00.getDate() - 1);
+				apiURL.searchParams.set('start', formatDate(yesterday_00_00));
+				apiURL.searchParams.set('end', formatDate(today_00_00));
+				const res = await fetch(apiURL);
+				const d = await res.json();
+				lastFetchAt = Date.now();
+				const listingPings: ListingPing[] = d.listing_pings;
+				// Clear all keys from listingPingMap
+				listingPingMap.clear();
+				for (const p of listingPings) {
+					if (listingPingMap.has(p.url)) continue;
+					listingPingMap.set(p.url, p);
+				}
+				listingPingMap = listingPingMap;
+			})();
+		}
+	}
 </script>
 
 {#each socialLinks as s}
 	<a
-		class="flex justify-center w-[100px] text-black dark:text-white font-medium py-1 px-2 rounded-full shadow-md leading-6 text-xs mr-2 mb-2 bg-[#ffffff] dark:bg-[#0f151c]"
+		class="flex active:scale-95 transition-transform justify-center w-[100px] text-black dark:text-white font-medium py-1 px-2 rounded-full shadow-md leading-6 text-xs mr-2 mb-2 bg-[#ffffff] dark:bg-[#0f151c]"
 		target="_blank"
 		href={s.url}
 		on:click={handleLinkClick(s)}
@@ -128,10 +161,13 @@
 		{#each branches as b}
 			<li>
 				<a
-					class="flex items-center p-3 text-base font-bold rounded-md group hover:shadow bg-salmon hover:bg-white hover:text-black text-white"
+					class="flex items-center active:scale-95 transition-transform p-3 text-base font-bold rounded-md group hover:shadow bg-salmon dark:bg-opacity-50 hover:bg-white hover:text-black text-white"
 					href={b.url}
 					target="_blank"
-					rel="noreferrer"><span class="flex-1 ml-3 whitespace-nowrap">{b.text}</span></a
+					rel="noreferrer"
+					><span class="flex-1 ml-3 whitespace-nowrap">{b.text}</span><span class="mr-3"
+						>({listingPingMap.get(b.url)?.status ?? '...'})</span
+					></a
 				>
 			</li>
 		{/each}

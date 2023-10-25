@@ -22,7 +22,7 @@
 		<div class="relative rounded-lg shadow bg-white dark:bg-black border dark:border-gray-600">
 			<button
 				type="button"
-				class="absolute top-3 right-2.5 dark:text-gray-400 bg-transparent dark:hover:bg-gray-200 dark:hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
+				class="absolute active:scale-95 transition-transform top-3 right-2.5 dark:text-gray-400 bg-transparent dark:hover:bg-gray-200 dark:hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
 				on:click={handleClosePopup(true)}
 			>
 				<svg

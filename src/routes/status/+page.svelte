@@ -5,16 +5,11 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Modal from '$lib/components/Modal.svelte';
+	import { formatDate } from '$lib/date';
+	import type { ListingPing } from '$lib/ping';
 	import { onMount } from 'svelte';
 	import ListingName from './ListingName.svelte';
 
-	interface ListingPing {
-		created_at: string;
-		status: string;
-		name: string;
-		platform: string;
-		url: string;
-	}
 	interface ListingPingGroup {
 		date: string;
 		listingPings: ListingPing[];
@@ -197,11 +192,6 @@
 	async function resetFilter() {
 		searchParamsToState(null, null, null, null);
 		await fetchHistory();
-	}
-
-	function formatDate(date: Date) {
-		// Format with YYYY-MM-DD with Asia/Jakarta timezone
-		return new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().split('T')[0];
 	}
 </script>
 
