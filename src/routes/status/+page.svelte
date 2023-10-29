@@ -21,6 +21,15 @@
 	let startedAt: Date | undefined = undefined;
 	let endedAt: Date | undefined = undefined;
 	let currentPage = 1;
+	let names = [
+		{ name: 'Haji Nawi', checked: true },
+		{ name: 'Kebon Jeruk', checked: true },
+		{ name: 'Sudirman', checked: true }
+	];
+	let platforms = [
+		{ name: 'gofood', checked: true },
+		{ name: 'grabfood', checked: true }
+	];
 	let statuses = [
 		{ name: 'Open', checked: true },
 		{ name: 'Closed', checked: true },
@@ -35,9 +44,11 @@
 		const url = new URL(window.location.href);
 		const start = url.searchParams.get('start');
 		const end = url.searchParams.get('end');
+		const name = url.searchParams.get('name');
+		const platform = url.searchParams.get('platform');
 		const status = url.searchParams.get('status');
 		const page = url.searchParams.get('page');
-		searchParamsToState(start, end, status, page);
+		searchParamsToState(start, end, name, platform, status, page);
 		fetchHistory();
 
 		// Detect if bottomElementRef is visible for pagination
@@ -60,6 +71,8 @@
 	function searchParamsToState(
 		start: string | null,
 		end: string | null,
+		name: string | null,
+		platform: string | null,
 		status: string | null,
 		page: string | null
 	) {
@@ -79,6 +92,28 @@
 			endedAt.setHours(0, 0, 0, 0);
 			endedAt = endedAt;
 		}
+		if (name) {
+			const nameQuery = name.split(',');
+			for (const n of names) {
+				n.checked = nameQuery.includes(n.name);
+			}
+		} else {
+			for (const n of names) {
+				n.checked = true;
+			}
+		}
+		names = names;
+		if (platform) {
+			const platformQuery = platform.split(',');
+			for (const p of platforms) {
+				p.checked = platformQuery.includes(p.name);
+			}
+		} else {
+			for (const p of platforms) {
+				p.checked = true;
+			}
+		}
+		platforms = platforms;
 		if (status) {
 			const statusQuery = status.split(',');
 			for (const s of statuses) {
@@ -109,6 +144,20 @@
 		if (endedAt) {
 			apiURL.searchParams.set('end', formatDate(endedAt));
 		}
+		apiURL.searchParams.set(
+			'name',
+			names
+				.filter((s) => s.checked)
+				.map((s) => s.name)
+				.join(',')
+		);
+		apiURL.searchParams.set(
+			'platform',
+			platforms
+				.filter((s) => s.checked)
+				.map((s) => s.name)
+				.join(',')
+		);
 		apiURL.searchParams.set(
 			'status',
 			statuses
@@ -190,7 +239,7 @@
 	}
 
 	async function resetFilter() {
-		searchParamsToState(null, null, null, null);
+		searchParamsToState(null, null, null, null, null, null);
 		await fetchHistory();
 	}
 </script>
@@ -302,35 +351,121 @@
 					value={formatDate(endedAt)}
 				/>
 			</div>
-			{#each statuses as status}
-				<div class="flex items-center mb-2">
-					<input
-						type="checkbox"
-						id={`checkbox-${status.name}`}
-						name={`checkbox-${status.name}`}
-						class="h-5 w-5 text-salmon rounded"
-						checked={status.checked}
-						on:change={() => {
-							status.checked = !status.checked;
-							statuses = statuses;
-							currentPage = 1;
-							fetchHistory();
-							const searchParams = new URLSearchParams(window.location.search);
-							searchParams.set(
-								'status',
-								statuses
-									.filter((s) => s.checked)
-									.map((s) => s.name.toLowerCase())
-									.join(',')
-							);
-							goto('/status?' + searchParams.toString());
-						}}
-					/>
-					<label for={`checkbox-${status.name}`} class="ml-2 block text-gray-700 dark:text-gray-400"
-						>{status.name}</label
-					>
-				</div>
-			{/each}
+			<table>
+				<tbody>
+					<tr>
+						<td class="align-top">Status:</td>
+						<td class="pb-2">
+							<div class="flex justify-start flex-wrap">
+								{#each statuses as status}
+									<div class="flex ml-3">
+										<input
+											type="checkbox"
+											id={`checkbox-${status.name}`}
+											name={`checkbox-${status.name}`}
+											class="h-5 w-5 text-salmon rounded"
+											checked={status.checked}
+											on:change={() => {
+												status.checked = !status.checked;
+												statuses = statuses;
+												currentPage = 1;
+												fetchHistory();
+												const searchParams = new URLSearchParams(window.location.search);
+												searchParams.set(
+													'status',
+													statuses
+														.filter((s) => s.checked)
+														.map((s) => s.name.toLowerCase())
+														.join(',')
+												);
+												goto('/status?' + searchParams.toString());
+											}}
+										/>
+										<label
+											for={`checkbox-${status.name}`}
+											class="ml-2 block text-gray-700 dark:text-gray-400">{status.name}</label
+										>
+									</div>
+								{/each}
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="align-top">Location:</td>
+						<td class="pb-2">
+							<div class="flex justify-start flex-wrap">
+								{#each names as name, id}
+									<div class="flex ml-3">
+										<input
+											type="checkbox"
+											id={`checkbox-name-${id}`}
+											name={`checkbox-name-${id}`}
+											class="h-5 w-5 text-salmon rounded"
+											checked={name.checked}
+											on:change={() => {
+												name.checked = !name.checked;
+												names = names;
+												currentPage = 1;
+												fetchHistory();
+												const searchParams = new URLSearchParams(window.location.search);
+												searchParams.set(
+													'name',
+													names
+														.filter((s) => s.checked)
+														.map((s) => s.name)
+														.join(',')
+												);
+												goto('/status?' + searchParams.toString());
+											}}
+										/>
+										<label
+											for={`checkbox-name-${id}`}
+											class="ml-2 block text-gray-700 dark:text-gray-400">{name.name}</label
+										>
+									</div>
+								{/each}
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="align-top">Platform:</td>
+						<td class="pb-2">
+							<div class="flex justify-start flex-wrap">
+								{#each platforms as platform}
+									<div class="flex ml-3">
+										<input
+											type="checkbox"
+											id={`checkbox-platform-${platform.name}`}
+											name={`checkbox-platform-${platform.name}`}
+											class="h-5 w-5 text-salmon rounded"
+											checked={platform.checked}
+											on:change={() => {
+												platform.checked = !platform.checked;
+												platforms = platforms;
+												currentPage = 1;
+												fetchHistory();
+												const searchParams = new URLSearchParams(window.location.search);
+												searchParams.set(
+													'platform',
+													platforms
+														.filter((s) => s.checked)
+														.map((s) => s.name)
+														.join(',')
+												);
+												goto('/status?' + searchParams.toString());
+											}}
+										/>
+										<label
+											for={`checkbox-platform-${platform.name}`}
+											class="ml-2 block text-gray-700 dark:text-gray-400">{platform.name}</label
+										>
+									</div>
+								{/each}
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 			<div class="mt-8" />
 			<a
 				class="bg-gray-600 dark:bg-gray-400 active:scale-95 text-white dark:text-black font-bold py-1.5 px-4 rounded shadow-md"
