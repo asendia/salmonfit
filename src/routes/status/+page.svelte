@@ -24,7 +24,8 @@
 	let names = [
 		{ name: 'Haji Nawi', checked: true },
 		{ name: 'Kebon Jeruk', checked: true },
-		{ name: 'Sudirman', checked: true }
+		{ name: 'Sudirman', checked: true },
+		{ name: 'Tanjung Duren', checked: true }
 	];
 	let platforms = [
 		{ name: 'gofood', checked: true },

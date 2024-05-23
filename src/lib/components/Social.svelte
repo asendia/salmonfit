@@ -7,7 +7,6 @@
 	import whatsappLogo from '$lib/assets/social/whatsapp-small.svg';
 	import { formatDate } from '$lib/date';
 	import type { ListingPing } from '$lib/ping';
-	import { list } from 'postcss';
 	import Modal from './Modal.svelte';
 
 	const socialLinks = [
@@ -43,13 +42,17 @@
 		}
 	];
 
-	const branchMap: Record<string, { title: string; links: { url: string; text: string }[] }> = {
+	const branchMap: Record<
+		string,
+		{ title: string; links: { url: string; text: string; subtext?: string }[] }
+	> = {
 		gofood: {
 			title: 'Go-Food',
 			links: [
 				{
 					url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-apartemen-menara-kebon-jeruk-06f0dcc6-14f4-4092-810f-2bcc81214d23',
-					text: 'Kebon Jeruk'
+					text: 'Tanjung Duren',
+					subtext: 'previously Kebon Jeruk'
 				},
 				{
 					url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-sudirman-815b2b33-584e-46d6-b12e-2d6da2f46f96',
@@ -66,7 +69,8 @@
 			links: [
 				{
 					url: 'https://food.grab.com/id/id/restaurant/salmon-fit-apartemen-menara-kebun-jeruk-delivery/6-C2XUWAX3PEU1JT',
-					text: 'Kebon Jeruk'
+					text: 'Tanjung Duren',
+					subtext: 'previously Kebon Jeruk'
 				},
 				{
 					url: 'https://food.grab.com/id/id/restaurant/salmon-fit-sudirman-delivery/6-C36EKGLYHB42DA',
@@ -83,7 +87,8 @@
 			links: [
 				{
 					url: 'https://shopee.co.id/universal-link/now-food/shop/20262634?deep_and_deferred=1&shareChannel=copy_link',
-					text: 'Kebon Jeruk'
+					text: 'Tanjung Duren',
+					subtext: 'previously Kebon Jeruk'
 				},
 				{
 					url: 'https://shopee.co.id/universal-link/now-food/shop/21330143?deep_and_deferred=1&shareChannel=copy_link',
@@ -97,7 +102,7 @@
 		}
 	};
 
-	let branches: { url: string; text: string }[] = [];
+	let branches: { url: string; text: string; subtext?: string }[] = [];
 	let shopTitle: string | undefined;
 
 	const handleLinkClick =
@@ -161,13 +166,17 @@
 		{#each branches as b}
 			<li>
 				<a
-					class="flex items-center active:scale-95 transition-transform p-3 text-base font-bold rounded-md group hover:shadow bg-salmon dark:bg-opacity-50 hover:bg-white hover:text-black text-white"
+					class="flex items-center justify-between active:scale-95 transition-transform p-3 text-base font-bold rounded-md group hover:shadow bg-salmon dark:bg-opacity-50 hover:bg-white hover:text-black text-white"
 					href={b.url}
 					target="_blank"
 					rel="noreferrer"
-					><span class="flex-1 ml-3 whitespace-nowrap">{b.text}</span><span class="mr-3"
-						>({listingPingMap.get(b.url)?.status ?? '...'})</span
-					></a
+					><div class="flex flex-col ml-3 h-10 justify-center">
+						<span>{b.text}</span>
+						{#if b.subtext}
+							<span class="text-gray-200 text-xs">{b.subtext}</span>
+						{/if}
+					</div>
+					<span class="mr-3">({listingPingMap.get(b.url)?.status ?? '...'})</span></a
 				>
 			</li>
 		{/each}
