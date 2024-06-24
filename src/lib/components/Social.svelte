@@ -11,13 +11,13 @@
 
 	const socialLinks = [
 		{
-			url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-apartemen-menara-kebon-jeruk-06f0dcc6-14f4-4092-810f-2bcc81214d23',
+			url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-tanjung-duren-06f0dcc6-14f4-4092-810f-2bcc81214d23',
 			alt: 'gofood',
 			imgSrc: gofoodLogo,
 			text: 'gofood'
 		},
 		{
-			url: 'https://food.grab.com/id/id/restaurant/salmon-fit-duri-kepa-delivery/6-C2XUWAX3PEU1JT',
+			url: 'https://food.grab.com/id/id/restaurant/salmon-fit-tanjung-duren-utara-delivery/6-C2XUWAX3PEU1JT',
 			alt: 'grabfood',
 			imgSrc: grabLogo,
 			text: 'GrabFood'
@@ -50,7 +50,7 @@
 			title: 'Go-Food',
 			links: [
 				{
-					url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-apartemen-menara-kebon-jeruk-06f0dcc6-14f4-4092-810f-2bcc81214d23',
+					url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-tanjung-duren-06f0dcc6-14f4-4092-810f-2bcc81214d23',
 					text: 'Tanjung Duren',
 					subtext: 'previously Kebon Jeruk'
 				},
@@ -68,7 +68,7 @@
 			title: 'Grab Food',
 			links: [
 				{
-					url: 'https://food.grab.com/id/id/restaurant/salmon-fit-apartemen-menara-kebun-jeruk-delivery/6-C2XUWAX3PEU1JT',
+					url: 'https://food.grab.com/id/id/restaurant/salmon-fit-tanjung-duren-utara-delivery/6-C2XUWAX3PEU1JT',
 					text: 'Tanjung Duren',
 					subtext: 'previously Kebon Jeruk'
 				},
