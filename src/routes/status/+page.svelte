@@ -23,9 +23,10 @@
 	let currentPage = 1;
 	let names = [
 		{ name: 'Haji Nawi', checked: true },
+		{ name: 'Kebon Sirih', checked: true },
+		{ name: 'Tanjung Duren', checked: true },
 		{ name: 'Kebon Jeruk', checked: true },
-		{ name: 'Sudirman', checked: true },
-		{ name: 'Tanjung Duren', checked: true }
+		{ name: 'Sudirman', checked: true }
 	];
 	let platforms = [
 		{ name: 'gofood', checked: true },

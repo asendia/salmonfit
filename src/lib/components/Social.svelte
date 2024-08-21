@@ -55,8 +55,9 @@
 					subtext: 'previously Kebon Jeruk'
 				},
 				{
-					url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-sudirman-815b2b33-584e-46d6-b12e-2d6da2f46f96',
-					text: 'Sudirman'
+					url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-kebon-sirih-815b2b33-584e-46d6-b12e-2d6da2f46f96',
+					text: 'Kebon Sirih (Thamrin)',
+					subtext: 'previously Sudirman'
 				},
 				{
 					url: 'https://gofood.co.id/jakarta/restaurant/salmon-fit-haji-nawi-9d68471b-5d49-468c-a162-091b1ea9b468',
@@ -73,8 +74,9 @@
 					subtext: 'previously Kebon Jeruk'
 				},
 				{
-					url: 'https://food.grab.com/id/id/restaurant/salmon-fit-sudirman-delivery/6-C36EKGLYHB42DA',
-					text: 'Sudirman'
+					url: 'https://food.grab.com/id/id/restaurant/salmon-fit-kebon-sirih-delivery/6-C36EKGLYHB42DA',
+					text: 'Kebon Sirih (Thamrin)',
+					subtext: 'previously Sudirman'
 				},
 				{
 					url: 'https://food.grab.com/id/id/restaurant/salmon-fit-haji-nawi-delivery/6-C4LJLRKEKAEVME',
@@ -92,7 +94,8 @@
 				},
 				{
 					url: 'https://shopee.co.id/universal-link/now-food/shop/21330143?deep_and_deferred=1&shareChannel=copy_link',
-					text: 'Sudirman'
+					text: 'Kebon Sirih (Thamrin)',
+					subtext: 'previously Sudirman'
 				},
 				{
 					url: 'https://shopee.co.id/universal-link/now-food/shop/21394731?deep_and_deferred=1&shareChannel=copy_link',
