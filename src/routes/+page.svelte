@@ -13,7 +13,7 @@
 
 	const title = 'Salmon Fit';
 	const description =
-		'Fusion salmon dishes, freshly made at our three locations: Tanjung Duren, Sudirman & Haji Nawi. Available at Grab food, Go-food & Shopee Food!';
+		'Fusion salmon dishes, freshly made at our three locations: Tanjung Duren, Thamrin & Haji Nawi. Available at Grab food, Go-food & Shopee Food!';
 </script>
 
 <svelte:head>
