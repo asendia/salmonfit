@@ -44,14 +44,16 @@
 <div class="main">
 	<!-- Copied from: https://codepen.io/codypearce/pen/VwYOGzq -->
 	<div class="ocean">
-		<div id="octocat" class="bg-[url('/octomon.png')] bg-left" />
+		<div id="octocat" class="bg-[url('/octomon.png')] bg-left"></div>
 		{#each bubbles as bubble}
 			{#if bubble.visible}
 				<div
 					class="bubble bubble--{bubble.id}"
 					on:click={createBubbleClickHandler(bubble.id)}
 					on:keypress={() => null}
-				/>
+					role="button"
+					tabindex="0"
+				></div>
 			{/if}
 		{/each}
 	</div>
@@ -78,7 +80,9 @@
 	#octocat {
 		height: 300px;
 		width: 200px;
-		animation: animateSprite 15s steps(1) infinite, swim 15s ease-in-out infinite;
+		animation:
+			animateSprite 15s steps(1) infinite,
+			swim 15s ease-in-out infinite;
 		position: absolute;
 		right: -200px;
 		top: 50%;
@@ -158,7 +162,9 @@
 		background-color: black;
 		bottom: -30px;
 		opacity: 0.2;
-		animation: bubble 15s ease-in-out infinite, sideWays 4s ease-in-out infinite alternate;
+		animation:
+			bubble 15s ease-in-out infinite,
+			sideWays 4s ease-in-out infinite alternate;
 		cursor: pointer;
 	}
 

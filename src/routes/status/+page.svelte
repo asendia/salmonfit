@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { PUBLIC_PROTO_DOMAIN, PUBLIC_STATUS_API_PROTO_DOMAIN } from '$env/static/public';
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
@@ -42,7 +42,7 @@
 	let isFetching = false;
 	const pingKeys = new Set<string>();
 
-	onMount(async () => {
+	onMount(() => {
 		const url = new URL(window.location.href);
 		const start = url.searchParams.get('start');
 		const end = url.searchParams.get('end');
@@ -256,7 +256,7 @@
 	<meta name="twitter:creator" content="@salmonfit" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
-	<link rel="canonical" href={PUBLIC_PROTO_DOMAIN + $page.url.pathname} />
+	<link rel="canonical" href={PUBLIC_PROTO_DOMAIN + page.url.pathname} />
 </svelte:head>
 
 <Header {title}>
@@ -329,16 +329,16 @@
 			</tbody>
 		</table>
 	{/each}
-	<div bind:this={bottomElementRef} />
+	<div bind:this={bottomElementRef}></div>
 </div>
 
 <Modal bind:isVisible={isFilterVisible}>
 	<div slot="title">Filter</div>
 	<div slot="body">
 		{#if startedAt && endedAt}
-			<div date-rangepicker class="flex items-center mb-4">
+			<div class="flex items-center mb-4">
 				<input
-					class="flex items-center justify-center w-[120px] px-1 bg-gray-200 text-black rounded-sm shadow-sm"
+					class="flex items-center justify-center px-1 bg-gray-200 text-black rounded-sm shadow-sm"
 					placeholder="Start"
 					type="date"
 					on:change={handleChangeDatepicker('start')}
@@ -346,7 +346,7 @@
 				/>
 				<span class="mx-3 text-gray-500">to</span>
 				<input
-					class="flex items-center justify-center w-[120px] px-1 bg-gray-200 text-black rounded-sm shadow-sm"
+					class="flex items-center justify-center px-1 bg-gray-200 text-black rounded-sm shadow-sm"
 					placeholder="End"
 					type="date"
 					on:change={handleChangeDatepicker('end')}
@@ -468,7 +468,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<div class="mt-8" />
+			<div class="mt-8"></div>
 			<a
 				class="bg-gray-600 dark:bg-gray-400 active:scale-95 text-white dark:text-black font-bold py-1.5 px-4 rounded shadow-md"
 				href="/status"

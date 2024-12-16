@@ -1,6 +1,19 @@
 <script lang="ts">
 	import '../app.css';
 	import Fonts from '$lib/components/Fonts.svelte';
+	export const snapshot = {
+		capture: () => {
+			return {
+				scroll: {
+					x: window.scrollX,
+					y: window.scrollY
+				}
+			};
+		},
+		restore: (snapshot) => {
+			window.scrollTo(snapshot.scroll.x, snapshot.scroll.y);
+		}
+	};
 </script>
 
 <svelte:head>

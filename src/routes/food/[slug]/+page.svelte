@@ -1,20 +1,21 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { afterNavigate } from '$app/navigation';
+	import { base } from '$app/paths';
+	import { page } from '$app/state';
 	import { PUBLIC_PROTO_DOMAIN } from '$env/static/public';
 	import chevronLeft from '$lib/assets/chevron-left.svg';
 	import Footer from '$lib/components/Footer.svelte';
 	import Social from '$lib/components/Social.svelte';
 	import type { Food } from '$lib/menuItems';
-	import { homeVisit } from '$lib/stores/homeVisit';
 	export let data: { food: Food };
 	export const food = data.food;
 	export const ogImageFullUrl = PUBLIC_PROTO_DOMAIN + food.photoHref;
 	const infoInline = food.info.join(', ');
 	export const descriptionWithInfo = food.description + ` (${infoInline})`;
-	export const prerender = true;
-	export let hasVisitedHome = false;
-	homeVisit.subscribe((val) => {
-		hasVisitedHome = val;
+	let previousPage: string = base;
+
+	afterNavigate(({ from }) => {
+		previousPage = from?.url.pathname ?? previousPage;
 	});
 </script>
 
@@ -32,12 +33,11 @@
 	<meta name="twitter:title" content={food.name} />
 	<meta name="twitter:description" content={descriptionWithInfo} />
 	<meta name="twitter:image" content={ogImageFullUrl} />
-	<link rel="canonical" href={PUBLIC_PROTO_DOMAIN + $page.url.pathname} />
+	<link rel="canonical" href={PUBLIC_PROTO_DOMAIN + page.url.pathname} />
 </svelte:head>
 
 <div class="w-full md:max-w-[600px] 2xl:max-w-[800px] mx-auto relative">
 	<img
-		layout="responsive"
 		class="lg:rounded-lg"
 		src={food.photoHref}
 		title={food.name}
@@ -49,8 +49,9 @@
 	<a
 		href="/"
 		class="absolute block top-4 left-4 bg-white bg-opacity-90 active:scale-90 transition-transform rounded-full w-[30px] h-[30px] pt-[5px] pl-[4px] cursor-pointer"
-		on:click={() => {
-			if (hasVisitedHome) {
+		on:click={(e) => {
+			if (previousPage === '/') {
+				e.preventDefault();
 				window.history.back();
 			}
 		}}
